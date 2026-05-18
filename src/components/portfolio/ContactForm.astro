@@ -34,21 +34,18 @@ const lang = "es"; // Default, updated client-side
         <!-- Métodos de contacto -->
         <div class="space-y-6">
           <div class="flex items-center gap-4">
-            <div class="p-3 bg-accent-100 dark:bg-accent-900 rounded-full">
-              <Icon
-                name="envelope"
-                class="size-6 text-accent-700 dark:text-accent-400"
-              />
+            <div class="p-3 bg-green-100 dark:bg-green-900 rounded-full">
+              <svg class="size-6 text-green-700 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </div>
             <div>
-              <h4 class="font-semibold text-blacktext dark:text-white" data-i18n="contact.email">
-                {t("contact.email", lang)}
-              </h4>
+              <h4 class="font-semibold text-blacktext dark:text-white">WhatsApp</h4>
               <a
-                href={`mailto:${staticData.data.email}`}
-                class="text-accent-700 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300 transition-colors"
+                href="https://wa.me/573137374108"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition-colors"
               >
-                {staticData.data.email}
+                +57 313 737 4108
               </a>
             </div>
           </div>
@@ -203,17 +200,11 @@ const lang = "es"; // Default, updated client-side
           <button
             type="submit"
             id="submit-btn"
-            class="w-full bg-accent-600 hover:bg-accent-700 dark:bg-accent-700 dark:hover:bg-accent-800 text-white font-medium py-2.5 px-6 rounded-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98]"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-6 rounded-lg transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg active:scale-[0.98]"
           >
-            <svg id="btn-spinner" class="size-5 hidden animate-spin" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-            </svg>
-            <Icon id="btn-icon" name="paperplane" class="size-5" />
-            <span id="submit-text" data-i18n="contact.form.send">{t("contact.form.send", lang)}</span>
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="contact.form.send">{t("contact.form.send", lang)}</span>
           </button>
-
-          <div id="form-status" class="hidden items-center gap-3 p-4 rounded-lg text-sm border"></div>
         </form>
       </div>
     </div>
@@ -224,11 +215,7 @@ const lang = "es"; // Default, updated client-side
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
-    const submitBtn = document.getElementById("submit-btn");
-    const submitText = document.getElementById("submit-text");
-    const btnIcon = document.getElementById("btn-icon");
-    const btnSpinner = document.getElementById("btn-spinner");
-    const formStatus = document.getElementById("form-status");
+    const WHATSAPP_NUMBER = "573137374108";
 
     const fields = {
       name: { el: document.getElementById("name"), error: document.querySelector('[data-error="name"]') },
@@ -237,93 +224,44 @@ const lang = "es"; // Default, updated client-side
       message: { el: document.getElementById("message"), error: document.querySelector('[data-error="message"]') },
     };
 
-    const validators = {
-      name: (v) => v.trim().length < 2 ? getText("nameError") : "",
-      email: (v) => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? getText("emailError") : "",
-      subject: (v) => v.trim().length < 3 ? getText("subjectError") : "",
-      message: (v) => v.trim().length < 10 ? getText("messageError") : "",
-    };
+    const lang = () => localStorage.getItem("language") || "es";
+    const t = (k) => ({ es: { nameError: "El nombre debe tener al menos 2 caracteres", emailError: "Ingresa un email válido", subjectError: "El asunto debe tener al menos 3 caracteres", messageError: "El mensaje debe tener al menos 10 caracteres" }, en: { nameError: "Name must be at least 2 characters", emailError: "Enter a valid email", subjectError: "Subject must be at least 3 characters", messageError: "Message must be at least 10 characters" } })[lang()][k];
 
-    function getText(key) {
-      const lang = localStorage.getItem("language") || "es";
-      const texts = {
-        es: { nameError: "El nombre debe tener al menos 2 caracteres", emailError: "Ingresa un email válido", subjectError: "El asunto debe tener al menos 3 caracteres", messageError: "El mensaje debe tener al menos 10 caracteres", sending: "Enviando...", send: "Enviar mensaje", successTitle: "Mensaje enviado", successMsg: "Gracias por contactarme. Te responderé a la brevedad.", errorTitle: "Error al enviar", errorMsg: "Ocurrió un error. Intenta de nuevo más tarde.", dismiss: "Cerrar" },
-        en: { nameError: "Name must be at least 2 characters", emailError: "Enter a valid email", subjectError: "Subject must be at least 3 characters", messageError: "Message must be at least 10 characters", sending: "Sending...", send: "Send message", successTitle: "Message sent", successMsg: "Thank you for reaching out. I'll get back to you soon.", errorTitle: "Send error", errorMsg: "An error occurred. Please try again later.", dismiss: "Close" },
-      };
-      return texts[lang]?.[key] || key;
-    }
+    const validators = {
+      name: (v) => v.trim().length < 2 ? t("nameError") : "",
+      email: (v) => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? t("emailError") : "",
+      subject: (v) => v.trim().length < 3 ? t("subjectError") : "",
+      message: (v) => v.trim().length < 10 ? t("messageError") : "",
+    };
 
     function validateField(name) {
       const field = fields[name];
       const error = validators[name](field.el.value);
       field.el.classList.toggle("border-red-400", !!error);
-      field.el.classList.toggle("border-gray-300", !error);
-      field.el.classList.toggle("dark:border-gray-700", !error);
       field.error.textContent = error;
       field.error.classList.toggle("hidden", !error);
       return !error;
     }
 
     Object.keys(fields).forEach((name) => {
-      const field = fields[name];
-      field.el.addEventListener("blur", () => validateField(name));
-      field.el.addEventListener("input", () => {
-        if (field.el.classList.contains("border-red-400")) validateField(name);
+      fields[name].el.addEventListener("blur", () => validateField(name));
+      fields[name].el.addEventListener("input", function () {
+        if (this.classList.contains("border-red-400")) validateField(name);
       });
     });
 
-    function validateAll() {
-      return Object.keys(fields).every(validateField);
-    }
-
-    function showStatus(type, title, msg) {
-      const isSuccess = type === "success";
-      formStatus.innerHTML = `
-        <div class="flex items-center gap-3 w-full">
-          <span class="text-lg shrink-0">${isSuccess ? "✅" : "❌"}</span>
-          <div class="flex-1 min-w-0">
-            <p class="font-medium">${title}</p>
-            <p class="text-xs opacity-80 mt-0.5">${msg}</p>
-          </div>
-          <button type="button" class="shrink-0 text-lg leading-none opacity-60 hover:opacity-100 transition-opacity" id="status-close">&times;</button>
-        </div>`;
-      formStatus.className = `flex items-center gap-3 p-4 rounded-lg text-sm border ${
-        isSuccess
-          ? "bg-green-50 dark:bg-green-950/30 text-green-800 dark:text-green-300 border-green-200 dark:border-green-800"
-          : "bg-red-50 dark:bg-red-950/30 text-red-800 dark:text-red-300 border-red-200 dark:border-red-800"
-      }`;
-      formStatus.classList.remove("hidden");
-      document.getElementById("status-close")?.addEventListener("click", () => formStatus.classList.add("hidden"));
-    }
-
-    emailjs.init("lqo_OcD3fpGXsS3PB");
-
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      formStatus.classList.add("hidden");
-      if (!validateAll()) return;
+      const valid = Object.keys(fields).every(validateField);
+      if (!valid) return;
 
-      submitBtn.disabled = true;
-      btnIcon.classList.add("hidden");
-      btnSpinner.classList.remove("hidden");
-      const lang = localStorage.getItem("language") || "es";
-      submitText.textContent = getText("sending");
+      const name = fields.name.el.value.trim();
+      const email = fields.email.el.value.trim();
+      const subject = fields.subject.el.value.trim();
+      const message = fields.message.el.value.trim();
 
-      emailjs.sendForm("service_0uqj7ws", "template_3j9xfp8", form)
-        .then(() => {
-          form.reset();
-          showStatus("success", getText("successTitle"), getText("successMsg"));
-        })
-        .catch((error) => {
-          console.error("EmailJS Error:", error);
-          showStatus("error", getText("errorTitle"), getText("errorMsg"));
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          btnSpinner.classList.add("hidden");
-          btnIcon.classList.remove("hidden");
-          submitText.textContent = getText("send");
-        });
+      const text = `*${subject}*%0A%0A${message}%0A%0A---%0A${name}%0A${email}`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
     });
   });
 </script>
