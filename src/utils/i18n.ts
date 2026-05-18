@@ -22,6 +22,7 @@ export const translations = {
       education: "Educación",
       developer: "Desarrollador Web",
       formerFreeAgents: "Fundación FreeAgents (2024 - Ene 2026)",
+      wolfEnterprise: "Fundador de WolfEnterprise",
       systemsEngineer: "Ingeniero en Sistemas y Computación",
       python: "Introducción a la Programación en Python I",
       certifications: "Múltiples Certificaciones",
@@ -36,6 +37,7 @@ export const translations = {
         electronics: "Elaboración de circuitos electrónicos",
       },
       descriptions: {
+        wolfEnterprise: "Liderando el desarrollo de soluciones tecnológicas personalizadas, gestión de proyectos web y automatización de procesos para clientes freelance.",
         systems: "Estudiante de Ingeniería en Sistemas y Computación, enfocado en desarrollo de software y tecnologías modernas.",
         python: "Aprendiendo a programar con Python - Fundamentos de programación y desarrollo de software.",
       },
@@ -110,6 +112,7 @@ export const translations = {
       education: "Education",
       developer: "Web Developer",
       formerFreeAgents: "Fundación FreeAgents (2024 - Jan 2026)",
+      wolfEnterprise: "Founder of WolfEnterprise",
       systemsEngineer: "Systems and Computer Engineering",
       python: "Introduction to Python Programming I",
       certifications: "Multiple Certifications",
@@ -124,6 +127,7 @@ export const translations = {
         electronics: "Electronic circuit development",
       },
       descriptions: {
+        wolfEnterprise: "Leading the development of customized technological solutions, web project management, and process automation for freelance clients.",
         systems: "Systems and Computer Engineering student, focused on software development and modern technologies.",
         python: "Learning to program with Python - Programming fundamentals and software development.",
       },
