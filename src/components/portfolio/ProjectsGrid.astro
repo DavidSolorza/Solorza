@@ -67,9 +67,9 @@ const projects = [
 
     <!-- Grid de proyectos -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6"
+      class="flex flex-wrap justify-center gap-6"
     >
-      {projects.map((project) => <ProjectCard {...project} />)}
+      {projects.map((project) => <div class="w-full sm:w-[calc(50%-12px)] xl:w-[calc(25%-18px)]"><ProjectCard {...project} /></div>)}
     </div>
 
     
