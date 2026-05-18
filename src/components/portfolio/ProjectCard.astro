@@ -22,16 +22,16 @@ const techNames: Record<string, string> = {
 ---
 
 <a href={liveUrl || "#"} target={liveUrl ? "_blank" : undefined} rel={liveUrl ? "noopener noreferrer" : undefined} class="block group">
-  <article class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 cursor-pointer">
+  <article class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 cursor-pointer h-full flex flex-col">
     <div class="flex items-center justify-between mb-3">
       <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{title}</h3>
-      {featured && <span class="px-2 py-0.5 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">{t("projects.featured", "es")}</span>}
+      {featured && <span class="px-2 py-0.5 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full shrink-0">{t("projects.featured", "es")}</span>}
     </div>
-    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">{description}</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 flex-1">{description}</p>
     <div class="flex flex-wrap gap-1.5 mb-4">
       {technologies.map(tech => <span class="px-2.5 py-1 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-md">{techNames[tech] || tech}</span>)}
     </div>
-    <div class="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+    <div class="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-800 mt-auto">
       {liveUrl && <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{t("projects.viewProject", "es")} &rarr;</span>}
       {githubUrl && <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>{t("projects.code", "es")} &rarr;</a>}
     </div>
