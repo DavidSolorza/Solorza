@@ -1,5 +1,5 @@
 {
-  "profileImage": "/images/portada.jpg",
+  "profileImage": "/images/portada.jpeg",
   "profileAlt": "Photo of David Josue Solorza Viera Ponce (Solorza) for the blog",
   "profileLink": "/about-me",
   "profileTitle": "FrontEnd Developer",
@@ -22,13 +22,14 @@
   "githubIconName": "github",
   "linkedinIconName": "linkedin",
   "emailIconName": "envelope",
+  "resumeUrl": "/resume.pdf",
   "hobbies": [
-    "Sleeping",
-    "Eating",
-    "Reading",
-    "Walking",
-    "Music",
-    "Movies",
-    "Gaming"
+    "Código abierto",
+    "Lectura técnica",
+    "Café y código",
+    "Música lo-fi",
+    "Cine sci-fi",
+    "Running",
+    "Gaming casual"
   ]
-} 
+}

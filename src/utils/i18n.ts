@@ -1,4 +1,3 @@
-// Translation keys and values
 export const translations = {
   es: {
     nav: {
@@ -10,15 +9,19 @@ export const translations = {
     },
     hero: {
       available: "Disponible para trabajar",
-      experience: "6 meses de experiencia",
+      experience: "1 año y medio de experiencia",
       description: "apasionado por el desarrollo, la tecnología. Me encanta dar vida a proyectos digitales.",
       aboutMe: "Sobre Mí",
+      viewProjects: "Ver Proyectos",
+      downloadCV: "Descargar CV",
     },
     experience: {
       title: "Experiencia",
+      titleGradient: "Laboral",
       work: "Laboral",
       education: "Educación",
       developer: "Desarrollador Web",
+      formerFreeAgents: "Fundación FreeAgents (2024 - Ene 2026)",
       systemsEngineer: "Ingeniero en Sistemas y Computación",
       python: "Introducción a la Programación en Python I",
       certifications: "Múltiples Certificaciones",
@@ -94,9 +97,11 @@ export const translations = {
     },
     hero: {
       available: "Available for work",
-      experience: "6 months of experience",
+      experience: "1.5 years of experience",
       description: "passionate about development, technology. I love bringing digital projects to life.",
       aboutMe: "About Me",
+      viewProjects: "View Projects",
+      downloadCV: "Download CV",
     },
     experience: {
       title: "Work",
@@ -104,6 +109,7 @@ export const translations = {
       work: "Work",
       education: "Education",
       developer: "Web Developer",
+      formerFreeAgents: "Fundación FreeAgents (2024 - Jan 2026)",
       systemsEngineer: "Systems and Computer Engineering",
       python: "Introduction to Python Programming I",
       certifications: "Multiple Certifications",
@@ -174,29 +180,24 @@ export const translations = {
 export type Language = "es" | "en";
 export type TranslationKey = keyof typeof translations.es;
 
-// Get current language from localStorage or default to Spanish
 export function getCurrentLanguage(): Language {
   if (typeof window === "undefined") return "es";
   const saved = localStorage.getItem("language") as Language;
   return saved && (saved === "es" || saved === "en") ? saved : "es";
 }
 
-// Set language in localStorage
 export function setLanguage(lang: Language): void {
   if (typeof window === "undefined") return;
   localStorage.setItem("language", lang);
   document.documentElement.lang = lang;
 }
 
-// Get translation for a key
 export function t(key: string, lang?: Language): string {
-  // If lang is provided, use it. Otherwise, try to get from localStorage (client-side only)
-  let currentLang: Language = "es"; // Default to Spanish
+  let currentLang: Language = "es";
   
   if (lang) {
     currentLang = lang;
   } else if (typeof window !== "undefined") {
-    // Only try to get from localStorage on client-side
     currentLang = getCurrentLanguage();
   }
   
@@ -206,7 +207,6 @@ export function t(key: string, lang?: Language): string {
   for (const k of keys) {
     value = value?.[k];
     if (value === undefined) {
-      // Fallback to Spanish if translation not found
       value = translations.es;
       for (const k2 of keys) {
         value = value?.[k2];
@@ -217,4 +217,3 @@ export function t(key: string, lang?: Language): string {
   
   return typeof value === "string" ? value : key;
 }
-

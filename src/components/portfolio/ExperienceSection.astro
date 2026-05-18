@@ -1,0 +1,59 @@
+﻿---
+import { t } from "../../utils/i18n";
+import { getCollection } from "astro:content";
+
+const lang = "es";
+---
+
+<section class="scroll-m-20 py-20 px-8 max-md:py-14" id="experience">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-14">
+      {t("experience.title", lang)} <span class="text-gray-500 dark:text-gray-400">{t("experience.titleGradient", lang)}</span>
+    </h2>
+
+    <div class="space-y-0">
+      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal">
+        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.systemsEngineer">{t("experience.systemsEngineer", lang)}</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Universidad de Caldas</p>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">2024 – <span data-i18n="experience.current">{t("experience.current", lang)}</span></p>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed" data-i18n="experience.descriptions.systems">{t("experience.descriptions.systems", lang)}</p>
+        </div>
+      </div>
+
+      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal reveal-delay-1">
+        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.python">{t("experience.python", lang)}</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Pontificia Universidad Católica de Chile</p>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">2022</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed" data-i18n="experience.descriptions.python">{t("experience.descriptions.python", lang)}</p>
+        </div>
+      </div>
+
+      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal reveal-delay-2">
+        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.certifications">{t("experience.certifications", lang)}</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">SENA</p>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">2020</p>
+          <ul class="mt-3 space-y-1.5">
+            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0"></span>
+              <span data-i18n="experience.tasks.softwareStages">{t("experience.tasks.softwareStages", lang)}</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0"></span>
+              <span data-i18n="experience.tasks.cpp">{t("experience.tasks.cpp", lang)}</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0"></span>
+              <span data-i18n="experience.tasks.electronics">{t("experience.tasks.electronics", lang)}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

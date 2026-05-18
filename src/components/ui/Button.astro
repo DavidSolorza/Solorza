@@ -59,67 +59,58 @@ const baseClasses = `
 // Specific classes for each variant
 const variantClasses = {
     default: `
-        text-blacktext/90 
-        dark:text-gray-200 
-        dark:hover:text-white 
+        text-white
         px-6 
-        py-4 
+        py-3 
         max-xl:px-5 
         max-sm:py-2 
         max-sm:px-3 
-        text-lg 
-        max-xl:text-base 
+        text-sm 
+        max-xl:text-sm 
         max-sm:text-sm 
-        hover:bg-linear-to-l 
-        bg-linear-to-r 
-        from-accent-400 
-        to-accent-500 
-        dark:from-accent-600 
-        dark:to-accent-700
-        hover:shadow-lg
+        bg-gray-900
+        dark:bg-white
+        dark:text-gray-900
+        hover:bg-gray-700
+        dark:hover:bg-gray-200
     `,
     big: `
         font-normal 
         gap-3 
         max-md:gap-1 
-        text-blacktext 
-        dark:text-gray-200 
-        dark:hover:text-white 
+        text-white
         px-8 
         max-sm:py-3 
-        py-5 
+        py-4 
         max-xl:px-6 
         max-sm:px-3 
-        text-2xl 
-        max-xl:text-xl 
-        max-sm:text-lg 
-        hover:bg-linear-to-l 
-        bg-linear-to-r 
-        from-accent-400 
-        to-accent-500 
-        dark:from-accent-600 
-        dark:to-accent-700
-        hover:shadow-lg
+        text-lg 
+        max-xl:text-lg 
+        max-sm:text-base 
+        bg-gray-900
+        dark:bg-white
+        dark:text-gray-900
+        hover:bg-gray-700
+        dark:hover:bg-gray-200
     `,
     dark: `
         group 
-        dark:text-gray-200 
-        text-blacktext
-        dark:hover:text-white 
+        text-gray-900
+        dark:text-gray-200
+        dark:hover:text-white
         px-6 
-        py-4 
+        py-3 
         max-xl:px-5 
         max-sm:py-2 
         max-sm:px-3 
-        text-lg 
-        max-xl:text-base 
+        text-sm 
+        max-xl:text-sm 
         max-sm:text-sm 
-        dark:bg-gray-800 
-        bg-white
+        bg-gray-100
+        dark:bg-gray-800
+        hover:bg-gray-200
+        dark:hover:bg-gray-700
         border border-gray-200 dark:border-gray-700
-        dark:hover:bg-accent-700
-        hover:bg-accent-50
-        hover:shadow-md
     `,
 };
 
@@ -150,11 +141,7 @@ const loadingText = isLoading ? 'Loading...' : text;
 const loadingAriaLabel = isLoading ? `${buttonAriaLabel} - Loading` : buttonAriaLabel;
 ---
 
-<div
-    class="w-fit h-fit from-transparent via-accent-400 to-transparent dark:from-transparent dark:via-accent-600 dark:to-transparent  from-40% to-60% animate-rotate-border bg-conic/[from_var(--border-angle)] p-px hover:shadow-lg
-    hover:shadow-accent-500/20 rounded-full"
->
-    <a 
+<a 
         class:list={[buttonClasses, className]} 
         href={disabled ? '#' : link}
         aria-label={loadingAriaLabel}
@@ -168,4 +155,3 @@ const loadingAriaLabel = isLoading ? `${buttonAriaLabel} - Loading` : buttonAria
         {isLoading && <Icon name="mdi:loading" class="animate-spin" aria-hidden="true" />}
         {loadingText}
     </a>
-</div>

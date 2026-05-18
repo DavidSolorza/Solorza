@@ -1,0 +1,20 @@
+﻿---
+import { Icon } from "astro-icon/components";
+import Heading from "../ui/Heading.astro";
+import Tools from "./Tools.astro";
+import { t } from "../../utils/i18n";
+
+const lang = "es";
+---
+
+<div class="md:col-span-2 flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-linear-to-r from-gray-50 dark:from-gray-900 to-white dark:to-gray-950 p-[.2rem] transition-all duration-300 hover:scale-[1.01] hover:shadow-xl">
+  <article class="group relative z-0 flex h-full w-full flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-900 p-8 max-md:p-6 gap-6 max-md:gap-4 border border-gray-100 dark:border-gray-800 before:bg-[radial-gradient(circle,rgba(148,163,184,0.08)_0,rgba(148,163,184,0)_100%)] before:absolute before:right-0 before:top-0 before:h-[60%] before:aspect-square before:rounded-full before:blur-3xl before:opacity-40 before:-z-10 before:transition">
+    <div class="flex items-center gap-4 max-md:gap-3">
+      <Icon class="text-4xl dark:text-gray-300 text-accent-600 max-md:text-3xl" name="dashboard" aria-hidden="true" />
+      <Heading text="Tech" textGradient={t("tech.stack", lang)} level={2} />
+    </div>
+    <div class="flex-1 overflow-y-auto">
+      <Tools variant="default" />
+    </div>
+  </article>
+</div>

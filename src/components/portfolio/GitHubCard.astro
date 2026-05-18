@@ -1,0 +1,32 @@
+﻿---
+import { Icon } from "astro-icon/components";
+import Heading from "../ui/Heading.astro";
+import { getCollection } from "astro:content";
+import { t } from "../../utils/i18n";
+
+const [staticData] = await getCollection('staticData');
+const lang = "es";
+---
+
+<div class="mx-auto max-w-7xl mt-4">
+  <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-[.2rem] transition-all ease-in duration-300 hover:scale-[1.01] hover:shadow-xl">
+    <div class="h-full w-full overflow-hidden rounded-2xl">
+      <div class="relative h-full w-full overflow-hidden rounded-2xl bg-white dark:bg-gray-900">
+        <a target="_blank" href={staticData.data.github} aria-label="View GitHub profile">
+          <div class="relative flex h-full flex-row items-center justify-between gap-8 p-8 max-md:p-6 before:bg-[radial-gradient(circle,rgba(148,163,184,0.08)_0,rgba(148,163,184,0)_100%)] before:absolute before:right-10 before:top-1/2 before:-translate-y-1/2 before:h-[60%] before:aspect-square before:rounded-full before:blur-3xl before:opacity-40 before:transition before:z-0">
+            <div class="z-10 flex-1">
+              <div class="flex items-center gap-4 mb-4">
+                <Icon class="text-3xl text-accent-600 dark:text-accent-400" name="github" aria-hidden="true" />
+                <Heading text={t("github.text", lang)} level={3}/>
+              </div>
+              <p class="text-blacktext/80 dark:text-gray-400 text-lg max-md:text-base" data-i18n="github.description">
+                {t("github.description", lang)}
+              </p>
+            </div>
+            <Icon class="ease-in-out size-32 max-md:size-24 text-accent-200 dark:text-accent-900/30 z-10" name="github" aria-hidden="true" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

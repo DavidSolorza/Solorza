@@ -4,7 +4,7 @@ import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 
 const {
-  pageTitle = "NeonMint by David Solorza 🚀",
+  pageTitle = "David Solorza",
   description = "Modern, minimalist portfolio template crafted for developers and digital creatives.",
   ogimage = {
     url: "/images/imagedefault.webp",
@@ -33,15 +33,7 @@ const twitterimage = `${siteUrl}${ogimage.url}`;
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
     
-    <!-- Favicon for different platforms -->
-    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" href="/android-chrome-192x192.png" sizes="192x192" />
-    <link rel="icon" href="/android-chrome-512x512.png" sizes="512x512" />
-
-    <!-- Web manifest -->
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href="/images/binary-code.png" />
 
     <meta name="description" content={description} />
     <meta name="author" content={SEO.author} />

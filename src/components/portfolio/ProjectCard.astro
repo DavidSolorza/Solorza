@@ -1,12 +1,9 @@
----
-import { Icon } from "astro-icon/components";
-import Capsule from "../ui/Capsule.astro";
+﻿---
+import { t } from "../../utils/i18n";
 
 interface Props {
   title: string;
   description: string;
-  image: string;
-  imageAlt?: string;
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -14,113 +11,29 @@ interface Props {
 }
 
 const { 
-  title, 
-  description, 
-  image, 
-  imageAlt = `${title} project screenshot`,
-  technologies, 
-  liveUrl, 
-  githubUrl,
-  featured = false 
+  title, description, technologies, liveUrl, githubUrl, featured = false 
 } = Astro.props;
+
+const techNames: Record<string, string> = {
+  html:"HTML5", javascript:"JS", ts:"TS", angular:"Angular", astro:"Astro",
+  node:"Node", css:"CSS", tailwind:"Tailwind", bootstrap:"Bootstrap",
+  mongo:"MongoDB", firebase:"Firebase", netlify:"Netlify", git:"Git", python:"Python"
+};
 ---
 
-<article 
-  class={`group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
-    featured 
-      ? 'border-2 border-accent-400 dark:border-accent-600 bg-white dark:bg-gray-900 p-[2px] hover:shadow-accent-500/20' 
-      : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-accent-400 dark:hover:border-accent-600'
-  }`}
->
-  <div class={`h-full ${featured ? 'bg-white dark:bg-gray-900 rounded-2xl' : ''}`}>
-    <!-- Imagen del proyecto -->
-    <div class="relative overflow-hidden">
-      <img 
-        src={image} 
-        alt={imageAlt}
-        class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      
-      <!-- Enlaces superpuestos -->
-      {(liveUrl || githubUrl) && (
-        <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {liveUrl && (
-            <a 
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 bg-white/95 dark:bg-gray-800/95 rounded-full hover:bg-accent-600 hover:text-white transition-colors shadow-md"
-              aria-label={`Ver ${title} en vivo`}
-            >
-              <Icon name="rocket" class="size-4" />
-            </a>
-          )}
-          {githubUrl && (
-            <a 
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 bg-white/95 dark:bg-gray-800/95 rounded-full hover:bg-accent-600 hover:text-white transition-colors shadow-md"
-              aria-label={`Ver código de ${title} en GitHub`}
-            >
-              <Icon name="github" class="size-4" />
-            </a>
-          )}
-        </div>
-      )}
+<a href={liveUrl || "#"} target={liveUrl ? "_blank" : undefined} rel={liveUrl ? "noopener noreferrer" : undefined} class="block group">
+  <article class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 cursor-pointer">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{title}</h3>
+      {featured && <span class="px-2 py-0.5 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">{t("projects.featured", "es")}</span>}
     </div>
-
-    <!-- Contenido -->
-    <div class="p-6">
-      <div class="flex items-start justify-between mb-3">
-        <h3 class="text-xl font-bold text-blacktext dark:text-gray-200 group-hover:text-accent-700 dark:group-hover:text-accent-400 transition-colors">
-          {title}
-        </h3>
-        {featured && (
-          <span class="px-2 py-1 text-xs font-semibold bg-accent-100 dark:bg-accent-900 text-accent-700 dark:text-accent-300 rounded-full border border-accent-200 dark:border-accent-800" data-i18n="projects.featured">Destacado</span>
-        )}
-      </div>
-
-      <p class="text-blacktext/80 dark:text-gray-400 text-sm leading-relaxed mb-4">
-        {description}
-      </p>
-
-      <!-- Tecnologías -->
-      <div class="flex flex-wrap gap-2 mb-4">
-        {technologies.map((tech) => (
-          <Capsule lang={tech} linkEnabled={false} size="xs" />
-        ))}
-      </div>
-
-      <!-- Enlaces en el footer -->
-      {(liveUrl || githubUrl) && (
-        <div class="flex gap-3 pt-4 border-t border-gray-200 dark:border-gray-800">
-          {liveUrl && (
-            <a 
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-2 text-sm font-medium text-accent-700 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300 transition-colors"
-            >
-              <Icon name="rocket" class="size-4" />
-              <span data-i18n="projects.viewProject">Ver proyecto</span>
-            </a>
-          )}
-          {githubUrl && (
-            <a 
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-2 text-sm font-medium text-blacktext/70 dark:text-gray-400 hover:text-blacktext dark:hover:text-gray-200 transition-colors"
-            >
-              <Icon name="github" class="size-4" />
-              <span data-i18n="projects.code">Código</span>
-            </a>
-          )}
-        </div>
-      )}
+    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">{description}</p>
+    <div class="flex flex-wrap gap-1.5 mb-4">
+      {technologies.map(tech => <span class="px-2.5 py-1 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-md">{techNames[tech] || tech}</span>)}
     </div>
-  </div>
-</article>
+    <div class="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+      {liveUrl && <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{t("projects.viewProject", "es")} &rarr;</span>}
+      {githubUrl && <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>{t("projects.code", "es")} &rarr;</a>}
+    </div>
+  </article>
+</a>
