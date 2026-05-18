@@ -9,7 +9,7 @@ export const translations = {
     },
     hero: {
       available: "Disponible para trabajar",
-      experience: "1 año y medio de experiencia",
+      experience: "Un año y medio de experiencia",
       description: "apasionado por el desarrollo, la tecnología. Me encanta dar vida a proyectos digitales.",
       aboutMe: "Sobre Mí",
       viewProjects: "Ver Proyectos",
@@ -97,7 +97,7 @@ export const translations = {
     },
     hero: {
       available: "Available for work",
-      experience: "1.5 years of experience",
+      experience: "One and a half years of experience",
       description: "passionate about development, technology. I love bringing digital projects to life.",
       aboutMe: "About Me",
       viewProjects: "View Projects",
