@@ -1,69 +1,107 @@
 ﻿---
 import { t } from "../../utils/i18n";
-import { getCollection } from "astro:content";
 
 const lang = "es";
+
+const experiences = [
+  {
+    type: "work" as const,
+    titleKey: "experience.wolfEnterprise",
+    org: "WolfEnterprise",
+    period: "Ene 2026 – ",
+    periodEndKey: "experience.current",
+    descKey: "experience.descriptions.wolfEnterprise",
+  },
+  {
+    type: "education" as const,
+    titleKey: "experience.systemsEngineer",
+    org: "Universidad de Caldas",
+    period: "2024 – ",
+    periodEndKey: "experience.current",
+    descKey: "experience.descriptions.systems",
+  },
+  {
+    type: "education" as const,
+    titleKey: "experience.python",
+    org: "Pontificia Universidad Católica de Chile",
+    period: "2022",
+    descKey: "experience.descriptions.python",
+  },
+  {
+    type: "cert" as const,
+    titleKey: "experience.certifications",
+    org: "SENA",
+    period: "2020",
+    tasks: ["experience.tasks.softwareStages", "experience.tasks.cpp", "experience.tasks.electronics"],
+  },
+];
+
+const badgeStyles = {
+  work: "bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300",
+  education: "bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300",
+  cert: "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300",
+};
+
+const badgeKeys = {
+  work: "experience.badgeWork",
+  education: "experience.badgeEducation",
+  cert: "experience.badgeCert",
+};
 ---
 
 <section class="scroll-m-20 py-20 px-8 max-md:py-14" id="experience">
   <div class="mx-auto max-w-3xl">
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-14">
-      {t("experience.title", lang)} <span class="text-gray-500 dark:text-gray-400">{t("experience.titleGradient", lang)}</span>
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-3">
+      <span data-i18n="experience.title">{t("experience.title", lang)}</span>{" "}
+      <span class="text-gray-500 dark:text-gray-400" data-i18n="experience.titleGradient">{t("experience.titleGradient", lang)}</span>
     </h2>
+    <p
+      class="text-center text-gray-500 dark:text-gray-400 mb-14 max-w-lg mx-auto"
+      data-i18n="experience.subtitle"
+    >
+      {t("experience.subtitle", lang)}
+    </p>
 
     <div class="space-y-0">
-      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal">
-        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
-        <div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.wolfEnterprise">{t("experience.wolfEnterprise", lang)}</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">WolfEnterprise</p>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Ene 2026 – <span data-i18n="experience.current">{t("experience.current", lang)}</span></p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed" data-i18n="experience.descriptions.wolfEnterprise">{t("experience.descriptions.wolfEnterprise", lang)}</p>
-        </div>
-      </div>
-
-      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal reveal-delay-1">
-        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
-        <div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.systemsEngineer">{t("experience.systemsEngineer", lang)}</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Universidad de Caldas</p>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">2024 – <span data-i18n="experience.current">{t("experience.current", lang)}</span></p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed" data-i18n="experience.descriptions.systems">{t("experience.descriptions.systems", lang)}</p>
-        </div>
-      </div>
-
-      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal reveal-delay-2">
-        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
-        <div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.python">{t("experience.python", lang)}</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Pontificia Universidad Católica de Chile</p>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">2022</p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed" data-i18n="experience.descriptions.python">{t("experience.descriptions.python", lang)}</p>
-        </div>
-      </div>
-
-      <div class="relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal reveal-delay-3">
-        <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-gray-400 dark:border-gray-500 bg-white dark:bg-gray-900"></div>
-        <div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="experience.certifications">{t("experience.certifications", lang)}</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">SENA</p>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">2020</p>
-          <ul class="mt-3 space-y-1.5">
-            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-              <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0"></span>
-              <span data-i18n="experience.tasks.softwareStages">{t("experience.tasks.softwareStages", lang)}</span>
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-              <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0"></span>
-              <span data-i18n="experience.tasks.cpp">{t("experience.tasks.cpp", lang)}</span>
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-              <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0"></span>
-              <span data-i18n="experience.tasks.electronics">{t("experience.tasks.electronics", lang)}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      {
+        experiences.map((exp, i) => (
+          <div
+            class={`relative pl-10 pb-12 border-l-2 border-gray-200 dark:border-gray-700 reveal ${i > 0 ? `reveal-delay-${Math.min(i, 4)}` : ""}`}
+          >
+            <div class="absolute left-0 -translate-x-1/2 size-4 rounded-full border-2 border-accent-400 dark:border-accent-500 bg-white dark:bg-gray-900" />
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <span class={`px-2 py-0.5 text-xs font-semibold rounded-full ${badgeStyles[exp.type]}`} data-i18n={badgeKeys[exp.type]}>
+                  {t(badgeKeys[exp.type], lang)}
+                </span>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n={exp.titleKey}>
+                {t(exp.titleKey, lang)}
+              </h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{exp.org}</p>
+              <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                {exp.period}
+                {exp.periodEndKey && <span data-i18n={exp.periodEndKey}>{t(exp.periodEndKey, lang)}</span>}
+              </p>
+              {exp.descKey && (
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed" data-i18n={exp.descKey}>
+                  {t(exp.descKey, lang)}
+                </p>
+              )}
+              {exp.tasks && (
+                <ul class="mt-3 space-y-1.5">
+                  {exp.tasks.map((taskKey) => (
+                    <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <span class="size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mt-2 shrink-0" />
+                      <span data-i18n={taskKey}>{t(taskKey, lang)}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

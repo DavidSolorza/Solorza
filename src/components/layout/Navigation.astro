@@ -1,87 +1,53 @@
 ---
 import Social from "../ui/Social.astro";
-import { getCollection} from "astro:content";
+import { getCollection } from "astro:content";
 
-const [staticData] = await getCollection('staticData');
+const [staticData] = await getCollection("staticData");
 
 const { items = [] }: { items: (keyof typeof menu)[] } = Astro.props as {
   items: (keyof typeof menu)[];
 };
 
 const menu = {
-  home: { name: "Home", path: "/#home", i18nKey: "home" },
-  experience: { name: "Experience", path: "/#experience", i18nKey: "experience" },
+  home: { name: "Inicio", path: "/#home", i18nKey: "home" },
+  experience: { name: "Experiencia", path: "/#experience", i18nKey: "experience" },
   projects: { name: "Proyectos", path: "/#projects", i18nKey: "projects" },
   contact: { name: "Contacto", path: "/#contact", i18nKey: "contact" },
 };
 
-// Common base classes
 const baseClasses = {
-  nav: "nav-links flex w-full justify-center gap-6 max-md:gap-3 max-md:py-6",
-  link: "px-2 py-2 transition-all hover:text-accent-600 dark:hover:text-accent-400 max-md:mx-auto max-md:w-full max-md:px-6 max-md:py-2 ",
-  socialContainer: "flex items-center justify-center gap-5 md:hidden",
+  nav: "nav-links flex w-full justify-center gap-1 max-md:gap-0 max-md:py-4",
+  link: "px-3 py-2 rounded-lg text-sm transition-all hover:text-accent-600 dark:hover:text-accent-400 hover:bg-gray-100 dark:hover:bg-gray-800 max-md:mx-auto max-md:w-full max-md:px-6 max-md:py-3 max-md:text-base max-md:rounded-none",
+  socialContainer: "flex items-center justify-center gap-5 pt-4 mt-2 border-t border-gray-200 dark:border-gray-800 md:hidden",
 } as const;
 ---
 
 <script>
-  // Inline translations to avoid import issues in client-side script
-  const translations = {
-    es: { nav: { home: "Inicio", experience: "Experiencia", projects: "Proyectos", contact: "Contacto", about: "Sobre Mí" } },
-    en: { nav: { home: "Home", experience: "Experience", projects: "Projects", contact: "Contact", about: "About Me" } }
-  };
-  
-  function getLang() {
-    const saved = localStorage.getItem("language");
-    return (saved === "es" || saved === "en") ? saved : "es";
-  }
-  
-  function t(key, lang) {
-    const keys = key.split(".");
-    let value = translations[lang];
-    for (const k of keys) {
-      value = value?.[k];
-      if (value === undefined) return key;
-    }
-    return typeof value === "string" ? value : key;
-  }
-  
   document.addEventListener("DOMContentLoaded", () => {
     const isHome = window.location.pathname === "/";
-    const lang = getLang();
-    
-    // Update navigation text on load
-    document.querySelectorAll('nav a[data-i18n]').forEach(link => {
-      const key = link.getAttribute('data-i18n');
-      if (key) {
-        link.textContent = t(`nav.${key}`, lang);
-      }
-    });
-    
-    // Classes for link states
+
     const linkClasses = {
-      active: ["text-accent-700","dark:text-accent-400", "font-bold"],
-      inactive: ["dark:text-gray-300",  "text-blacktext"]
+      active: ["text-accent-700", "dark:text-accent-400", "font-semibold", "bg-accent-50", "dark:bg-accent-950/30"],
+      inactive: ["dark:text-gray-300", "text-gray-700"],
     };
 
     function toggleLinkClasses(link: Element, isActive: boolean) {
       if (isActive) {
         link.classList.add(...linkClasses.active);
         link.classList.remove(...linkClasses.inactive);
-        link.setAttribute('aria-current', 'page');
+        link.setAttribute("aria-current", "page");
       } else {
         link.classList.remove(...linkClasses.active);
         link.classList.add(...linkClasses.inactive);
-        link.removeAttribute('aria-current');
+        link.removeAttribute("aria-current");
       }
     }
 
     function updateActiveLink() {
-      const currentPath = window.location.pathname;
-      const currentHash = window.location.hash ? `#${window.location.hash.substring(1)}` : "";
-
-      document.querySelectorAll("nav a").forEach((link) => {
+      const currentHash = window.location.hash || "#home";
+      document.querySelectorAll("nav a[data-path]").forEach((link) => {
         const path = link.getAttribute("data-path");
-        toggleLinkClasses(link, path === currentPath || path === currentHash);
+        toggleLinkClasses(link, path === `/${currentHash}` || path === currentHash);
       });
     }
 
@@ -89,29 +55,25 @@ const baseClasses = {
       if (!isHome) return;
 
       const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll("nav a");
+      const navLinks = document.querySelectorAll("nav a[data-path]");
 
-      const observerOptions = {
-        root: null,
-        rootMargin: "-50% 0px",
-        threshold: 0
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute("id");
-            if (sectionId) {
-              navLinks.forEach(link => {
-                const path = link.getAttribute("data-path");
-                toggleLinkClasses(link, path === `/#${sectionId}`);
-              });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const sectionId = entry.target.getAttribute("id");
+              if (sectionId) {
+                navLinks.forEach((link) => {
+                  toggleLinkClasses(link, link.getAttribute("data-path") === `/#${sectionId}`);
+                });
+              }
             }
-          }
-        });
-      }, observerOptions);
+          });
+        },
+        { root: null, rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+      );
 
-      sections.forEach(section => observer.observe(section));
+      sections.forEach((section) => observer.observe(section));
     }
 
     updateActiveLink();
@@ -120,8 +82,9 @@ const baseClasses = {
   });
 </script>
 
-<nav 
-  class={baseClasses.nav}
+<nav
+  id="mobile-menu"
+  class:list={[baseClasses.nav, "justify-self-center max-md:justify-self-stretch"]}
   role="navigation"
   aria-label="Main Navigation"
 >
@@ -137,19 +100,14 @@ const baseClasses = {
           data-path={item.path}
           data-i18n={item.i18nKey}
           aria-label={item.name}
-          aria-current={item.path === Astro.url.pathname ? 'page' : undefined}
         >
           {item.name}
         </a>
       );
     })
   }
-  
-  <div 
-    class={baseClasses.socialContainer}
-    role="group"
-    aria-label="Social Media Links"
-  >
+
+  <div class={baseClasses.socialContainer} role="group" aria-label="Social Media Links">
     <Social link={staticData.data.github} iconName={staticData.data.githubIconName} />
     <Social link={staticData.data.linkedin} iconName={staticData.data.linkedinIconName} />
   </div>

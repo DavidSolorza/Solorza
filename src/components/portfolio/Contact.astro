@@ -1,39 +1,7 @@
 ---
-import Heading from "../ui/Heading.astro";
-import Button from "../ui/Button.astro";
 import ContactForm from "./ContactForm.astro";
-import { getCollection} from "astro:content";
-
-const [staticData] = await getCollection('staticData');
 ---
 
 <section id="contact" class="scroll-m-20">
-  <div
-    class="w-full bg-linear-to-b from-gray-50 to-transparent dark:from-gray-900"
-  >
-    <div class="mx-auto max-w-5xl px-8 py-16 max-sm:py-12">
-      <div class="flex items-center justify-between max-sm:flex-col max-sm:gap-8 max-sm:text-center">
-        <div class="max-w-lg">
-          <Heading
-            text={staticData.data.contactSectionSubtitle}
-            textGradient={staticData.data.contactSectionSubtitle}
-            level={2}
-          />
-        </div>
-        <div
-          class="transition-all duration-500 group-hover:animate-jump group-hover:animate-duration-[300ms] group-hover:animate-ease-in-out group-hover:scale-105 hover:scale-125"
-        >   
-          <Button
-            variant="big"
-            link={`mailto:${staticData.data.email}`}
-            text={staticData.data.contactSectionButtonText}
-            iconName={staticData.data.contactSectionButtonIcon}
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Formulario de contacto completo -->
   <ContactForm />
 </section>

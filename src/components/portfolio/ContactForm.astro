@@ -8,27 +8,33 @@ const [staticData] = await getCollection("staticData");
 const lang = "es"; // Default, updated client-side
 ---
 
-<section class="scroll-m-20 py-16 px-8 max-md:py-8" id="contact-form">
-  <div class="mx-auto max-w-4xl">
-    <!-- Header de la sección -->
-    <div class="flex gap-4 items-center justify-center mb-12">
+<section class="scroll-m-20 py-16 px-8 max-md:py-12">
+  <div class="mx-auto max-w-5xl">
+    <div class="flex gap-4 items-center justify-center mb-4">
       <Icon class="text-3xl dark:text-white text-blacktext" name="envelope" />
-      <Heading text={t("contact.title", lang)} textGradient={t("contact.titleGradient", lang)} level={2} />
+      <Heading
+        text={t("contact.title", lang)}
+        textGradient={t("contact.titleGradient", lang)}
+        level={2}
+        data-i18n-text="contact.title"
+        data-i18n-gradient="contact.titleGradient"
+      />
     </div>
+
+    <p
+      class="text-center text-lg text-blacktext/80 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+      data-i18n="contact.description"
+    >
+      {t("contact.description", lang)}
+    </p>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Información de contacto -->
       <div class="space-y-8">
         <div>
-          <h3 class="text-2xl font-bold text-blacktext dark:text-white mb-4" data-i18n="contact.workTogether">
-            {t("contact.workTogether", lang)}
+          <h3 class="text-xl font-bold text-blacktext dark:text-white mb-6" data-i18n="contact.quickContact">
+            {t("contact.quickContact", lang)}
           </h3>
-          <p
-            class="text-lg text-blacktext/80 dark:text-gray-300 leading-relaxed"
-            data-i18n="contact.description"
-          >
-            {t("contact.description", lang)}
-          </p>
         </div>
 
         <!-- Métodos de contacto -->

@@ -3,42 +3,48 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "../ui/ThemeIcon.astro";
 import LanguageSwitcher from "../ui/LanguageSwitcher.astro";
 import Social from "../ui/Social.astro";
-import { Icon } from "astro-icon/components";
-import { getCollection} from "astro:content";
+import { getCollection } from "astro:content";
 
-const [staticData] = await getCollection('staticData');
-
+const [staticData] = await getCollection("staticData");
 const navItems = ["home", "experience", "projects", "contact"];
 ---
 
 <header
   role="banner"
   aria-label="Main navigation"
-  class="sticky top-0 z-50 w-full p-4 font-medium text-blacktext dark:text-gray-300 dark:bg-gray-950/95 dark:border-b dark:border-gray-800 bg-white/95 backdrop-blur-md dark:backdrop-blur-md max-md:z-50 max-md:px-0 transition-all shadow-sm dark:shadow-gray-900/50"
+  class="sticky top-0 z-50 w-full p-4 font-medium text-blacktext dark:text-gray-300 dark:bg-gray-950/95 dark:border-b dark:border-gray-800 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all shadow-sm dark:shadow-gray-900/50"
 >
-  <div
-    class="relative mx-auto flex max-w-7xl flex-row items-center justify-between max-xl:px-6"
-  >
+  <div class="relative mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 max-xl:px-6 max-md:grid-cols-[auto_1fr_auto]">
+    <a
+      href="/#home"
+      class="flex items-center gap-2 shrink-0 text-lg font-bold text-gray-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+      aria-label="David Solorza - Inicio"
+    >
+      <span class="flex size-9 items-center justify-center rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-extrabold">
+        DS
+      </span>
+      <span class="max-sm:hidden">{staticData.data.alias}</span>
+    </a>
+
     <Navigation items={navItems} />
 
-    <div class="flex items-center justify-between gap-5 text-xl">
-      <div class="max-md:hidden flex items-center justify-center gap-5" role="list">
+    <div class="flex items-center justify-end gap-3 shrink-0">
+      <div class="max-md:hidden flex items-center gap-4 text-xl" role="list">
         <Social link={staticData.data.github} iconName={staticData.data.githubIconName} />
         <Social link={staticData.data.linkedin} iconName={staticData.data.linkedinIconName} />
       </div>
-    </div>
-    <div class="flex items-center gap-3 text-xl md:pl-5">
       <LanguageSwitcher />
       <ThemeIcon />
-      <button 
-        class="hamburger"
-        aria-label="Open menu"
+      <button
+        class="hamburger md:hidden"
+        aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <Icon name="bars" class="hamburger-icon bars-icon" aria-hidden="true" />
-        <Icon name="xmark" class="hamburger-icon xmark-icon" aria-hidden="true" />
+        <svg class="hamburger-icon bars-icon size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="hamburger-icon xmark-icon size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
   </div>
+  <div id="nav-backdrop" class="nav-backdrop hidden" aria-hidden="true"></div>
 </header>

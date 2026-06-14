@@ -3,114 +3,118 @@ import ProjectCard from "./ProjectCard.astro";
 import Heading from "../ui/Heading.astro";
 import { Icon } from "astro-icon/components";
 import { t } from "../../utils/i18n";
+import { projects } from "../../data/projects";
 
-// Default to Spanish, will be updated client-side
 const lang = "es";
-
-// Aquí defines tus proyectos
-const projects = [
-  {
-    title: "Sabores del Monte",
-    description:
-      "Tienda online de mermeladas artesanales desarrollada con tecnologías modernas. Implementé un diseño responsivo y atractivo usando React y Tailwind CSS, con enfoque en experiencia de usuario, catálogo de productos dinámico y flujo de compra simple.",
-    technologies: [ "node", "mongo", "tailwind", "javascript","html"],
-    liveUrl: "https://saboresdelmonte.shop/",
-    githubUrl: "https://github.com/DavidSolorza/Sabores-Del-Monte.git",
-    featured: true,
-  },
-  {
-    title: "STREAMING PLUS",
-    description:
-      "Plataforma de venta de películas y series en línea, construida con tecnologías actuales. Desarrollé una interfaz atractiva y completamente responsiva utilizando React y Tailwind CSS, priorizando una experiencia de usuario fluida.",
-    technologies: ["node", "mongo", "tailwind", "javascript",],
-    liveUrl: "https://streamingpluss.shop/",
-    githubUrl: "https://github.com/DavidSolorza/STREAMINGPLUS.git",
-  },
-
-  {
-    title: "Portfolio Website",
-    description:
-      "Sitio web de portfolio personal con diseño moderno, animaciones suaves y optimización SEO.",
-    technologies: ["astro", "tailwind", "javascript"],
-    liveUrl: "https://davidsolorza.dev",
-    githubUrl: "https://github.com/DavidSolorza/Solorza.git",
-  },
-  {
-    title: "Colombia",
-    description:
-      "Plataforma informativa sobre Colombia, destacando su cultura, turismo y datos relevantes del país.",
-    technologies: ["node", "mongo", "tailwind", "javascript"],
-    liveUrl: "https://colombia-three.vercel.app",
-    githubUrl: "https://github.com/DavidSolorza/Colombia.git",
-  },
-  {
-    title: "Automatizador de Correos",
-    description:
-      "Sistema de automatización y clasificación de correos electrónicos con integración Gmail API, motor de reglas personalizable, autenticación OAuth2 y dashboard analítico.",
-    technologies: ["ts", "python", "tailwind", "javascript"],
-    liveUrl: "https://automatizador-de-correos.vercel.app",
-    githubUrl: "https://github.com/DavidSolorza/AutomatizadorDeCorreos.git",
-  },
-  {
-    title: "Battery Guardian",
-    description:
-      "App Flutter para monitoreo inteligente de batería en Android. Dashboard en tiempo real, alertas configurables, historial de cargas en SQLite y analíticas con gráficas.",
-    technologies: ["dart"],
-    githubUrl: "https://github.com/DavidSolorza/BatteryGuardian.git",
-  },
-  {
-    title: "Quantum Lab",
-    description:
-      "Laboratorio interactivo de computación cuántica con simulaciones 3D. Incluye esfera de Bloch, algoritmo de Deutsch-Jozsa, entrelazamiento cuántico y visualizaciones con Three.js.",
-    technologies: ["ts", "javascript", "tailwind"],
-    liveUrl: "https://quantum-lab-three.vercel.app",
-    githubUrl: "https://github.com/DavidSolorza/Quantum-Lab.git",
-  },
-  {
-    title: "Electro+ Lab",
-    description:
-      "Simulador de circuitos eléctricos interactivo con editor visual, simulación DC/transitoria en tiempo real, multímetro, osciloscopio y calculadora de ingeniería eléctrica.",
-    technologies: ["ts", "python", "javascript", "tailwind"],
-    liveUrl: "https://circuit-nine.vercel.app",
-    githubUrl: "https://github.com/DavidSolorza/circuit.git",
-  },
-  {
-    title: "PathForge AI",
-    description:
-      "Plataforma web para crear y seguir rutas de aprendizaje personalizadas con IA. Frontend React con backend Express y MongoDB, con soporte para modo local.",
-    technologies: ["ts", "node", "mongo", "javascript", "tailwind"],
-    liveUrl: "https://path-forge-nu.vercel.app",
-    githubUrl: "https://github.com/DavidSolorza/PathForge.git",
-  },
-];
 ---
 
 <section
-  class="scroll-m-20 py-16 px-8 max-md:py-8"
+  class="scroll-m-20 py-16 px-8 max-md:py-12"
   id="projects"
-  aria-label="Proyectos destacados"
+  aria-label="Proyectos"
 >
   <div class="mx-auto max-w-7xl">
-    <!-- Header de la sección -->
-    <div class="flex gap-4 items-center justify-center mb-12">
+    <div class="flex gap-4 items-center justify-center mb-4">
       <Icon class="text-3xl dark:text-white text-blacktext" name="code" />
-      <Heading text={t("projects.title", lang)} textGradient={t("projects.titleGradient", lang)} level={2} />
+      <Heading
+        text={t("projects.title", lang)}
+        textGradient={t("projects.titleGradient", lang)}
+        level={2}
+        data-i18n-text="projects.title"
+        data-i18n-gradient="projects.titleGradient"
+      />
     </div>
 
     <p
-      class="text-center text-lg text-blacktext/80 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+      class="text-center text-lg text-blacktext/80 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
       data-i18n="projects.description"
     >
       {t("projects.description", lang)}
     </p>
 
-    <!-- Grid de proyectos -->
     <div
-      class="flex flex-wrap justify-center gap-6"
+      class="flex flex-wrap justify-center gap-2 mb-8"
+      role="tablist"
+      aria-label="Filtrar proyectos"
     >
-      {projects.map((project) => <div class="w-full sm:w-[calc(50%-12px)] xl:w-[calc(25%-18px)]"><ProjectCard {...project} /></div>)}
+      <button
+        type="button"
+        class="project-filter active px-4 py-2 text-sm font-medium rounded-full border transition-all"
+        data-filter="all"
+        role="tab"
+        aria-selected="true"
+        data-i18n="projects.filterAll"
+      >
+        {t("projects.filterAll", lang)}
+      </button>
+      <button
+        type="button"
+        class="project-filter px-4 py-2 text-sm font-medium rounded-full border transition-all"
+        data-filter="web"
+        role="tab"
+        aria-selected="false"
+        data-i18n="projects.filterWeb"
+      >
+        {t("projects.filterWeb", lang)}
+      </button>
+      <button
+        type="button"
+        class="project-filter px-4 py-2 text-sm font-medium rounded-full border transition-all"
+        data-filter="mobile"
+        role="tab"
+        aria-selected="false"
+        data-i18n="projects.filterMobile"
+      >
+        {t("projects.filterMobile", lang)}
+      </button>
     </div>
 
-    
+    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map((project) => (
+          <div class="project-item reveal" data-category={project.category}>
+            <ProjectCard {...project} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p
+      id="projects-empty"
+      class="hidden text-center text-gray-500 dark:text-gray-400 py-12"
+      data-i18n="projects.noResults"
+    >
+      {t("projects.noResults", lang)}
+    </p>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filters = document.querySelectorAll(".project-filter");
+    const items = document.querySelectorAll(".project-item");
+    const emptyMsg = document.getElementById("projects-empty");
+
+    filters.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        filters.forEach((b) => {
+          const isActive = b === btn;
+          b.classList.toggle("active", isActive);
+          b.setAttribute("aria-selected", String(isActive));
+        });
+
+        let visible = 0;
+        items.forEach((item) => {
+          const category = item.getAttribute("data-category");
+          const show = filter === "all" || category === filter;
+          item.classList.toggle("hidden", !show);
+          if (show) visible++;
+        });
+
+        emptyMsg?.classList.toggle("hidden", visible > 0);
+      });
+    });
+  });
+</script>
