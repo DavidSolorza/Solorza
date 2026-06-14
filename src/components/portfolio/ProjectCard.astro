@@ -14,14 +14,17 @@ const {
   title, description, technologies, liveUrl, githubUrl, featured = false 
 } = Astro.props;
 
+const cardUrl = liveUrl || githubUrl || "#";
+const isExternal = cardUrl !== "#";
+
 const techNames: Record<string, string> = {
   html:"HTML5", javascript:"JS", ts:"TS", angular:"Angular", astro:"Astro",
   node:"Node", css:"CSS", tailwind:"Tailwind", bootstrap:"Bootstrap",
-  mongo:"MongoDB", firebase:"Firebase", netlify:"Netlify", git:"Git", python:"Python"
+  mongo:"MongoDB", firebase:"Firebase", netlify:"Netlify", git:"Git", python:"Python", dart:"Flutter"
 };
 ---
 
-<a href={liveUrl || "#"} target={liveUrl ? "_blank" : undefined} rel={liveUrl ? "noopener noreferrer" : undefined} class="block group">
+<a href={cardUrl} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} class="block group">
   <article class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 cursor-pointer h-full flex flex-col">
     <div class="flex items-center justify-between mb-3">
       <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{title}</h3>
@@ -33,6 +36,7 @@ const techNames: Record<string, string> = {
     </div>
     <div class="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-800 mt-auto">
       {liveUrl && <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{t("projects.viewProject", "es")} &rarr;</span>}
+      {!liveUrl && githubUrl && <span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{t("projects.code", "es")} &rarr;</span>}
       {githubUrl && <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>{t("projects.code", "es")} &rarr;</a>}
     </div>
   </article>
