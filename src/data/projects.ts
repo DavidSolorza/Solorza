@@ -1,5 +1,21 @@
 export type ProjectCategory = "web" | "mobile";
 
+export interface MobileProjectDetails {
+  hookMessageI18n: string;
+  version: string;
+  statusI18n: string;
+  themeColor: string;
+  androidUrl?: string;
+  iosUrl?: string;
+  apkUrl?: string;
+  features: {
+    icon: string;
+    titleI18n: string;
+    descriptionI18n: string;
+  }[];
+  screenshots: string[];
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -8,6 +24,7 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   i18nKey: string;
+  mobileDetails?: MobileProjectDetails;
 }
 
 export const projects: Project[] = [
@@ -90,5 +107,22 @@ export const projects: Project[] = [
     category: "mobile",
     githubUrl: "https://github.com/DavidSolorza/BatteryGuardian.git",
     i18nKey: "battery",
+    mobileDetails: {
+      hookMessageI18n: "projectsItems.batteryHook",
+      version: "1.2.0",
+      statusI18n: "projectsItems.freeStatus",
+      themeColor: "from-green-500 to-emerald-600",
+      androidUrl: "https://github.com/DavidSolorza/BatteryGuardian.git",
+      features: [
+        { icon: "bell", titleI18n: "projectsItems.batteryFeature1Title", descriptionI18n: "projectsItems.batteryFeature1Desc" },
+        { icon: "database", titleI18n: "projectsItems.batteryFeature2Title", descriptionI18n: "projectsItems.batteryFeature2Desc" },
+        { icon: "chart", titleI18n: "projectsItems.batteryFeature3Title", descriptionI18n: "projectsItems.batteryFeature3Desc" }
+      ],
+      screenshots: [
+        "/images/mobile-placeholder-1.webp",
+        "/images/mobile-placeholder-2.webp",
+        "/images/mobile-placeholder-3.webp"
+      ]
+    }
   },
 ];

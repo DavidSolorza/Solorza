@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+const { project } = Astro.props;
+---
+
+<div class="border-t border-gray-200 dark:border-gray-800 pt-16">
+  <div class="text-center space-y-8">
+    <h3 class="text-sm font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500" data-i18n="projects.builtWith">
+      Construido con
+    </h3>
+    
+    <div class="flex flex-wrap justify-center gap-4">
+      {project.technologies.map((tech: string) => (
+        <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">
+          <!-- We can use the simple tech mapping or generic icons -->
+          {/* For simplicity we just show the name since mapping depends on exact names */}
+          <span class="font-medium capitalize">{tech}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

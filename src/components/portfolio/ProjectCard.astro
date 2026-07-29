@@ -7,6 +7,7 @@ interface Props {
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
+  i18nKey: string;
   category?: string;
 }
 
@@ -19,6 +20,9 @@ const {
   i18nKey,
   category = "web",
 } = Astro.props;
+
+const destinationUrl = category === "mobile" ? `/app/${i18nKey}` : (githubUrl || liveUrl);
+const isExternal = category !== "mobile";
 
 const techNames: Record<string, string> = {
   html: "HTML5",
@@ -42,7 +46,7 @@ const techNames: Record<string, string> = {
 <article
   class="project-card cursor-pointer bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 h-full flex flex-col"
   data-category={category}
-  onclick={githubUrl ? `window.open('${githubUrl}', '_blank')` : liveUrl ? `window.open('${liveUrl}', '_blank')` : undefined}
+  onclick={destinationUrl ? (isExternal ? `window.open('${destinationUrl}', '_blank')` : `window.location.href = '${destinationUrl}'`) : undefined}
 >
   <h3 class="text-lg font-semibold text-gray-900 dark:text-white leading-snug mb-3">{title}</h3>
 

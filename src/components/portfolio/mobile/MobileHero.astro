@@ -1,0 +1,104 @@
+---
+import { t } from "../../../utils/i18n";
+import Button from "../../ui/Button.astro";
+import { Icon } from "astro-icon/components";
+const { project } = Astro.props;
+const { title, mobileDetails } = project;
+const lang = "es"; // Default to es, client script will update
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative">
+  <!-- Glowing Background based on themeColor -->
+  <div class={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 rounded-full bg-gradient-to-tr ${mobileDetails?.themeColor} opacity-20 blur-[120px] -z-10 pointer-events-none`}></div>
+
+  <!-- Left Content -->
+  <div class="flex flex-col items-center text-center lg:items-start lg:text-left space-y-8 z-10">
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span data-i18n={mobileDetails?.statusI18n}>{t(mobileDetails?.statusI18n, lang) || mobileDetails?.version}</span>
+      </div>
+      
+      <h1 class="text-5xl lg:text-7xl font-black text-blacktext dark:text-white tracking-tight notranslate" translate="no">
+        {title}
+      </h1>
+      
+      <p class="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl font-light" data-i18n={mobileDetails?.hookMessageI18n}>
+        {t(mobileDetails?.hookMessageI18n, lang)}
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+      {mobileDetails?.androidUrl && (
+        <a href={mobileDetails.androidUrl} target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl">
+          <Icon name="lucide:smartphone" class="w-6 h-6 z-10" />
+          <div class="flex flex-col items-start z-10">
+            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Descargar APK</span>
+            <span class="text-base leading-none mt-1">Para Android</span>
+          </div>
+          <div class={`absolute inset-0 bg-gradient-to-r ${mobileDetails?.themeColor} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
+        </a>
+      )}
+      
+      {project.githubUrl && (
+        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-8 py-4 bg-gray-100 dark:bg-gray-900 text-blacktext dark:text-white rounded-2xl font-semibold transition-all hover:bg-gray-200 dark:hover:bg-gray-800 border border-transparent hover:border-gray-300 dark:hover:border-gray-700">
+          <Icon name="lucide:github" class="w-6 h-6" />
+          <div class="flex flex-col items-start">
+            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Ver código en</span>
+            <span class="text-base leading-none mt-1">GitHub</span>
+          </div>
+        </a>
+      )}
+    </div>
+  </div>
+
+  <!-- Right Content - Floating Mockups -->
+  <div class="relative w-full h-[600px] flex justify-center items-center perspective-1000">
+    <div class="relative w-[300px] h-[600px] animate-float z-20" style="animation-duration: 6s;">
+      <!-- CSS Phone Mockup -->
+      <div class="absolute inset-0 bg-gray-950 rounded-[3rem] shadow-2xl border-[8px] border-gray-800 overflow-hidden">
+        <!-- Notch -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-800 rounded-b-3xl z-30"></div>
+        <!-- Screen Content -->
+        <div class={`w-full h-full bg-gradient-to-br ${mobileDetails?.themeColor} p-6 flex flex-col`}>
+           <!-- Placeholder inner UI -->
+           <div class="w-full h-32 bg-white/20 rounded-2xl mb-4 backdrop-blur-md"></div>
+           <div class="w-full flex-1 bg-white/10 rounded-2xl backdrop-blur-sm"></div>
+           {mobileDetails?.screenshots && mobileDetails.screenshots[0] && (
+             <img src={mobileDetails.screenshots[0]} alt="App screenshot" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50" />
+           )}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Secondary background phone -->
+    <div class="absolute right-0 lg:-right-12 w-[280px] h-[560px] animate-float z-10 opacity-60 blur-[2px] transform rotate-12 scale-90" style="animation-duration: 8s; animation-delay: 2s;">
+      <div class="absolute inset-0 bg-gray-950 rounded-[3rem] shadow-2xl border-[8px] border-gray-800 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-800 rounded-b-3xl z-30"></div>
+        <div class={`w-full h-full bg-gradient-to-tr ${mobileDetails?.themeColor} p-6`}>
+           <div class="w-full h-full bg-black/20 rounded-2xl backdrop-blur-md"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotateY(-5deg);
+    }
+    50% {
+      transform: translateY(-20px) rotateY(5deg);
+    }
+    100% {
+      transform: translateY(0px) rotateY(-5deg);
+    }
+  }
+</style>

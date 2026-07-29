@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../data/projects";
+import MobileHero from "../../components/portfolio/mobile/MobileHero.astro";
+import MobileFeatures from "../../components/portfolio/mobile/MobileFeatures.astro";
+import MobileGallery from "../../components/portfolio/mobile/MobileGallery.astro";
+import MobileTechStack from "../../components/portfolio/mobile/MobileTechStack.astro";
+
+export function getStaticPaths() {
+  const mobileProjects = projects.filter((p) => p.category === "mobile" && p.mobileDetails);
+  return mobileProjects.map((project) => {
+    return {
+      params: { id: project.i18nKey },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+const { title, mobileDetails } = project;
+---
+
+<Layout pageTitle={`${title} - David Solorza`}>
+  <div class="pt-24 pb-16 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Back button -->
+      <a href="/#projects" class="inline-flex items-center gap-2 text-gray-500 hover:text-blacktext dark:text-gray-400 dark:hover:text-white transition-colors mb-12">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="m15 18-6-6 6-6"/></svg>
+        <span class="font-medium" data-i18n="header.projects">Proyectos</span>
+      </a>
+
+      <!-- Hero Section -->
+      <MobileHero project={project} />
+
+      <!-- Features Section -->
+      <div class="mt-32">
+        <MobileFeatures project={project} />
+      </div>
+
+      <!-- Gallery Section -->
+      <div class="mt-32">
+        <MobileGallery project={project} />
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="mt-32 mb-16">
+        <MobileTechStack project={project} />
+      </div>
+
+    </div>
+  </div>
+</Layout>
