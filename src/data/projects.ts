@@ -116,7 +116,7 @@ export const projects: Project[] = [
       features: [
         { icon: "bell", titleI18n: "projectsItems.batteryFeature1Title", descriptionI18n: "projectsItems.batteryFeature1Desc" },
         { icon: "database", titleI18n: "projectsItems.batteryFeature2Title", descriptionI18n: "projectsItems.batteryFeature2Desc" },
-        { icon: "chart", titleI18n: "projectsItems.batteryFeature3Title", descriptionI18n: "projectsItems.batteryFeature3Desc" }
+        { icon: "bar-chart", titleI18n: "projectsItems.batteryFeature3Title", descriptionI18n: "projectsItems.batteryFeature3Desc" }
       ],
       screenshots: [
         "/images/mobile-placeholder-1.webp",
