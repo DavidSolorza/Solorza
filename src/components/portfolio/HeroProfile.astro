@@ -48,11 +48,12 @@ const techNames: Record<string, string> = {
           </p>
 
           <div class="flex flex-wrap gap-3">
-            <Button link="/#projects" text={t("hero.viewProjects", lang)} iconName="code" variant="dark" />
-            <Button link="/#contact" text={t("hero.contactMe", lang)} iconName="envelope" variant="default" />
+            <Button link="/#projects" text={t("hero.viewProjects", lang)} textI18n="hero.viewProjects" iconName="code" variant="dark" />
+            <Button link="/#contact" text={t("hero.contactMe", lang)} textI18n="hero.contactMe" iconName="envelope" variant="default" />
             <Button
               link={staticData.data.resumeUrl || "#"}
               text={t("hero.downloadCV", lang)}
+              textI18n="hero.downloadCV"
               iconName="rocket"
               variant="default"
               isExternal={true}
@@ -84,7 +85,9 @@ const techNames: Record<string, string> = {
           <div class="flex flex-wrap gap-2">
             {
               staticData.data.hobbies.map((h) => (
-                <span class="px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-lg">{h}</span>
+                <span class="px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-lg" data-i18n={`hobbiesItems.${h.toLowerCase()}`}>
+                  {t(`hobbiesItems.${h.toLowerCase()}`, lang)}
+                </span>
               ))
             }
           </div>
