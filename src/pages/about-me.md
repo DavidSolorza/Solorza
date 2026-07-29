@@ -1,15 +1,15 @@
 ---
 layout: /src/layouts/MarkdownAbout.astro
-title: "David Solorza | Frontend Web Developer & Systems Engineering Student | FreeAgents"
-description: "Frontend-focused developer with strong knowledge in Angular, React, and modern frameworks. Systems engineering student passionate about full web solutions and API integration."
+title: "David Solorza | Ingeniero de Sistemas & Frontend Web Developer | FreeAgents"
+description: "Ingeniero de Sistemas y desarrollador frontend con sólidos conocimientos en Angular, React y frameworks modernos. Estudiante de ingeniería en sistemas apasionado por soluciones web completas e integración de APIs."
 author: "David Josue Solorza Viera"
 image:
   url: "/images/profile.png"
   alt: "Profile photo of David Josue Solorza Viera for the portfolio"
 ---
-Hola, soy **David Josue Solorza Viera**, estudiante de **Ingeniería en Sistemas y Computación** en la Universidad de Caldas, actualmente especializándome en **Desarrollo Web Frontend**. Tengo experiencia práctica con frameworks modernos como **Angular**, **React**, y **Vite**, y me apasiona crear interfaces web elegantes, escalables y responsivas.
+Hola, soy **David Josue Solorza Viera**, **Ingeniero de Sistemas** (estudiante de **Ingeniería en Sistemas y Computación** en la Universidad de Caldas), actualmente especializándome en **Desarrollo Web Frontend**. Tengo experiencia práctica con frameworks modernos como **Angular**, **React**, y **Vite**, y me apasiona crear interfaces web elegantes, escalables y responsivas.
 
-También trabajo con **Python**, **Java**, y **C++**, lo que me permite contribuir al **desarrollo back-end**, APIs, e integración de sistemas. Creo en construir soluciones completas—desde la lógica del backend hasta frontends pulidos—manteniéndome actualizado con las últimas tecnologías.
+Como futuro **Ingeniero de Sistemas**, también trabajo con **Python**, **Java**, y **C++**, lo que me permite contribuir al **desarrollo back-end**, APIs, e integración de sistemas. Creo en construir soluciones completas—desde la lógica del backend hasta frontends pulidos—manteniéndome actualizado con las últimas tecnologías.
 
 Actualmente colaboro con **Fundación FreeAgents**, desarrollando sistemas web, APIs, e integraciones que apoyan iniciativas de e-commerce y divulgación digital.
 

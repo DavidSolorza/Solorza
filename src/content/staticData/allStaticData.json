@@ -2,7 +2,7 @@
   "profileImage": "/images/portada.jpeg",
   "profileAlt": "Photo of David Josue Solorza Viera Ponce (Solorza) for the blog",
   "profileLink": "/about-me",
-  "profileTitle": "FrontEnd Developer",
+  "profileTitle": "Ingeniero de Sistemas & FrontEnd Developer",
   "profileName": "David Solorza",
   "github": "https://github.com/DavidSolorza",
   "githubText": "Do you like this blog's design?",
@@ -24,12 +24,10 @@
   "emailIconName": "envelope",
   "resumeUrl": "/cv/DAVID_SOLORZA_CV.pdf",
   "hobbies": [
-    "Código abierto",
-    "Lectura técnica",
-    "Café y código",
-    "Música lo-fi",
-    "Cine sci-fi",
-    "Running",
-    "Gaming casual"
+    "Me gusta hacer deporte",
+    "Me gusta leer",
+    "Me encanta el cafe",
+    "Me gusta la música",
+    "Me facinan los videojuegos"
   ]
 }

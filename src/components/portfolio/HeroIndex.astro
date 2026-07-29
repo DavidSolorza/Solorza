@@ -59,7 +59,7 @@ const lang = "es";
         </span>
 
         <h1
-          class="text-4xl font-black leading-none text-blacktext  dark:text-white max-xl:text-3xl max-lg:text-2xl  max-sm:text-center"
+          class="text-4xl font-black leading-none text-blacktext  dark:text-white max-xl:text-3xl max-lg:text-2xl  max-sm:text-center notranslate" translate="no"
         >
           {staticData.data.profileName} 👋
         </h1>
@@ -67,8 +67,8 @@ const lang = "es";
           class="mb-0 text-lg font-semibold leading-8 text-blacktext dark:text-gray-300 max-xl:text-base"
         >
           <span
-            class="text-accent-700 dark:text-accent-400 font-bold"
-            >{staticData.data.profileTitle}</span
+            class="text-accent-700 dark:text-accent-400 font-bold" data-i18n="hero.profileTitle"
+            >{t("hero.profileTitle", lang)}</span
           > <span data-i18n="hero.experience">{t("hero.experience", lang)}</span>, <span data-i18n="hero.description">{t("hero.description", lang)}</span> 🚀☕
         </p>
 

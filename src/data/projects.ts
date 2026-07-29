@@ -7,6 +7,7 @@ export interface Project {
   category: ProjectCategory;
   liveUrl?: string;
   githubUrl?: string;
+  i18nKey: string;
 }
 
 export const projects: Project[] = [
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://saboresdelmonte.shop/",
     githubUrl: "https://github.com/DavidSolorza/Sabores-Del-Monte.git",
+    i18nKey: "sabores",
   },
   {
     title: "STREAMING PLUS",
@@ -25,6 +27,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://streamingpluss.shop/",
     githubUrl: "https://github.com/DavidSolorza/STREAMINGPLUS.git",
+    i18nKey: "streaming",
   },
   {
     title: "Automatizador de Correos",
@@ -33,6 +36,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://automatizador-de-correos.vercel.app",
     githubUrl: "https://github.com/DavidSolorza/AutomatizadorDeCorreos.git",
+    i18nKey: "automatizador",
   },
   {
     title: "PathForge AI",
@@ -41,6 +45,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://path-forge-nu.vercel.app",
     githubUrl: "https://github.com/DavidSolorza/PathForge.git",
+    i18nKey: "pathforge",
   },
   {
     title: "Electro+ Lab",
@@ -49,6 +54,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://circuit-nine.vercel.app",
     githubUrl: "https://github.com/DavidSolorza/circuit.git",
+    i18nKey: "electro",
   },
   {
     title: "Quantum Lab",
@@ -57,6 +63,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://quantum-lab-three.vercel.app",
     githubUrl: "https://github.com/DavidSolorza/Quantum-Lab.git",
+    i18nKey: "quantum",
   },
   {
     title: "Colombia",
@@ -65,6 +72,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://colombia-three.vercel.app",
     githubUrl: "https://github.com/DavidSolorza/Colombia.git",
+    i18nKey: "colombia",
   },
   {
     title: "Portfolio Website",
@@ -73,6 +81,7 @@ export const projects: Project[] = [
     category: "web",
     liveUrl: "https://davidsolorza.dev",
     githubUrl: "https://github.com/DavidSolorza/Solorza.git",
+    i18nKey: "portfolio",
   },
   {
     title: "Battery Guardian",
@@ -80,5 +89,6 @@ export const projects: Project[] = [
     technologies: ["dart"],
     category: "mobile",
     githubUrl: "https://github.com/DavidSolorza/BatteryGuardian.git",
+    i18nKey: "battery",
   },
 ];

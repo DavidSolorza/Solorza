@@ -9,9 +9,10 @@ export const translations = {
     },
     hero: {
       available: "Disponible para trabajar",
-      tagline: "Desarrollador frontend con experiencia en apps web, automatización y proyectos full-stack. Me apasiona convertir ideas en productos digitales.",
+      tagline: "Ingeniero de Sistemas y desarrollador frontend con experiencia en apps web, automatización y proyectos full-stack. Me apasiona convertir ideas en productos digitales.",
       experience: "Un año y medio de experiencia",
       description: "apasionado por el desarrollo, la tecnología. Me encanta dar vida a proyectos digitales.",
+      profileTitle: "Ingeniero de Sistemas & FrontEnd Developer",
       aboutMe: "Sobre Mí",
       viewProjects: "Ver Proyectos",
       contactMe: "Contáctame",
@@ -61,6 +62,17 @@ export const translations = {
       code: "Código",
       featured: "Destacado",
     },
+    projectsItems: {
+      sabores: "Tienda online de mermeladas artesanales con catálogo dinámico y flujo de compra simple.",
+      streaming: "Plataforma de venta de películas y series con interfaz responsiva y experiencia fluida.",
+      automatizador: "Clasificación automática de correos con Gmail API, reglas personalizables y dashboard analítico.",
+      pathforge: "Rutas de aprendizaje personalizadas con IA. React + Express + MongoDB.",
+      electro: "Simulador de circuitos eléctricos con editor visual, multímetro y osciloscopio.",
+      quantum: "Laboratorio interactivo de computación cuántica con simulaciones 3D en Three.js.",
+      colombia: "Plataforma informativa sobre cultura, turismo y datos relevantes del país.",
+      portfolio: "Sitio personal con diseño moderno, animaciones suaves y optimización SEO.",
+      battery: "App Android para monitoreo de batería con alertas, historial SQLite y gráficas."
+    },
     contact: {
       title: "Contáctame",
       titleGradient: "Ahora",
@@ -96,6 +108,13 @@ export const translations = {
       title: "Más allá del",
       titleGradient: "Código",
     },
+    hobbiesItems: {
+      "me gusta hacer deporte": "Me gusta hacer deporte",
+      "me gusta leer": "Me gusta leer",
+      "me encanta el cafe": "Me encanta el café",
+      "me gusta la música": "Me gusta la música",
+      "me facinan los videojuegos": "Me fascinan los videojuegos"
+    },
     github: {
       text: "¿Te gusta el diseño de este portafolio?",
       description: "Explora mi código, contribuciones y proyectos open source en GitHub.",
@@ -111,9 +130,10 @@ export const translations = {
     },
     hero: {
       available: "Available for work",
-      tagline: "Frontend developer experienced in web apps, automation and full-stack projects. I love turning ideas into digital products.",
+      tagline: "Systems Engineer and frontend developer experienced in web apps, automation and full-stack projects. I love turning ideas into digital products.",
       experience: "One and a half years of experience",
       description: "passionate about development, technology. I love bringing digital projects to life.",
+      profileTitle: "Systems Engineer & FrontEnd Developer",
       aboutMe: "About Me",
       viewProjects: "View Projects",
       contactMe: "Contact Me",
@@ -163,6 +183,17 @@ export const translations = {
       code: "Code",
       featured: "Featured",
     },
+    projectsItems: {
+      sabores: "Artisanal jams online store with a dynamic catalog and simple purchase flow.",
+      streaming: "Movies and series sales platform with responsive interface and smooth experience.",
+      automatizador: "Automatic email classification with Gmail API, customizable rules and analytical dashboard.",
+      pathforge: "Personalized learning paths with AI. React + Express + MongoDB.",
+      electro: "Electrical circuit simulator with visual editor, multimeter and oscilloscope.",
+      quantum: "Interactive quantum computing laboratory with 3D simulations in Three.js.",
+      colombia: "Informative platform about culture, tourism and relevant data of the country.",
+      portfolio: "Personal site with modern design, smooth animations and SEO optimization.",
+      battery: "Android app for battery monitoring with alerts, SQLite history and graphs."
+    },
     contact: {
       title: "Contact",
       titleGradient: "Me",
@@ -197,6 +228,13 @@ export const translations = {
     hobbies: {
       title: "Beyond the",
       titleGradient: "Code",
+    },
+    hobbiesItems: {
+      "me gusta hacer deporte": "I like sports",
+      "me gusta leer": "I like reading",
+      "me encanta el cafe": "I love coffee",
+      "me gusta la música": "I like music",
+      "me facinan los videojuegos": "I'm fascinated by video games"
     },
     github: {
       text: "Do you like this portfolio's design?",

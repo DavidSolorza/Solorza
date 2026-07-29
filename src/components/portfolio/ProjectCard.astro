@@ -1,4 +1,4 @@
-﻿---
+---
 import { t } from "../../utils/i18n";
 
 interface Props {
@@ -16,6 +16,7 @@ const {
   technologies,
   liveUrl,
   githubUrl,
+  i18nKey,
   category = "web",
 } = Astro.props;
 
@@ -39,12 +40,13 @@ const techNames: Record<string, string> = {
 ---
 
 <article
-  class="project-card bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 h-full flex flex-col"
+  class="project-card cursor-pointer bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 transition-all hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 h-full flex flex-col"
   data-category={category}
+  onclick={githubUrl ? `window.open('${githubUrl}', '_blank')` : liveUrl ? `window.open('${liveUrl}', '_blank')` : undefined}
 >
   <h3 class="text-lg font-semibold text-gray-900 dark:text-white leading-snug mb-3">{title}</h3>
 
-  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 flex-1">{description}</p>
+  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 flex-1" data-i18n={`projectsItems.${i18nKey}`}>{t(`projectsItems.${i18nKey}`, "es")}</p>
 
   <div class="flex flex-wrap gap-1.5 mb-4">
     {
@@ -64,6 +66,7 @@ const techNames: Record<string, string> = {
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+          onclick="event.stopPropagation()"
         >
           <span data-i18n="projects.viewProject">{t("projects.viewProject", "es")}</span>
           <span aria-hidden="true">&rarr;</span>
@@ -77,6 +80,7 @@ const techNames: Record<string, string> = {
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          onclick="event.stopPropagation()"
         >
           <span data-i18n="projects.code">{t("projects.code", "es")}</span>
           <span aria-hidden="true">&rarr;</span>

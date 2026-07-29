@@ -28,14 +28,16 @@ const twitterimage = `${siteUrl}${ogimage.url}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: wss:;">
     <title>{pageTitle}</title>
 
     <link rel="icon" href="/images/terminal.png" />
 
     <meta name="description" content={description} />
+    <meta name="keywords" content="Ingeniero de Sistemas, Ingeniería de Sistemas, Desarrollador Frontend, Full-Stack, Sistemas, Ingenierías, Programador, Developer, Colombia" />
     <meta name="author" content={SEO.author} />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={`${Astro.site}${Astro.url.pathname}`} />
+    <link rel="canonical" href={`${Astro.site || siteUrl}${Astro.url.pathname}`} />
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -56,15 +58,46 @@ const twitterimage = `${siteUrl}${ogimage.url}`;
     <meta name="theme-color" content="#0a0a0a" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "David Solorza",
+      "url": SEO.url,
+      "image": twitterimage,
+      "jobTitle": "Ingeniero de Sistemas & Desarrollador Frontend",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://github.com/DavidSolorza",
+        "https://www.linkedin.com/in/david-josue-solorza-viera"
+      ]
+    })} />
+    
+    <style>
+      /* Hide the google translate banner if possible to keep it clean */
+      .skiptranslate iframe { display: none !important; }
+      body { top: 0px !important; }
+    </style>
   </head>
-  <body class="overflow-x-hidden antialiased">
-    <div id="scroll-progress" aria-hidden="true"></div>
-    <div class="blur-circle"></div>
-    <div
-      style="background:linear-gradient(45deg, rgba(148, 163, 184, 0) 10.79%, rgba(148, 163, 184, 0.02) 40.92%, rgba(148, 163, 184, 0) 90.35%)"
-      class="fixed top-0 left-0 w-full h-full pointer-events-none -z-1"
-    >
+  <body class="overflow-x-hidden antialiased relative">
+    <!-- Orbes de luz de fondo para resaltar el Glassmorphism -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+      <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent-500/20 dark:bg-accent-600/20 blur-[100px]"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-green-500/10 dark:bg-green-600/10 blur-[100px]"></div>
+      <div class="absolute top-[40%] left-[60%] w-[30%] h-[30%] rounded-full bg-blue-500/10 dark:bg-blue-600/10 blur-[100px]"></div>
     </div>
+    
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'es', autoDisplay: true}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="scroll-progress" aria-hidden="true"></div>
 
     <Header />
 
@@ -83,6 +116,16 @@ const twitterimage = `${siteUrl}${ogimage.url}`;
     <script>
       import "../scripts/menu.js";
       import "../scripts/i18n.js";
+      
+      // Basic Anti-scraping & Developer tools blocking
+      document.addEventListener('contextmenu', event => event.preventDefault());
+      document.onkeydown = function(e) {
+        if(e.keyCode == 123) { return false; } // F12
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+      }
     </script>
   </body>
 </html>
