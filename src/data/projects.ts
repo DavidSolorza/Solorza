@@ -104,7 +104,7 @@ export const projects: Project[] = [
   {
     title: "Battery Guardian",
     description: "App Android para monitoreo de batería con alertas, historial SQLite y gráficas.",
-    technologies: ["dart"],
+    technologies: ["Flutter", "Dart", "SQLite", "Android SDK"],
     category: "mobile",
     githubUrl: "https://github.com/DavidSolorza/BatteryGuardian.git",
     i18nKey: "battery",

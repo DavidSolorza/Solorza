@@ -1,20 +1,33 @@
 ---
 import { Icon } from "astro-icon/components";
 const { project } = Astro.props;
+
+// Function to map technology names to generic Lucide icons
+const getIconForTech = (tech: string) => {
+  const t = tech.toLowerCase();
+  if (t.includes('flutter')) return 'lucide:smartphone';
+  if (t.includes('dart') || t.includes('javascript') || t.includes('typescript')) return 'lucide:code-2';
+  if (t.includes('sqlite') || t.includes('database')) return 'lucide:database';
+  if (t.includes('android')) return 'lucide:bot'; // Android robot approximation
+  if (t.includes('astro') || t.includes('react')) return 'lucide:atom';
+  if (t.includes('tailwind')) return 'lucide:palette';
+  return 'lucide:cpu';
+}
 ---
 
 <div class="border-t border-gray-200 dark:border-gray-800 pt-16">
   <div class="text-center space-y-8">
-    <h3 class="text-sm font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500" data-i18n="projects.builtWith">
-      Construido con
+    <h3 class="text-sm font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500">
+      Tecnologías Utilizadas
     </h3>
     
-    <div class="flex flex-wrap justify-center gap-4">
+    <div class="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
       {project.technologies.map((tech: string) => (
-        <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">
-          <!-- We can use the simple tech mapping or generic icons -->
-          {/* For simplicity we just show the name since mapping depends on exact names */}
-          <span class="font-medium capitalize">{tech}</span>
+        <div class="flex items-center gap-3 px-5 py-3 bg-white dark:bg-[#0a0a0a] rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 shadow-sm hover:border-blue-500/50 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-all duration-300 group hover:-translate-y-1">
+          <div class="p-2 bg-gray-50 dark:bg-gray-900 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
+            <Icon name={getIconForTech(tech)} class="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+          </div>
+          <span class="font-medium tracking-wide">{tech}</span>
         </div>
       ))}
     </div>
