@@ -12,7 +12,7 @@ const currentUrl = `${Astro.site}${Astro.url.pathname}`;
 const tweetText = encodeURIComponent(
   `"${frontmatter.title}" - by ${frontmatter.author} | EFEELE`
 );
-import Heading from "../components/ui/Heading.astro";
+import Heading from "../core/ui/Heading.astro";
 ---
 
 <script>

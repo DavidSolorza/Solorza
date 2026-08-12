@@ -1,0 +1,192 @@
+---
+import Layout from "../../core/layout/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const title = "AgroMap - Sibundoy App";
+---
+
+<Layout pageTitle={`${title} - David Solorza`}>
+  <!-- Custom Page Background - Dark Green/Earthy tech theme -->
+  <div class="fixed inset-0 -z-50 bg-[#020906] pointer-events-none">
+    <!-- Ambient glowing orbs -->
+    <div class="absolute top-0 left-1/3 w-[600px] h-[600px] bg-emerald-900/20 rounded-full blur-[150px] mix-blend-screen"></div>
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-900/15 rounded-full blur-[120px] mix-blend-screen"></div>
+  </div>
+
+  <div class="pt-32 pb-24 min-h-screen relative z-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Back button -->
+      <a href="/#projects" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-16 group">
+        <div class="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+          <Icon name="lucide:arrow-left" class="w-5 h-5" />
+        </div>
+        <span class="font-semibold tracking-wide">Volver a Proyectos</span>
+      </a>
+
+      <!-- Hero Section -->
+      <div class="flex flex-col items-center text-center space-y-8 mb-20 animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-bold uppercase tracking-widest mb-4 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+          <Icon name="lucide:map" class="w-4 h-4" />
+          Sistema Geográfico v1.0.0
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white leading-[1.1]">
+          Plataforma de Monitoreo
+          <span class="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-green-300 drop-shadow-lg">
+            AgroMap Sibundoy
+          </span>
+        </h1>
+        
+        <p class="max-w-3xl text-xl md:text-2xl text-gray-300 font-light leading-relaxed mt-6">
+          Un sistema web avanzado diseñado para la gestión integral de productoras agrícolas. Resuelve la dispersión de datos centralizando fichas demográficas y mapeo de huertas.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-12">
+           <a href="https://github.com/DavidSolorza/siubundoyApp.git" target="_blank" class="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 rounded-2xl font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-3 text-lg">
+             <Icon name="lucide:github" class="w-6 h-6" />
+             Ver Repositorio
+           </a>
+        </div>
+      </div>
+
+      <!-- Overview / Goal Box -->
+      <div class="max-w-5xl mx-auto mb-32 animate-fade-in-up animate-delay-100">
+        <div class="relative p-10 md:p-12 bg-[#061810]/60 backdrop-blur-xl rounded-[2.5rem] border border-emerald-900/30 shadow-2xl overflow-hidden group hover:border-emerald-500/40 transition-all duration-500">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] -mr-20 -mt-20"></div>
+          
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-3xl font-extrabold text-white mb-6 flex items-center gap-3">
+                <Icon name="lucide:target" class="w-8 h-8 text-emerald-400" />
+                El Reto Principal
+              </h2>
+              <p class="text-lg text-gray-300 leading-relaxed font-light">
+                AgroMap fue concebido para solucionar el problema histórico de la <strong class="text-white">dispersión de datos</strong> en el municipio de Sibundoy. Antes, el estado de las huertas y las visitas técnicas se perdían o se manejaban de forma ineficiente.
+              </p>
+              <p class="text-lg text-gray-300 leading-relaxed font-light mt-4">
+                El sistema centraliza toda esta información, ofreciendo geolocalización precisa de parcelas, calendarios dinámicos y paneles analíticos inteligentes.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+               <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
+                 <Icon name="lucide:map-pin" class="w-8 h-8 text-teal-400" />
+                 <span class="text-white font-bold">Mapas Interactivos</span>
+               </div>
+               <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
+                 <Icon name="lucide:calendar-clock" class="w-8 h-8 text-emerald-400" />
+                 <span class="text-white font-bold">Visitas Técnicas</span>
+               </div>
+               <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
+                 <Icon name="lucide:file-spreadsheet" class="w-8 h-8 text-green-400" />
+                 <span class="text-white font-bold">Importación Masiva</span>
+               </div>
+               <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
+                 <Icon name="lucide:bar-chart-3" class="w-8 h-8 text-cyan-400" />
+                 <span class="text-white font-bold">Alertas Inteligentes</span>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture Section (Text-based cards) -->
+      <div class="mb-32 relative z-0">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 text-center">Arquitectura del Sistema</h2>
+        <p class="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+          Diseño modular estructurado en "Vertical Slicing" (por dominios). Cada característica encapsula sus propias vistas, contextos y lógica, promoviendo el desacoplamiento total.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Frontend -->
+          <div class="p-8 rounded-[2rem] bg-gradient-to-b from-gray-900 to-[#020906] border border-gray-800 shadow-2xl hover:border-emerald-500/30 transition-all hover:-translate-y-2 group">
+            <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+              <Icon name="lucide:layout" class="w-7 h-7 text-white" />
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Frontend Moderno</h3>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Construido con <strong class="text-gray-200">React 19.2.6</strong> y <strong class="text-gray-200">Tailwind CSS 4.3.0</strong>. La interfaz es 100% responsiva para facilitar su uso por técnicos en campo desde cualquier dispositivo móvil.
+            </p>
+          </div>
+          
+          <!-- Backend -->
+          <div class="p-8 rounded-[2rem] bg-gradient-to-b from-gray-900 to-[#020906] border border-gray-800 shadow-2xl hover:border-green-500/30 transition-all hover:-translate-y-2 group">
+            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+              <Icon name="lucide:database" class="w-7 h-7 text-white" />
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Backend BaaS</h3>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Propulsado por <strong class="text-gray-200">Supabase (PostgreSQL 15)</strong>. Utiliza funciones PL/pgSQL, enums personalizados y triggers para mantener la coherencia y cálculo estadístico en tiempo real.
+            </p>
+          </div>
+          
+          <!-- Integrations -->
+          <div class="p-8 rounded-[2rem] bg-gradient-to-b from-gray-900 to-[#020906] border border-gray-800 shadow-2xl hover:border-teal-500/30 transition-all hover:-translate-y-2 group">
+            <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+              <Icon name="lucide:plug" class="w-7 h-7 text-white" />
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Conexión Directa</h3>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Conexiones directas a la API REST y Realtime evitando SDKs pesados. Incluye exportación en PDF/Excel mediante <strong class="text-gray-200">jsPDF</strong> y <strong class="text-gray-200">SheetJS</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Development Workflow Timeline -->
+      <div class="mb-20 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-white mb-12 text-center border-b border-gray-800 pb-6">
+          Flujo de Trabajo (Etapas de Desarrollo)
+        </h2>
+        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-800 before:to-transparent">
+          
+          <!-- Step 1 -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#020906] bg-emerald-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              1
+            </div>
+            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-emerald-500/50 transition-colors">
+              <h3 class="font-bold text-white text-lg mb-2">Análisis y Diseño</h3>
+              <p class="text-gray-400 text-sm">Definición de casos de uso principales, diseño del modelo Entidad-Relación y creación de prototipos de flujos interactivos para el mapa y las huertas.</p>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#020906] bg-teal-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              2
+            </div>
+            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-teal-500/50 transition-colors">
+              <h3 class="font-bold text-white text-lg mb-2">Arquitectura Base</h3>
+              <p class="text-gray-400 text-sm">Configuración de variables de entorno, inicialización bajo estructura de features/ y setup de mocks para entornos locales sin credenciales.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#020906] bg-cyan-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              3
+            </div>
+            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-cyan-500/50 transition-colors">
+              <h3 class="font-bold text-white text-lg mb-2">Desarrollo Core</h3>
+              <p class="text-gray-400 text-sm">Implementación de UI base, integración de mapas con Leaflet, motor de importación masiva y contextos optimizados con suscripciones Realtime.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#020906] bg-green-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              4
+            </div>
+            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-green-500/50 transition-colors">
+              <h3 class="font-bold text-white text-lg mb-2">QA y Despliegue Final</h3>
+              <p class="text-gray-400 text-sm">Testing de flujos de importación, validación responsiva y despliegue del esquema de DB en Supabase junto a Vercel CI/CD.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

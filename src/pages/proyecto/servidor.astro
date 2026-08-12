@@ -1,0 +1,178 @@
+---
+import Layout from "../../core/layout/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const title = "Servidor API";
+---
+
+<Layout pageTitle={`${title} - David Solorza`}>
+  <!-- Custom Page Background - Fixed to be clearly legible in both themes -->
+  <div class="fixed inset-0 -z-50 bg-[#020617] pointer-events-none">
+    <!-- Ambient glowing orbs -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] mix-blend-screen"></div>
+    <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[150px] mix-blend-screen"></div>
+  </div>
+
+  <div class="pt-32 pb-24 min-h-screen relative z-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Back button -->
+      <a href="/#projects" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-16 group">
+        <div class="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+          <Icon name="lucide:arrow-left" class="w-5 h-5" />
+        </div>
+        <span class="font-semibold tracking-wide">Volver a Proyectos</span>
+      </a>
+
+      <!-- Hero Section -->
+      <div class="flex flex-col items-center text-center space-y-8 mb-24">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold uppercase tracking-widest mb-4 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+          <Icon name="lucide:shield-check" class="w-4 h-4" />
+          Acceso Privado Protegido
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white leading-[1.1]">
+          Dashboard Administrativo
+          <span class="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300 drop-shadow-lg">
+            Servidor API
+          </span>
+        </h1>
+        
+        <p class="max-w-3xl text-xl md:text-2xl text-gray-300 font-light leading-relaxed mt-6">
+          Un panel de control de grado empresarial diseñado para monitorear en tiempo real métricas críticas de latencia, tráfico cifrado y salud del sistema.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-12">
+           <a href="https://github.com/DavidSolorza/servidor-.git" target="_blank" class="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 rounded-2xl font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-3 text-lg">
+             <Icon name="lucide:github" class="w-6 h-6" />
+             Revisar Código Fuente
+           </a>
+        </div>
+      </div>
+
+      <!-- Motivation / Purpose -->
+      <div class="max-w-4xl mx-auto mb-20 animate-fade-in-up">
+        <div class="relative p-8 md:p-10 bg-[#0f172a]/80 backdrop-blur-md rounded-3xl border border-gray-800 shadow-xl overflow-hidden group hover:border-blue-500/50 transition-colors">
+          <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-blue-500 to-cyan-400"></div>
+          <Icon name="lucide:quote" class="absolute top-6 right-6 w-12 h-12 text-gray-800 opacity-50 group-hover:text-blue-900/40 transition-colors" />
+          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Icon name="lucide:lightbulb" class="w-5 h-5 text-yellow-400" />
+            La Motivación del Proyecto
+          </h3>
+          <p class="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
+            Este proyecto nació de la necesidad de aprender a fondo cómo se estructuran y administran las infraestructuras web reales. Al construir mi propio servidor, logré obtener <strong class="text-white font-semibold">libertad técnica absoluta</strong> para experimentar, escalar y desplegar servicios a medida, evitando por completo las restricciones y los altos costos recurrentes de las plataformas comerciales tradicionales.
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Browser Mockup (Fixed overlapping with mt/mb and strict relative positioning) -->
+      <div class="relative w-full max-w-6xl mx-auto rounded-2xl border border-gray-800 bg-[#0f172a] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden my-24 z-10">
+        <!-- Browser Header -->
+        <div class="h-12 bg-[#1e293b] border-b border-gray-800 flex items-center px-4 w-full justify-between">
+          <div class="flex gap-2 w-20">
+            <div class="w-3.5 h-3.5 rounded-full bg-[#ff5f56] border border-[#e0443e]"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] border border-[#dea123]"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-[#27c93f] border border-[#1aab29]"></div>
+          </div>
+          <div class="flex-1 flex justify-center">
+            <div class="bg-[#0f172a] text-gray-400 text-sm px-6 py-1.5 rounded-lg flex items-center gap-2 border border-gray-800 shadow-inner">
+              <Icon name="lucide:lock" class="w-3.5 h-3.5 text-green-400" />
+              <span class="font-medium tracking-wide">servidor-five-lilac.vercel.app</span>
+            </div>
+          </div>
+          <div class="w-20"></div> <!-- Spacer to keep centered -->
+        </div>
+        <!-- Browser Content -->
+        <div class="bg-gray-900 w-full">
+          <img src="/images/servidor/Captura de pantalla 2026-08-12 152028.png" alt="Dashboard Principal" class="w-full h-auto block" />
+        </div>
+      </div>
+
+      <!-- Features Grid (With llamative gradients and fixed spacing) -->
+      <div class="relative z-0 mt-32 mb-40">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="p-10 rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 shadow-2xl hover:shadow-blue-500/10 transition-all hover:-translate-y-2 group">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform">
+              <Icon name="lucide:activity" class="w-8 h-8 text-white" />
+            </div>
+            <h3 class="text-3xl font-extrabold text-white mb-4">Métricas en Vivo</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              Visualización instantánea de peticiones, latencia y errores. Toda la telemetría fluye en tiempo real para una toma de decisiones inmediata y precisa.
+            </p>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="p-10 rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 shadow-2xl hover:shadow-purple-500/10 transition-all hover:-translate-y-2 group">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform">
+              <Icon name="lucide:cpu" class="w-8 h-8 text-white" />
+            </div>
+            <h3 class="text-3xl font-extrabold text-white mb-4">Recursos Vitales</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              Monitor estricto de estado de CPU, Memoria RAM y consumo de disco. Control total sobre el rendimiento del proceso del servidor backend.
+            </p>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="p-10 rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 shadow-2xl hover:shadow-teal-500/10 transition-all hover:-translate-y-2 group">
+            <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-teal-500/25 group-hover:scale-110 transition-transform">
+              <Icon name="lucide:shield-check" class="w-8 h-8 text-white" />
+            </div>
+            <h3 class="text-3xl font-extrabold text-white mb-4">Túneles Seguros</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              Integración nativa con Cloudflare Tunnels para exponer el servicio local a la web de forma encriptada, bloqueando accesos no autorizados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Screenshots Gallery -->
+      <div class="mb-40 relative z-0">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center">Vistas Detalladas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="rounded-2xl border border-gray-800 bg-[#0f172a] overflow-hidden shadow-2xl group hover:border-gray-600 transition-colors">
+             <div class="h-10 bg-[#1e293b] border-b border-gray-800 flex items-center px-4 gap-2">
+                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+             </div>
+             <div class="overflow-hidden bg-gray-900">
+               <img src="/images/servidor/Captura de pantalla 2026-08-12 152043.png" class="w-full h-auto group-hover:scale-105 transition-transform duration-700 block" alt="Vista Servidor - Logs"/>
+             </div>
+          </div>
+          <div class="rounded-2xl border border-gray-800 bg-[#0f172a] overflow-hidden shadow-2xl group hover:border-gray-600 transition-colors">
+             <div class="h-10 bg-[#1e293b] border-b border-gray-800 flex items-center px-4 gap-2">
+                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+             </div>
+             <div class="overflow-hidden bg-gray-900">
+               <img src="/images/servidor/Captura de pantalla 2026-08-12 152052.png" class="w-full h-auto group-hover:scale-105 transition-transform duration-700 block" alt="Vista Servidor - Configuración"/>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="border-t border-gray-800 pt-20 mb-20">
+        <h3 class="text-base font-black tracking-[0.2em] uppercase text-center text-gray-500 mb-12">
+          Arquitectura del Sistema
+        </h3>
+        <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+          {[
+            { name: "Python 3", icon: "lucide:file-code-2", color: "text-yellow-400" },
+            { name: "Flask", icon: "lucide:server", color: "text-white" },
+            { name: "Cloudflare", icon: "lucide:cloud", color: "text-orange-400" },
+            { name: "Seguridad", icon: "lucide:lock", color: "text-green-400" },
+          ].map((tech) => (
+            <div class="flex items-center gap-4 px-8 py-5 bg-gray-900 rounded-2xl border border-gray-800 shadow-xl hover:-translate-y-1 hover:border-gray-700 transition-all">
+              <Icon name={tech.icon} class={`w-7 h-7 ${tech.color}`} />
+              <span class="text-xl font-bold text-gray-200 tracking-wide">{tech.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

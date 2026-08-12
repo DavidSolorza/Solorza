@@ -1,5 +1,5 @@
 ---
-layout: /src/layouts/MarkdownAbout.astro
+layout: /src/core/layout/MarkdownAbout.astro
 title: "David Solorza | Ingeniero de Sistemas & Frontend Web Developer | FreeAgents"
 description: "Ingeniero de Sistemas y desarrollador frontend con sólidos conocimientos en Angular, React y frameworks modernos. Estudiante de ingeniería en sistemas apasionado por soluciones web completas e integración de APIs."
 author: "David Josue Solorza Viera"

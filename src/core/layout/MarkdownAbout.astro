@@ -1,10 +1,10 @@
 ---
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
-import Heading from "../components/ui/Heading.astro";
-import Contact from "../components/portfolio/Contact.astro";
-import Tools from "../components/portfolio/Tools.astro";
-import { t } from "../utils/i18n";
+import Heading from "../ui/Heading.astro";
+import Contact from "../../features/contact/Contact.astro";
+import Tools from "../../features/profile/Tools.astro";
+import { t } from "../../utils/i18n";
 
 const { frontmatter } = Astro.props;
 const lang = "es"; // Default, updated client-side

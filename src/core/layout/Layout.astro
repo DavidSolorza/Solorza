@@ -1,7 +1,7 @@
 ---
-import "../styles/global.css";
-import Header from "../components/layout/Header.astro";
-import Footer from "../components/layout/Footer.astro";
+import "../../styles/global.css";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 
 const {
   pageTitle = "David Solorza",
@@ -115,8 +115,8 @@ const twitterimage = `${siteUrl}${ogimage.url}`;
     </button>
 
     <script>
-      import "../scripts/menu.js";
-      import "../scripts/i18n.js";
+      import "../../scripts/menu.js";
+      import "../../scripts/i18n.js";
       
       // Basic Anti-scraping & Developer tools blocking
       document.addEventListener('contextmenu', event => event.preventDefault());

@@ -21,8 +21,13 @@ const {
   category = "web",
 } = Astro.props;
 
-const destinationUrl = category === "mobile" ? `/app/${i18nKey}` : (githubUrl || liveUrl);
-const isExternal = category !== "mobile";
+const destinationUrl = i18nKey === 'agromap' 
+  ? `/proyecto/agromap`
+  : (i18nKey === 'servidor' 
+      ? `/proyecto/servidor` 
+      : (category === "mobile" ? `/app/${i18nKey}` : (githubUrl || liveUrl)));
+
+const isExternal = category !== "mobile" && i18nKey !== "servidor" && i18nKey !== "agromap";
 
 const techNames: Record<string, string> = {
   html: "HTML5",

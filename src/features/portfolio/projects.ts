@@ -30,6 +30,14 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Servidor API",
+    description: "Servidor backend robusto diseñado para la gestión eficiente de datos, autenticación segura y procesamiento de peticiones en tiempo real.",
+    technologies: ["node", "express", "mongo", "typescript"],
+    category: "web",
+    githubUrl: "https://github.com/DavidSolorza/servidor-.git",
+    i18nKey: "servidor",
+  },
+  {
     title: "Sabores del Monte",
     description: "Tienda online de mermeladas artesanales con catálogo dinámico y flujo de compra simple.",
     technologies: ["node", "mongo", "tailwind", "javascript", "html"],
@@ -133,5 +141,21 @@ export const projects: Project[] = [
         "/images/bateryGuardianImage/tablet_03_analytics.png"
       ]
     }
+  },
+  {
+    title: "AgroMap Móvil",
+    description: "Sistema geográfico para gestión y monitoreo de productoras agrícolas en Sibundoy.",
+    technologies: ["React", "Supabase", "PostgreSQL", "Tailwind"],
+    category: "mobile",
+    githubUrl: "https://github.com/DavidSolorza/siubundoyApp.git",
+    i18nKey: "agromap",
+  },
+  {
+    title: "AgroMap Web",
+    description: "Aplicación web interactiva desarrollada con React y Vite.",
+    technologies: ["React", "Vite", "JavaScript", "Tailwind"],
+    category: "web",
+    githubUrl: "https://github.com/DavidSolorza/Sibundoy.git",
+    i18nKey: "sibundoy_web",
   },
 ];

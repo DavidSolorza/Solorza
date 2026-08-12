@@ -85,7 +85,10 @@ export const translations = {
       batteryFeature2Title: "Historial Local",
       batteryFeature2Desc: "Almacenamiento seguro de ciclos de carga usando SQLite directamente en tu dispositivo.",
       batteryFeature3Title: "Análisis Gráfico",
-      batteryFeature3Desc: "Visualiza el desgaste y rendimiento de tu batería a lo largo del tiempo con gráficos detallados."
+      batteryFeature3Desc: "Visualiza el desgaste y rendimiento de tu batería a lo largo del tiempo con gráficos detallados.",
+      agromap: "Sistema web geográfico interactivo para la gestión y monitoreo de productoras agrícolas en Sibundoy.",
+      sibundoy_web: "Aplicación web interactiva sobre Sibundoy desarrollada con React y Vite.",
+      servidor: "Servidor local y escalable desarrollado para gestionar APIs independientes."
     },
     contact: {
       title: "Contáctame",
@@ -220,7 +223,10 @@ export const translations = {
       batteryFeature2Title: "Local History",
       batteryFeature2Desc: "Secure storage of charge cycles using SQLite directly on your device.",
       batteryFeature3Title: "Graphical Analysis",
-      batteryFeature3Desc: "Visualize battery wear and performance over time with detailed charts."
+      batteryFeature3Desc: "Visualize the wear and performance of your battery over time with detailed charts.",
+      agromap: "Interactive geographic web system for managing and monitoring agricultural producers in Sibundoy.",
+      sibundoy_web: "Interactive web application about Sibundoy built with React and Vite.",
+      servidor: "Local and scalable server developed to manage independent APIs."
     },
     contact: {
       title: "Contact",

@@ -1,10 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { projects } from "../../data/projects";
-import MobileHero from "../../components/portfolio/mobile/MobileHero.astro";
-import MobileFeatures from "../../components/portfolio/mobile/MobileFeatures.astro";
-import MobileGallery from "../../components/portfolio/mobile/MobileGallery.astro";
-import MobileTechStack from "../../components/portfolio/mobile/MobileTechStack.astro";
+import Layout from "../../core/layout/Layout.astro";
+import { projects } from "../../features/portfolio/projects";
+import MobileHero from "../../features/portfolio/mobile/MobileHero.astro";
+import MobileFeatures from "../../features/portfolio/mobile/MobileFeatures.astro";
+import MobileGallery from "../../features/portfolio/mobile/MobileGallery.astro";
+import MobileTechStack from "../../features/portfolio/mobile/MobileTechStack.astro";
 
 export function getStaticPaths() {
   const mobileProjects = projects.filter((p) => p.category === "mobile" && p.mobileDetails);
