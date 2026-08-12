@@ -14,6 +14,7 @@ export interface MobileProjectDetails {
     descriptionI18n: string;
   }[];
   screenshots: string[];
+  tabletScreenshots?: string[];
 }
 
 export interface Project {
@@ -111,17 +112,25 @@ export const projects: Project[] = [
       hookMessageI18n: "projectsItems.batteryHook",
       version: "1.2.0",
       statusI18n: "projectsItems.freeStatus",
-      themeColor: "from-green-500 to-emerald-600",
+      themeColor: "from-green-400 via-teal-50 to-blue-800",
       androidUrl: "https://github.com/DavidSolorza/BatteryGuardian.git",
+      apkUrl: "/images/bateryGuardianImage/install/app-release.apk",
       features: [
-        { icon: "bell", titleI18n: "projectsItems.batteryFeature1Title", descriptionI18n: "projectsItems.batteryFeature1Desc" },
-        { icon: "database", titleI18n: "projectsItems.batteryFeature2Title", descriptionI18n: "projectsItems.batteryFeature2Desc" },
-        { icon: "bar-chart", titleI18n: "projectsItems.batteryFeature3Title", descriptionI18n: "projectsItems.batteryFeature3Desc" }
+        { icon: "zap", titleI18n: "projectsItems.batteryFeature1Title", descriptionI18n: "projectsItems.batteryFeature1Desc" },
+        { icon: "hard-drive", titleI18n: "projectsItems.batteryFeature2Title", descriptionI18n: "projectsItems.batteryFeature2Desc" },
+        { icon: "activity", titleI18n: "projectsItems.batteryFeature3Title", descriptionI18n: "projectsItems.batteryFeature3Desc" }
       ],
       screenshots: [
-        "/images/mobile-placeholder-1.webp",
-        "/images/mobile-placeholder-2.webp",
-        "/images/mobile-placeholder-3.webp"
+        "/images/bateryGuardianImage/alarm_overlay.png",
+        "/images/bateryGuardianImage/dashboard_dummy.png",
+        "/images/bateryGuardianImage/analytics_dummy.png",
+        "/images/bateryGuardianImage/history_dummy.png",
+        "/images/bateryGuardianImage/notifications_dummy.png"
+      ],
+      tabletScreenshots: [
+        "/images/bateryGuardianImage/tablet_01_dashboard.png",
+        "/images/bateryGuardianImage/tablet_02_history.png",
+        "/images/bateryGuardianImage/tablet_03_analytics.png"
       ]
     }
   },

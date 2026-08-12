@@ -26,15 +26,69 @@ const lang = "es"; // Default to es, client script will update
       <p class="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl font-light" data-i18n={mobileDetails?.hookMessageI18n}>
         {t(mobileDetails?.hookMessageI18n, lang)}
       </p>
+
+      <div class="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
+        <Icon name="lucide:monitor-smartphone" class="w-5 h-5" />
+        <span>Optimizado para teléfonos y tablets Android</span>
+      </div>
     </div>
 
     <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-      {mobileDetails?.androidUrl && (
+      {mobileDetails?.apkUrl ? (
+        <>
+          <button id="open-download-modal" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl">
+            <Icon name="lucide:smartphone" class="w-6 h-6 z-10" />
+            <div class="flex flex-col items-start z-10">
+              <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Descargar APK</span>
+              <span class="text-base leading-none mt-1">Para Android</span>
+            </div>
+            <div class={`absolute inset-0 bg-gradient-to-r ${mobileDetails?.themeColor} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
+          </button>
+          
+          <dialog id="download-modal" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm p-0 rounded-3xl shadow-2xl bg-white dark:bg-gray-900 w-full max-w-md m-auto open:animate-in open:fade-in open:zoom-in-95 border border-gray-200 dark:border-gray-800">
+            <div class="p-8 flex flex-col gap-6">
+              <div class="flex flex-col gap-2 text-center">
+                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Icon name="lucide:download" class="w-8 h-8" />
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Confirmar Descarga</h3>
+                <p class="text-gray-500 dark:text-gray-400">Estás a punto de descargar el instalador APK para <strong>{title}</strong>. ¿Deseas continuar?</p>
+              </div>
+              
+              <div class="flex flex-col gap-3">
+                <a href={mobileDetails.apkUrl} download id="confirm-download" class="w-full text-center py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors">
+                  Sí, Descargar APK
+                </a>
+                <button id="close-download-modal" class="w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium transition-colors">
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </dialog>
+          
+          <script>
+            const modal = document.getElementById('download-modal') as HTMLDialogElement;
+            const openBtn = document.getElementById('open-download-modal');
+            const closeBtn = document.getElementById('close-download-modal');
+            const confirmBtn = document.getElementById('confirm-download');
+            
+            if (openBtn && modal) {
+              openBtn.addEventListener('click', () => modal.showModal());
+            }
+            if (closeBtn && modal) {
+              closeBtn.addEventListener('click', () => modal.close());
+            }
+            if (confirmBtn && modal) {
+              confirmBtn.addEventListener('click', () => modal.close());
+            }
+          </script>
+        </>
+      ) : mobileDetails?.androidUrl && (
         <a href={mobileDetails.androidUrl} target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl">
           <Icon name="lucide:smartphone" class="w-6 h-6 z-10" />
           <div class="flex flex-col items-start z-10">
-            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Descargar APK</span>
-            <span class="text-base leading-none mt-1">Para Android</span>
+            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Ver Proyecto</span>
+            <span class="text-base leading-none mt-1">Android</span>
           </div>
           <div class={`absolute inset-0 bg-gradient-to-r ${mobileDetails?.themeColor} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
         </a>
@@ -52,34 +106,50 @@ const lang = "es"; // Default to es, client script will update
     </div>
   </div>
 
-  <!-- Right Content - Floating Mockups -->
-  <div class="relative w-full h-[600px] flex justify-center items-center perspective-1000">
-    <div class="relative w-[300px] h-[600px] animate-float z-20" style="animation-duration: 6s;">
-      <!-- CSS Phone Mockup -->
-      <div class="absolute inset-0 bg-gray-950 rounded-[3rem] shadow-2xl border-[8px] border-gray-800 overflow-hidden">
-        <!-- Notch -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-800 rounded-b-3xl z-30"></div>
-        <!-- Screen Content -->
-        <div class={`w-full h-full bg-gradient-to-br ${mobileDetails?.themeColor} p-6 flex flex-col`}>
-           <!-- Placeholder inner UI -->
-           <div class="w-full h-32 bg-white/20 rounded-2xl mb-4 backdrop-blur-md"></div>
-           <div class="w-full flex-1 bg-white/10 rounded-2xl backdrop-blur-sm"></div>
-           {mobileDetails?.screenshots && mobileDetails.screenshots[0] && (
-             <img src={mobileDetails.screenshots[0]} alt="App screenshot" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50" />
-           )}
+  <!-- Right Content - Device Mockups -->
+  <div class="relative w-full h-[500px] lg:h-[600px] flex justify-center items-center perspective-1000 mt-12 lg:mt-0">
+    
+    <!-- Tablet (Back Left, Landscape) -->
+    <div class="absolute left-0 lg:-left-12 top-1/2 -translate-y-[60%] lg:-translate-y-1/2 w-[380px] h-[260px] md:w-[560px] md:h-[400px] lg:w-[700px] lg:h-[480px] z-10 animate-float" style="animation-duration: 7s;">
+      
+      <!-- Floor Shadow -->
+      <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 w-[90%] h-16 bg-black/30 dark:bg-black/50 blur-2xl rounded-[100%]"></div>
+
+      <!-- Metallic Bezel -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-600 dark:via-gray-700 dark:to-gray-900 rounded-[1.5rem] lg:rounded-[2rem] shadow-2xl p-[3px] lg:p-[4px]">
+        <!-- Screen -->
+        <div class="absolute inset-[3px] lg:inset-[4px] bg-black rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden border-[4px] lg:border-[8px] border-black flex items-center justify-center">
+          <!-- Camera Dot (Top Center for Landscape) -->
+          <div class="absolute top-[-2px] lg:top-[-4px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 lg:w-2 lg:h-2 bg-gray-800 rounded-full z-30"></div>
+          {mobileDetails?.tabletScreenshots && (
+             <img src={mobileDetails.tabletScreenshots[0]} alt="Tablet screenshot" class="absolute inset-0 w-full h-full object-cover" />
+          )}
         </div>
       </div>
     </div>
     
-    <!-- Secondary background phone -->
-    <div class="absolute right-0 lg:-right-12 w-[280px] h-[560px] animate-float z-10 opacity-60 blur-[2px] transform rotate-12 scale-90" style="animation-duration: 8s; animation-delay: 2s;">
-      <div class="absolute inset-0 bg-gray-950 rounded-[3rem] shadow-2xl border-[8px] border-gray-800 overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-800 rounded-b-3xl z-30"></div>
-        <div class={`w-full h-full bg-gradient-to-tr ${mobileDetails?.themeColor} p-6`}>
-           <div class="w-full h-full bg-black/20 rounded-2xl backdrop-blur-md"></div>
+    <!-- Phone (Front Right, Portrait) -->
+    <div class="absolute right-0 lg:-right-8 top-1/2 -translate-y-[40%] lg:-translate-y-[25%] w-[140px] h-[300px] md:w-[160px] md:h-[340px] lg:w-[220px] lg:h-[460px] z-30 animate-float" style="animation-duration: 6s; animation-delay: 1.5s;">
+      
+      <!-- Floor Shadow -->
+      <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-[80%] h-12 bg-black/40 dark:bg-black/60 blur-xl rounded-[100%]"></div>
+
+      <!-- Metallic Bezel -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-300 via-gray-400 to-gray-500 dark:from-gray-500 dark:via-gray-600 dark:to-gray-800 rounded-[2.5rem] lg:rounded-[3rem] shadow-2xl p-[3px] lg:p-[4px]">
+        <!-- Screen -->
+        <div class="absolute inset-[3px] lg:inset-[4px] bg-black rounded-[2.3rem] lg:rounded-[2.8rem] overflow-hidden border-[4px] lg:border-[8px] border-black">
+          <!-- Dynamic Island -->
+          <div class="absolute top-1 lg:top-2 left-1/2 -translate-x-1/2 w-16 lg:w-24 h-4 lg:h-6 bg-black rounded-full z-30 flex items-center justify-center">
+            <div class="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-gray-800/80 mr-1 lg:mr-2"></div>
+            <div class="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-blue-900/50"></div>
+          </div>
+          {mobileDetails?.screenshots && mobileDetails.screenshots[0] && (
+             <img src={mobileDetails.screenshots[0]} alt="App screenshot" class="absolute inset-0 w-full h-full object-cover" />
+          )}
         </div>
       </div>
     </div>
+    
   </div>
 </div>
 
