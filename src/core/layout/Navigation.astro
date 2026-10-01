@@ -9,10 +9,11 @@ const { items = [] }: { items: (keyof typeof menu)[] } = Astro.props as {
 };
 
 const menu = {
-  home: { name: "Inicio", path: "/#home", i18nKey: "home" },
-  experience: { name: "Experiencia", path: "/#experience", i18nKey: "experience" },
-  projects: { name: "Proyectos", path: "/#projects", i18nKey: "projects" },
-  contact: { name: "Contacto", path: "/#contact", i18nKey: "contact" },
+  home: { name: "Home", path: "/#home", i18nKey: "home" },
+  experience: { name: "Experience", path: "/#experience", i18nKey: "experience" },
+  projects: { name: "Projects", path: "/#projects", i18nKey: "projects" },
+  education: { name: "Education", path: "/#education", i18nKey: "education" },
+  contact: { name: "Contact", path: "/#contact", i18nKey: "contact" },
 };
 
 const baseClasses = {

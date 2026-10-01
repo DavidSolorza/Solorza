@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
   title="Cambiar idioma"
 >
   <Icon name="code" class="size-4" aria-hidden="true" />
-  <span id="current-lang" class="uppercase">ES</span>
+  <span id="current-lang" class="uppercase">EN</span>
 </button>
 
 <script>
@@ -21,7 +21,7 @@ import { Icon } from "astro-icon/components";
 
     const getLang = () => {
       const saved = localStorage.getItem("language");
-      return saved === "es" || saved === "en" ? saved : "es";
+      return saved === "es" || saved === "en" ? saved : "en";
     };
 
     const updateButton = () => {
@@ -31,7 +31,7 @@ import { Icon } from "astro-icon/components";
     };
 
     switcher.addEventListener("click", () => {
-      const newLang = getLang() === "es" ? "en" : "es";
+      const newLang = getLang() === "en" ? "es" : "en";
       localStorage.setItem("language", newLang);
       updateButton();
       window.dispatchEvent(new CustomEvent("languageChanged", { detail: { lang: newLang } }));

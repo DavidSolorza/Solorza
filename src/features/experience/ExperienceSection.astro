@@ -1,0 +1,91 @@
+---
+import { t } from "../../utils/i18n";
+import { GetExperiencesUseCase } from "./application/getExperiences.usecase";
+import { staticExperienceRepository } from "./infrastructure/StaticExperienceRepository";
+
+const lang = "en";
+const getExperiencesUseCase = new GetExperiencesUseCase(staticExperienceRepository);
+const workExperiences = await getExperiencesUseCase.execute(lang);
+---
+
+<section class="scroll-m-20 py-20 px-8 max-md:py-14" id="experience" aria-label="Work Experience and Professional History">
+  <div class="mx-auto max-w-4xl">
+    <div class="text-center mb-14">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3">
+        {lang === "en" ? "Professional Journey" : "Trayectoria Profesional"}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+        <span data-i18n="experience.title">{t("experience.title", lang)}</span>{" "}
+        <span class="text-accent-600 dark:text-accent-400" data-i18n="experience.titleGradient">{t("experience.titleGradient", lang)}</span>
+      </h2>
+      <p
+        class="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto text-base"
+        data-i18n="experience.subtitle"
+      >
+        {t("experience.subtitle", lang)}
+      </p>
+    </div>
+
+    <div class="relative pl-6 sm:pl-10 space-y-12 before:absolute before:left-[11px] sm:before:left-[19px] before:top-2 before:bottom-2 before:w-0.5 before:bg-linear-to-b before:from-accent-500 before:via-gray-300 dark:before:via-gray-700 before:to-transparent">
+      {
+        workExperiences.map((exp, i) => (
+          <div class={`relative reveal ${i > 0 ? `reveal-delay-${i}` : ""}`}>
+            <!-- Indicador en el timeline -->
+            <div class="absolute -left-[30px] sm:-left-[41px] top-1.5 size-5 rounded-full border-4 border-white dark:border-gray-950 bg-accent-600 dark:bg-accent-400 shadow-sm" />
+
+            <div class="p-8 max-md:p-6 rounded-3xl bg-white/70 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 shadow-sm hover:border-accent-400/50 dark:hover:border-accent-500/50 transition-all duration-300 glass-panel">
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap mb-1">
+                    <span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-accent-100 text-accent-800 dark:bg-accent-950/70 dark:text-accent-300">
+                      {exp.badge}
+                    </span>
+                    {exp.isCurrent && (
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300">
+                        <span class="size-1.5 rounded-full bg-green-500 animate-pulse" />
+                        {t("experience.current", lang)}
+                      </span>
+                    )}
+                  </div>
+                  <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                    {exp.role}
+                  </h3>
+                  <p class="text-base font-semibold text-accent-700 dark:text-accent-400 mt-0.5">
+                    {exp.company}
+                  </p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    {exp.location}
+                  </p>
+                </div>
+
+                <div class="text-right max-sm:text-left">
+                  <span class="inline-block text-xs font-mono font-semibold text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700">
+                    {exp.period}
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 leading-relaxed">
+                {exp.desc}
+              </p>
+
+              <div class="mt-5 pt-5 border-t border-gray-100 dark:border-gray-800">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
+                  {lang === "en" ? "Key Responsibilities & Achievements:" : "Responsabilidades y Logros Clave:"}
+                </h4>
+                <ul class="space-y-2">
+                  {exp.tasks.map((task) => (
+                    <li class="flex items-start gap-2.5 text-sm text-gray-700 dark:text-gray-300">
+                      <span class="size-1.5 rounded-full bg-accent-500 mt-2 shrink-0" />
+                      <span>{task}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

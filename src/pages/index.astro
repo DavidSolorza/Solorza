@@ -1,21 +1,32 @@
 ---
 import Layout from "../core/layout/Layout.astro";
 import HeroProfile from "../features/profile/HeroProfile.astro";
-import ExperienceSection from "../features/profile/ExperienceSection.astro";
+import ExperienceSection from "../features/experience/ExperienceSection.astro";
 import ProjectsGrid from "../features/portfolio/ProjectsGrid.astro";
+import EducationSection from "../features/education/EducationSection.astro";
 import Contact from "../features/contact/Contact.astro";
 
-const pageTitle = "David Solorza | Ingeniero de Sistemas & Desarrollador Frontend";
-const description = "Portafolio de David Solorza — Ingeniero de Sistemas y desarrollador frontend especializado en aplicaciones web, automatización y proyectos full-stack. Estudiante de ingeniería enfocado en soluciones tecnológicas.";
+const pageTitle = "David Solorza | Full-Stack & Mobile Developer (Bilingual) | Software Engineer";
+const description = "Official portfolio of David Solorza — Full-Stack & Mobile Developer (Bilingual) and Systems Engineering student at Universidad de Caldas. Specialized in Flutter, React, Node.js, Python, scalable architectures, microservices, and applied AI.";
 const ogimage = {
   url: "/images/imagedefault.webp",
-  alt: "Screenshot of a web portfolio with a modern and dark design. Featuring David Solorza, a Frontend Developer and Systems Engineer with experience in modern web technologies.",
+  alt: "Professional portfolio of David Solorza - Full-Stack & Mobile Developer (Bilingual) experienced in Flutter, React, Node.js, and Python.",
 };
 ---
 
 <Layout pageTitle={pageTitle} description={description} ogimage={ogimage}>
+  <!-- 1. Presentación (Hero, Perfil Profesional, Contacto Rápido y Conocimientos/Aptitudes) -->
   <HeroProfile />
+
+  <!-- 2. Experiencias (Historial Laboral del CV: Wolf Enterprise y Fundación FreeAgents) -->
   <ExperienceSection />
+
+  <!-- 3. Proyectos (Proyectos Destacados del CV y Catálogo de Aplicaciones Web y Mobile) -->
   <ProjectsGrid />
+
+  <!-- 4. Formación (Educación Superior Universidad de Caldas, Certificaciones PUC Chile/SENA e Idiomas) -->
+  <EducationSection />
+
+  <!-- 5. Contacto (Canales Directos y Formulario de Mensajes) -->
   <Contact />
 </Layout>

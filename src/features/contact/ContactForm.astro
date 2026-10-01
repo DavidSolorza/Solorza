@@ -1,11 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import Heading from "../../core/ui/Heading.astro";
-import { getCollection } from "astro:content";
 import { t } from "../../utils/i18n";
+import { contactRepository } from "./infrastructure/ContactRepository";
 
-const [staticData] = await getCollection("staticData");
-const lang = "es"; // Default, updated client-side
+const channels = await contactRepository.getChannels();
+const lang = "en"; // Default, updated client-side
 ---
 
 <section class="scroll-m-20 py-16 px-8 max-md:py-12">
@@ -46,12 +46,12 @@ const lang = "es"; // Default, updated client-side
             <div>
               <h4 class="font-semibold text-blacktext dark:text-white">WhatsApp</h4>
               <a
-                href="https://wa.me/573137374108"
+                href={channels.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition-colors"
               >
-                +57 313 737 4108
+                {channels.whatsappNumber}
               </a>
             </div>
           </div>
@@ -68,7 +68,7 @@ const lang = "es"; // Default, updated client-side
                 {t("contact.linkedin", lang)}
               </h4>
               <a
-                href={staticData.data.linkedin}
+                href={channels.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-accent-700 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300 transition-colors"
@@ -91,7 +91,7 @@ const lang = "es"; // Default, updated client-side
                 {t("contact.github", lang)}
               </h4>
               <a
-                href={staticData.data.github}
+                href={channels.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-accent-700 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300 transition-colors"

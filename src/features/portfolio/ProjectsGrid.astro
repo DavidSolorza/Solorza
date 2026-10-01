@@ -3,72 +3,115 @@ import ProjectCard from "./ProjectCard.astro";
 import Heading from "../../core/ui/Heading.astro";
 import { Icon } from "astro-icon/components";
 import { t } from "../../utils/i18n";
-import { projects } from "../../features/portfolio/projects";
+import { GetProjectsUseCase } from "./application/getProjects.usecase";
+import { staticProjectRepository } from "./infrastructure/StaticProjectRepository";
 
-const lang = "es";
+const lang = "en";
+const getProjectsUseCase = new GetProjectsUseCase(staticProjectRepository);
+const projects = await getProjectsUseCase.execute();
+const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
 ---
 
 <section
-  class="scroll-m-20 py-16 px-8 max-md:py-12"
+  class="scroll-m-20 py-20 px-8 max-md:py-14"
   id="projects"
-  aria-label="Proyectos"
+  aria-label="Proyectos Destacados"
 >
   <div class="mx-auto max-w-7xl">
-    <div class="flex gap-4 items-center justify-center mb-4">
-      <Icon class="text-3xl dark:text-white text-blacktext" name="code" />
-      <Heading
-        text={t("projects.title", lang)}
-        textGradient={t("projects.titleGradient", lang)}
-        level={2}
-        data-i18n-text="projects.title"
-        data-i18n-gradient="projects.titleGradient"
-      />
+    <div class="text-center mb-14">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3">
+        {lang === "en" ? "Engineering Portfolio" : "Portafolio de Ingeniería"}
+      </span>
+      <div class="flex gap-3 items-center justify-center">
+        <Icon class="text-3xl text-accent-600 dark:text-accent-400" name="code" />
+        <Heading
+          text={t("projects.title", lang)}
+          textGradient={t("projects.titleGradient", lang)}
+          level={2}
+          data-i18n-text="projects.title"
+          data-i18n-gradient="projects.titleGradient"
+        />
+      </div>
+
+      <p
+        class="text-center text-base sm:text-lg text-gray-600 dark:text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed"
+        data-i18n="projects.description"
+      >
+        {t("projects.description", lang)}
+      </p>
     </div>
 
-    <p
-      class="text-center text-lg text-blacktext/80 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
-      data-i18n="projects.description"
-    >
-      {t("projects.description", lang)}
-    </p>
-
-    <div
-      class="flex flex-wrap justify-center gap-2 mb-8"
-      role="tablist"
-      aria-label="Filtrar proyectos"
-    >
-      <button
-        type="button"
-        class="project-filter active px-4 py-2 text-sm font-medium rounded-full border transition-all"
-        data-filter="all"
-        role="tab"
-        aria-selected="true"
-        data-i18n="projects.filterAll"
-      >
-        {t("projects.filterAll", lang)}
-      </button>
-      <button
-        type="button"
-        class="project-filter px-4 py-2 text-sm font-medium rounded-full border transition-all"
-        data-filter="web"
-        role="tab"
-        aria-selected="false"
-        data-i18n="projects.filterWeb"
-      >
-        {t("projects.filterWeb", lang)}
-      </button>
-      <button
-        type="button"
-        class="project-filter px-4 py-2 text-sm font-medium rounded-full border transition-all"
-        data-filter="mobile"
-        role="tab"
-        aria-selected="false"
-        data-i18n="projects.filterMobile"
-      >
-        {t("projects.filterMobile", lang)}
-      </button>
+    <!-- Especialidades y Dominios del CV -->
+    <div class="mb-16">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 text-center">
+        {lang === "en" ? "CV Core Areas of Specialization" : "Áreas Clave de Especialización Técnica (CV)"}
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          cvSpecializations.map((spec, i) => (
+            <div class={`p-6 rounded-2xl bg-white/70 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 shadow-xs hover:border-accent-400/50 dark:hover:border-accent-500/50 transition-all duration-300 glass-panel reveal ${i >= 3 ? "lg:col-span-1.5" : ""}`}>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="px-2.5 py-0.5 text-xs font-mono font-semibold rounded-md bg-accent-50 text-accent-700 dark:bg-accent-950/40 dark:text-accent-300">
+                  {spec.badge}
+                </span>
+              </div>
+              <h4 class="text-base font-bold text-gray-900 dark:text-white mt-1">
+                {spec.title}
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                {spec.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
     </div>
 
+    <!-- Controles de Filtro -->
+    <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+        {lang === "en" ? "Featured Projects" : "Proyectos Implementados"}
+      </h3>
+
+      <div
+        class="flex flex-wrap gap-2"
+        role="tablist"
+        aria-label="Filtrar proyectos"
+      >
+        <button
+          type="button"
+          class="project-filter active px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border transition-all"
+          data-filter="all"
+          role="tab"
+          aria-selected="true"
+          data-i18n="projects.filterAll"
+        >
+          {t("projects.filterAll", lang)}
+        </button>
+        <button
+          type="button"
+          class="project-filter px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border transition-all"
+          data-filter="web"
+          role="tab"
+          aria-selected="false"
+          data-i18n="projects.filterWeb"
+        >
+          {t("projects.filterWeb", lang)}
+        </button>
+        <button
+          type="button"
+          class="project-filter px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border transition-all"
+          data-filter="mobile"
+          role="tab"
+          aria-selected="false"
+          data-i18n="projects.filterMobile"
+        >
+          {t("projects.filterMobile", lang)}
+        </button>
+      </div>
+    </div>
+
+    <!-- Grilla de Tarjetas de Proyectos -->
     <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         projects.map((project) => (

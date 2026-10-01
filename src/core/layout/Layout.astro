@@ -4,78 +4,301 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 
 const {
-  pageTitle = "David Solorza",
-  description = "Modern, minimalist portfolio template crafted for developers and digital creatives.",
+  pageTitle = "David Solorza | Full-Stack & Mobile Developer (Bilingual)",
+  description = "Official portfolio of David Solorza — Full-Stack & Mobile Developer (Bilingual) and Systems Engineering student at Universidad de Caldas. Specialized in Flutter, React, Node.js, Python, scalable architectures, microservices, and applied AI.",
   ogimage = {
     url: "/images/imagedefault.webp",
-    alt: "Default image of David Solorza portfolio",
+    alt: "Professional portfolio of David Solorza - Full-Stack & Mobile Developer (Bilingual) experienced in Flutter, React, Node.js, and Python.",
   },
 } = Astro.props;
 
-const siteUrl = new URL(Astro.url).origin;
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : (new URL(Astro.url).origin);
+const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
+const twitterimage = `${siteUrl}${ogimage.url}`;
+
 const SEO = {
-  sitename: "David Solorza Portfolio",
+  sitename: "David Solorza | Software Engineering & Development",
   url: siteUrl,
-  locale: "es_CO",
+  canonical: canonicalUrl,
   author: "David Solorza",
   twitter: "@davidsolorza",
 };
 
-const twitterimage = `${siteUrl}${ogimage.url}`;
+// Schema.org Graph estructurado para Knowledge Graph de Google y posicionamiento orgánico top
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "David Solorza | Full-Stack & Mobile Developer Portfolio",
+      "description": description,
+      "inLanguage": ["en", "es"],
+      "publisher": {
+        "@id": `${siteUrl}/#person`
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${canonicalUrl}#profilepage`,
+      "url": canonicalUrl,
+      "name": pageTitle,
+      "isPartOf": {
+        "@id": `${siteUrl}/#website`
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": twitterimage
+      },
+      "mainEntity": {
+        "@id": `${siteUrl}/#person`
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      "name": "David Solorza",
+      "alternateName": [
+        "David Josue Solorza Viera",
+        "David Solorza Viera",
+        "David Solorza Developer",
+        "David Solorza Ingeniero"
+      ],
+      "jobTitle": "Full-Stack & Mobile Developer (Bilingual)",
+      "description": description,
+      "url": siteUrl,
+      "image": twitterimage,
+      "telephone": "+57-313-737-4108",
+      "email": "mailto:david.josue.solorza@gmail.com",
+      "gender": "Male",
+      "nationality": {
+        "@type": "Country",
+        "name": "Colombia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Manizales",
+        "addressRegion": "Caldas",
+        "addressCountry": "CO"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad de Caldas",
+        "department": "Ingeniería de Sistemas y Computación",
+        "url": "https://www.ucaldas.edu.co/"
+      },
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "Wolf Enterprise",
+          "jobTitle": "Co-founder & Lead Developer"
+        },
+        {
+          "@type": "Organization",
+          "name": "Fundación FreeAgents",
+          "jobTitle": "Full-Stack & Mobile Developer"
+        }
+      ],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Full-Stack Developer",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Manizales, Colombia"
+          },
+          "skills": "React, Next.js, Node.js, TypeScript, PostgreSQL, RESTful APIs, Microservices, Astro, Clean Architecture"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Mobile Developer",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Manizales, Colombia"
+          },
+          "skills": "Flutter, Dart, Mobile Architecture, Offline-First, Local Databases, State Management (Bloc/Provider)"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Software Engineer",
+          "skills": "Systems Engineering, Domain-Driven Design (DDD), Vertical Slicing, SOLID Principles, System Architecture"
+        }
+      ],
+      "knowsAbout": [
+        "Software Engineering",
+        "Ingeniería de Sistemas",
+        "Computer Science",
+        "Ciencias de la Computación",
+        "Full-Stack Development",
+        "Mobile App Development",
+        "Desarrollo Móvil",
+        "Flutter",
+        "Dart",
+        "React",
+        "Next.js",
+        "Node.js",
+        "TypeScript",
+        "JavaScript",
+        "Python",
+        "Astro",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "RESTful APIs",
+        "Microservices Architecture",
+        "Offline-First Systems",
+        "Domain-Driven Design (DDD)",
+        "Clean Architecture",
+        "Vertical Slicing",
+        "SOLID Principles",
+        "Docker",
+        "Git",
+        "Cloud Computing",
+        "Applied Artificial Intelligence",
+        "Inteligencia Artificial Aplicada"
+      ],
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "Spanish",
+          "alternateName": "es"
+        },
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        }
+      ],
+      "sameAs": [
+        "https://github.com/DavidSolorza",
+        "https://www.linkedin.com/in/david-josue-solorza-viera",
+        "https://wa.me/573137374108"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Featured Engineering Projects by David Solorza",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AgroMap - Mobile Offline-First App",
+          "description": "Mobile application built with Flutter & Dart for agricultural field tracking with offline-first synchronization."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servidor API & Microservicios",
+          "description": "High-performance backend API with microservices architecture, JWT authentication, and PostgreSQL."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Battery Guardian - Mobile Utility",
+          "description": "Native-focused mobile application for device battery telemetry, health analysis, and power management."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Wolf Enterprise Platform",
+          "description": "Enterprise cloud platform and business solutions ecosystem developed by Wolf Enterprise."
+        }
+      ]
+    }
+  ]
+};
 ---
 
-<html lang="es" class="dark:bg-gray-950 bg-gray-50 font-sans scroll-smooth">
+<html lang="en" class="dark:bg-gray-950 bg-gray-50 font-sans scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (function() {
+        try {
+          if (!localStorage.getItem("portfolio_force_light_en_v2")) {
+            localStorage.setItem("theme", "light");
+            localStorage.setItem("language", "en");
+            localStorage.setItem("portfolio_force_light_en_v2", "true");
+          }
+          const theme = localStorage.getItem("theme") || "light";
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+          const lang = localStorage.getItem("language") || "en";
+          document.documentElement.lang = lang;
+        } catch (e) {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: wss:;">
     <meta name="google-site-verification" content="HnPuvG4Dme9VRFR4-94QpWe3PCTEEVc8Tu9REm06u30" />
     <title>{pageTitle}</title>
 
     <link rel="icon" href="/images/terminal.png" />
 
+    <!-- Optimización Masiva de Palabras Clave y Posicionamiento SEO -->
     <meta name="description" content={description} />
-    <meta name="keywords" content="Ingeniero de Sistemas, Ingeniería de Sistemas, Desarrollador Frontend, Full-Stack, Sistemas, Ingenierías, Programador, Developer, Colombia" />
+    <meta name="keywords" content="David Solorza, David Josue Solorza Viera, Full-Stack Developer, Mobile Developer, Flutter Developer, React Developer, Node.js Developer, Python Developer, TypeScript Developer, Software Engineer, Ingeniero de Sistemas, Ingeniería de Sistemas y Computación, Universidad de Caldas, Programador Colombia, Desarrollador Colombia, Manizales Caldas, Desarrollador Bilingüe, Bilingual Software Engineer, Bilingual Developer, Remote Developer Latam, Offline-First Architecture, Microservicios, Microservices, RESTful API, Domain-Driven Design DDD, Clean Architecture, Vertical Slicing, Astro, PostgreSQL, Docker, Git, AI Integration, Inteligencia Artificial Aplicada, Portafolio Programador, Frontend Developer, Backend Developer" />
     <meta name="author" content={SEO.author} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={`${Astro.site || siteUrl}${Astro.url.pathname}`} />
+    <meta name="creator" content={SEO.author} />
+    <meta name="publisher" content={SEO.author} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
 
+    <!-- Alternativas de Idioma / Hreflang para Posicionamiento Internacional -->
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+    <!-- Metadatos OpenGraph (Facebook, LinkedIn, Discord, Slack) -->
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogimage.url} />
+    <meta property="og:image" content={twitterimage} />
+    <meta property="og:image:secure_url" content={twitterimage} />
     <meta property="og:image:alt" content={ogimage.alt} />
-    <meta property="og:url" content={SEO.url} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="profile" />
     <meta property="og:site_name" content={SEO.sitename} />
-    <meta property="og:locale" content={SEO.locale} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_CO" />
+    <meta property="profile:first_name" content="David" />
+    <meta property="profile:last_name" content="Solorza" />
+    <meta property="profile:username" content="DavidSolorza" />
 
+    <!-- Twitter Cards Meta -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={twitterimage} />
     <meta name="twitter:image:alt" content={ogimage.alt} />
+    <meta name="twitter:creator" content={SEO.twitter} />
     <meta name="twitter:site" content={SEO.twitter} />
 
-    <meta name="theme-color" content="#0a0a0a" />
+    <!-- Geoposicionamiento y Orientación Local (Colombia & Internacional) -->
+    <meta name="geo.region" content="CO-CAL" />
+    <meta name="geo.placename" content="Manizales" />
+    <meta name="geo.position" content="5.0689;-75.5174" />
+    <meta name="ICBM" content="5.0689, -75.5174" />
 
+    <!-- Configuración Web App e Indexación -->
+    <meta name="rating" content="General" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="classification" content="Software Development, Systems Engineering, Technology Portfolio" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "David Solorza",
-      "url": SEO.url,
-      "image": twitterimage,
-      "jobTitle": "Ingeniero de Sistemas & Desarrollador Frontend",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance"
-      },
-      "sameAs": [
-        "https://github.com/DavidSolorza",
-        "https://www.linkedin.com/in/david-josue-solorza-viera"
-      ]
-    })} />
+    <!-- Rich Snippet JSON-LD Knowledge Graph -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
     <style>
       /* Hide the google translate banner if possible to keep it clean */

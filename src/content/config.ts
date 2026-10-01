@@ -30,6 +30,8 @@ const jsonDataCollection = defineCollection({
     emailIconName: z.string(),
     hobbies: z.array(z.string()),
     resumeUrl: z.string().optional(),
+    phone: z.string().optional(),
+    location: z.string().optional(),
   }),
 });
 
