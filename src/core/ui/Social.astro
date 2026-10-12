@@ -13,12 +13,16 @@ const { iconName, link, label = `Link to ${iconName}` } = Astro.props;
 if (!iconName || !link) {
     throw new Error('Social component requires both iconName and link props');
 }
+// Ensure mailto links are transformed to web-safe Gmail compose to avoid blank tabs
+const finalHref = link.startsWith('mailto:') 
+    ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(link.replace('mailto:', ''))}`
+    : link;
 ---
 
 <a 
     class="hover:text-mint-300 hover:scale-150 transition-all" 
     target="_blank" 
-    href={link}
+    href={finalHref}
     rel="noopener noreferrer"
     aria-label={label}
 >

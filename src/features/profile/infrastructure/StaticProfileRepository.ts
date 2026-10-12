@@ -5,23 +5,27 @@ import { translations } from "../../../utils/i18n";
 
 export class StaticProfileRepository implements IProfileRepository {
   private static readonly techStack: ITechnologySkill[] = [
-    { name: "Flutter", category: "Mobile" },
-    { name: "Dart", category: "Mobile" },
-    { name: "React", category: "Web" },
-    { name: "Node.js", category: "Backend" },
-    { name: "Python", category: "Backend & IA" },
-    { name: "Java", category: "Backend" },
-    { name: "TypeScript", category: "Frontend" },
-    { name: "Tailwind CSS", category: "Styles" },
-    { name: "Astro", category: "Web" },
-    { name: "Vite", category: "Tools" },
-    { name: "PostgreSQL", category: "Database" },
-    { name: "Supabase", category: "Database" },
-    { name: "SQLite", category: "Database" },
-    { name: "Docker", category: "Infra" },
-    { name: "Git", category: "Tools" },
-    { name: "C++", category: "Languages" },
-    { name: "Angular", category: "Frontend" },
+    // Core Stack
+    { name: "Flutter", category: "Core Stack", level: "core" },
+    { name: "Dart", category: "Core Stack", level: "core" },
+    { name: "TypeScript", category: "Core Stack", level: "core" },
+    { name: "React", category: "Core Stack", level: "core" },
+    { name: "Node.js", category: "Core Stack", level: "core" },
+    { name: "PostgreSQL", category: "Core Stack", level: "core" },
+
+    // Infrastructure & Tools
+    { name: "Docker", category: "Infrastructure & Tools", level: "infra" },
+    { name: "Linux / Ubuntu", category: "Infrastructure & Tools", level: "infra" },
+    { name: "Supabase", category: "Infrastructure & Tools", level: "infra" },
+    { name: "Git", category: "Infrastructure & Tools", level: "infra" },
+    { name: "SQLite", category: "Infrastructure & Tools", level: "infra" },
+    { name: "Tailwind CSS", category: "Infrastructure & Tools", level: "infra" },
+
+    // Familiar & Exploration
+    { name: "Python", category: "Familiar & Exploration", level: "exploration" },
+    { name: "Java", category: "Familiar & Exploration", level: "exploration" },
+    { name: "C++", category: "Familiar & Exploration", level: "exploration" },
+    { name: "Astro", category: "Familiar & Exploration", level: "exploration" },
   ];
 
   public async getProfile(lang: "es" | "en" = "en"): Promise<IProfile> {
@@ -35,6 +39,7 @@ export class StaticProfileRepository implements IProfileRepository {
       tagline: langData.tagline,
       isAvailable: true,
       avatarUrl: staticData.data.profileImage,
+      englishProficiency: langData.englishProficiency,
       contact: {
         phone: staticData.data.phone || "+57 313 737 4108",
         email: staticData.data.email,
@@ -45,6 +50,20 @@ export class StaticProfileRepository implements IProfileRepository {
         resumeUrl: staticData.data.resumeUrl || "/cv/DAVID_SOLORZA.pdf",
       },
       techStack: StaticProfileRepository.techStack,
+      techGroups: [
+        {
+          groupName: langData.techGroups.core,
+          skills: ["Flutter", "Dart", "TypeScript", "React", "Node.js", "PostgreSQL"],
+        },
+        {
+          groupName: langData.techGroups.infra,
+          skills: ["Docker", "Linux / Ubuntu", "Supabase", "Git", "SQLite", "Tailwind CSS"],
+        },
+        {
+          groupName: langData.techGroups.exploration,
+          skills: ["Python", "Java", "C++", "Astro"],
+        },
+      ],
       aptitudes: langData.softSkills,
     };
   }

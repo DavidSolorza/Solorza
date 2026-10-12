@@ -8,19 +8,21 @@ import { staticProjectRepository } from "./infrastructure/StaticProjectRepositor
 
 const lang = "en";
 const getProjectsUseCase = new GetProjectsUseCase(staticProjectRepository);
-const projects = await getProjectsUseCase.execute();
+const flagshipProjects = await getProjectsUseCase.getFlagshipProjects();
+const secondaryProjects = await getProjectsUseCase.getSecondaryProjects();
 const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
 ---
 
 <section
   class="scroll-m-20 py-20 px-8 max-md:py-14"
   id="projects"
-  aria-label="Proyectos Destacados"
+  aria-label="Proyectos de Ingeniería y Casos de Estudio"
 >
   <div class="mx-auto max-w-7xl">
-    <div class="text-center mb-14">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3">
-        {lang === "en" ? "Engineering Portfolio" : "Portafolio de Ingeniería"}
+    <!-- Header de la Sección -->
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3 font-mono">
+        {lang === "en" ? "Engineering Portfolio • High Impact" : "Portafolio de Ingeniería • Alto Impacto"}
       </span>
       <div class="flex gap-3 items-center justify-center">
         <Icon class="text-3xl text-accent-600 dark:text-accent-400" name="code" />
@@ -34,24 +36,24 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
       </div>
 
       <p
-        class="text-center text-base sm:text-lg text-gray-600 dark:text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed"
+        class="text-center text-base sm:text-lg text-gray-600 dark:text-gray-400 mt-3 max-w-2xl mx-auto leading-relaxed font-normal"
         data-i18n="projects.description"
       >
         {t("projects.description", lang)}
       </p>
     </div>
 
-    <!-- Especialidades y Dominios del CV -->
-    <div class="mb-16">
-      <h3 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 text-center">
-        {lang === "en" ? "CV Core Areas of Specialization" : "Áreas Clave de Especialización Técnica (CV)"}
+    <!-- 1. Especialidades Clave de Ingeniería (CV) -->
+    <div class="mb-20">
+      <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 text-center font-mono">
+        {lang === "en" ? "CV Core Areas of Technical Specialization" : "Áreas Clave de Especialización Técnica (CV)"}
       </h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           cvSpecializations.map((spec, i) => (
             <div class={`p-6 rounded-2xl bg-white/70 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 shadow-xs hover:border-accent-400/50 dark:hover:border-accent-500/50 transition-all duration-300 glass-panel reveal ${i >= 3 ? "lg:col-span-1.5" : ""}`}>
               <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="px-2.5 py-0.5 text-xs font-mono font-semibold rounded-md bg-accent-50 text-accent-700 dark:bg-accent-950/40 dark:text-accent-300">
+                <span class="px-2.5 py-0.5 text-xs font-mono font-semibold rounded-md bg-accent-50 text-accent-700 dark:bg-accent-950/40 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/40">
                   {spec.badge}
                 </span>
               </div>
@@ -67,73 +69,275 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
       </div>
     </div>
 
-    <!-- Controles de Filtro -->
-    <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-        {lang === "en" ? "Featured Projects" : "Proyectos Implementados"}
-      </h3>
+    <!-- ============================================================== -->
+    <!-- 2. LOS 3 PROYECTOS PILARES (FLAGSHIP CASE STUDIES)             -->
+    <!-- ============================================================== -->
+    <div class="mb-20">
+      <div class="flex items-center justify-between flex-wrap gap-4 mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 text-xs font-bold font-mono uppercase rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+              {lang === "en" ? "3 Flagship Case Studies" : "3 Proyectos Pilares Insignia"}
+            </span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">
+            {lang === "en" ? "Mission-Critical Engineering Solutions" : "Soluciones de Ingeniería de Alto Impacto"}
+          </h3>
+        </div>
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-md">
+          {lang === "en" 
+            ? "Deep technical case studies answering: Problem, Architecture, Complex Challenge, and Quantified Production Impact." 
+            : "Casos de estudio técnicos estructurados: El Problema, Arquitectura, Reto Complejo e Impacto Cuantificable."}
+        </p>
+      </div>
 
-      <div
-        class="flex flex-wrap gap-2"
-        role="tablist"
-        aria-label="Filtrar proyectos"
-      >
-        <button
-          type="button"
-          class="project-filter active px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border transition-all"
-          data-filter="all"
-          role="tab"
-          aria-selected="true"
-          data-i18n="projects.filterAll"
-        >
-          {t("projects.filterAll", lang)}
-        </button>
-        <button
-          type="button"
-          class="project-filter px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border transition-all"
-          data-filter="web"
-          role="tab"
-          aria-selected="false"
-          data-i18n="projects.filterWeb"
-        >
-          {t("projects.filterWeb", lang)}
-        </button>
-        <button
-          type="button"
-          class="project-filter px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border transition-all"
-          data-filter="mobile"
-          role="tab"
-          aria-selected="false"
-          data-i18n="projects.filterMobile"
-        >
-          {t("projects.filterMobile", lang)}
-        </button>
+      <div class="space-y-8">
+        {
+          flagshipProjects.map((project, index) => {
+            const cs = project.caseStudy;
+            return (
+              <article class="rounded-3xl bg-white/80 dark:bg-gray-900/70 border border-gray-200 dark:border-gray-800 shadow-md hover:shadow-xl hover:border-accent-400/60 dark:hover:border-accent-500/50 transition-all duration-300 overflow-hidden glass-panel reveal">
+                <div class="p-6 sm:p-8 md:p-10">
+                  <!-- Header del Caso de Estudio -->
+                  <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-3">
+                      <span class="size-8 rounded-full bg-accent-600 text-white dark:bg-accent-500 font-mono font-bold text-sm flex items-center justify-center shadow-xs">
+                        0{index + 1}
+                      </span>
+                      <span class="px-3 py-1 rounded-full text-xs font-semibold font-mono bg-accent-50 text-accent-700 dark:bg-accent-950/50 dark:text-accent-300 border border-accent-200/60 dark:border-accent-800/50">
+                        {cs?.badge}
+                      </span>
+                    </div>
+
+                    {cs && (
+                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/40 text-emerald-800 dark:text-emerald-300">
+                        <span class="text-base font-extrabold font-mono">{cs.metricHighlight}</span>
+                        <span class="text-xs font-medium">{cs.metricLabel}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <h4 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-3">
+                    {project.title}
+                  </h4>
+
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6 leading-relaxed font-normal">
+                    <span data-i18n={`projectsItems.${project.i18nKey}`}>
+                      {t(`projectsItems.${project.i18nKey}`, lang)}
+                    </span>
+                  </p>
+
+                  <!-- Tech Stack Pills -->
+                  <div class="flex flex-wrap gap-2 mb-8">
+                    {project.technologies.map((tech) => (
+                      <span class="px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800/90 rounded-md border border-gray-200/60 dark:border-gray-700/60 font-mono">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <!-- Ficha Técnica de Caso de Estudio (Fórmula de 4 Secciones) -->
+                  {cs && (
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-6 border-t border-gray-200/80 dark:border-gray-800/80 mb-8 bg-gray-50/50 dark:bg-gray-950/30 rounded-2xl p-5 sm:p-6">
+                      <!-- 1. El Problema -->
+                      <div class="space-y-1.5">
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 font-mono">
+                          <span class="size-2 rounded-full bg-rose-500"></span>
+                          <span>{t("projects.caseStudyLabels.problem", lang)}</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
+                          <span data-i18n={cs.problemKey}>{t(cs.problemKey, lang)}</span>
+                        </p>
+                      </div>
+
+                      <!-- 2. La Solución & Arquitectura -->
+                      <div class="space-y-1.5">
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 font-mono">
+                          <span class="size-2 rounded-full bg-blue-500"></span>
+                          <span>{t("projects.caseStudyLabels.solution", lang)}</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
+                          <span data-i18n={cs.solutionKey}>{t(cs.solutionKey, lang)}</span>
+                        </p>
+                      </div>
+
+                      <!-- 3. El Reto Técnico Complejo -->
+                      <div class="space-y-1.5">
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 font-mono">
+                          <span class="size-2 rounded-full bg-amber-500"></span>
+                          <span>{t("projects.caseStudyLabels.challenge", lang)}</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
+                          <span data-i18n={cs.challengeKey}>{t(cs.challengeKey, lang)}</span>
+                        </p>
+                      </div>
+
+                      <!-- 4. Impacto & Métrica Real -->
+                      <div class="space-y-1.5">
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-mono">
+                          <span class="size-2 rounded-full bg-emerald-500"></span>
+                          <span>{t("projects.caseStudyLabels.impact", lang)}</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
+                          <span data-i18n={cs.impactKey}>{t(cs.impactKey, lang)}</span>
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  <!-- Enlaces de Acceso Directo -->
+                  <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <a
+                      href={cs?.detailUrl || project.liveUrl}
+                      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-accent-600 dark:hover:bg-accent-400 dark:hover:text-white transition-all shadow-sm hover:scale-[1.02]"
+                    >
+                      <span>{t("projects.viewCaseStudy", lang)}</span>
+                      <span>&rarr;</span>
+                    </a>
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200/80 dark:border-gray-700/80"
+                      >
+                        <svg class="size-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        <span>{t("projects.code", lang)}</span>
+                        <span aria-hidden="true">&nearr;</span>
+                      </a>
+                    )}
+
+                    {project.mobileDetails?.apkUrl && (
+                      <a
+                        href={project.mobileDetails.apkUrl}
+                        download
+                        class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 transition-colors border border-emerald-200/60 dark:border-emerald-800/40"
+                      >
+                        <span>📱 APK Android</span>
+                        <span>&darr;</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })
+        }
       </div>
     </div>
 
-    <!-- Grilla de Tarjetas de Proyectos -->
-    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        projects.map((project) => (
-          <div class="project-item reveal" data-category={project.category}>
-            <ProjectCard {...project} />
-          </div>
-        ))
-      }
-    </div>
+    <!-- ============================================================== -->
+    <!-- 3. PROYECTOS SECUNDARIOS & EXPLORACIÓN (SECCIÓN COLAPSABLE)    -->
+    <!-- ============================================================== -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="text-center mb-8">
+        <button
+          type="button"
+          id="toggle-secondary-projects"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 transition-all cursor-pointer shadow-xs border border-gray-300/80 dark:border-gray-700/80"
+          aria-expanded="false"
+          aria-controls="secondary-projects-container"
+        >
+          <Icon name="lucide:layers" class="size-4 text-accent-600 dark:text-accent-400" />
+          <span id="toggle-secondary-text">{lang === "en" ? "Explore Secondary Projects & Experiments (+9)" : "Explorar Otros Proyectos & Experimentos (+9)"}</span>
+          <svg id="toggle-secondary-icon" class="size-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+          {lang === "en" ? "Complementary tools, learning prototypes, and web applications" : "Herramientas complementarias, prototipos de aprendizaje y aplicaciones web"}
+        </p>
+      </div>
 
-    <p
-      id="projects-empty"
-      class="hidden text-center text-gray-500 dark:text-gray-400 py-12"
-      data-i18n="projects.noResults"
-    >
-      {t("projects.noResults", lang)}
-    </p>
+      <div id="secondary-projects-container" class="hidden transition-all duration-500">
+        <!-- Filtros para proyectos secundarios -->
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+          <h4 class="text-lg font-bold text-gray-900 dark:text-white">
+            {lang === "en" ? "Secondary Development Catalog" : "Catálogo de Desarrollos Secundarios"}
+          </h4>
+
+          <div
+            class="flex flex-wrap gap-2"
+            role="tablist"
+            aria-label="Filtrar proyectos secundarios"
+          >
+            <button
+              type="button"
+              class="project-filter active px-3.5 py-1 text-xs font-semibold rounded-full border transition-all"
+              data-filter="all"
+              role="tab"
+              aria-selected="true"
+            >
+              {t("projects.filterAll", lang)}
+            </button>
+            <button
+              type="button"
+              class="project-filter px-3.5 py-1 text-xs font-semibold rounded-full border transition-all"
+              data-filter="web"
+              role="tab"
+              aria-selected="false"
+            >
+              {t("projects.filterWeb", lang)}
+            </button>
+            <button
+              type="button"
+              class="project-filter px-3.5 py-1 text-xs font-semibold rounded-full border transition-all"
+              data-filter="mobile"
+              role="tab"
+              aria-selected="false"
+            >
+              {t("projects.filterMobile", lang)}
+            </button>
+          </div>
+        </div>
+
+        <!-- Grilla de Tarjetas Secundarias -->
+        <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            secondaryProjects.map((project) => (
+              <div class="project-item" data-category={project.category}>
+                <ProjectCard {...project} />
+              </div>
+            ))
+          }
+        </div>
+
+        <p
+          id="projects-empty"
+          class="hidden text-center text-gray-500 dark:text-gray-400 py-12"
+        >
+          {t("projects.noResults", lang)}
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // 1. Manejo del desplegable de proyectos secundarios
+    const toggleBtn = document.getElementById("toggle-secondary-projects");
+    const container = document.getElementById("secondary-projects-container");
+    const toggleText = document.getElementById("toggle-secondary-text");
+    const toggleIcon = document.getElementById("toggle-secondary-icon");
+
+    if (toggleBtn && container && toggleText && toggleIcon) {
+      let isExpanded = false;
+      toggleBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        container.classList.toggle("hidden", !isExpanded);
+        toggleBtn.setAttribute("aria-expanded", String(isExpanded));
+        toggleIcon.classList.toggle("rotate-180", isExpanded);
+
+        const currentLang = localStorage.getItem("language") || "en";
+        if (isExpanded) {
+          toggleText.textContent = currentLang === "es" ? "Ocultar Proyectos Secundarios" : "Hide Secondary Projects";
+        } else {
+          toggleText.textContent = currentLang === "es" ? "Explorar Otros Proyectos & Experimentos (+9)" : "Explore Secondary Projects & Experiments (+9)";
+        }
+      });
+    }
+
+    // 2. Filtros de proyectos secundarios
     const filters = document.querySelectorAll(".project-filter");
     const items = document.querySelectorAll(".project-item");
     const emptyMsg = document.getElementById("projects-empty");

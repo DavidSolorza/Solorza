@@ -115,7 +115,7 @@ CREATE INDEX idx_skills_profile ON skills(profile_id, category);
 | :--- | :--- | :--- | :--- |
 | `id` | `UUID` | `PRIMARY KEY, NOT NULL` | Identificador único universal e inmutable del titular del portafolio. |
 | `full_name` | `VARCHAR(150)` | `NOT NULL` | Nombre completo del profesional ("David Solorza"). |
-| `headline` | `VARCHAR(200)` | `NOT NULL` | Cargo / Titular profesional ("Desarrollador Full-Stack & Mobile (Bilingüe)"). |
+| `headline` | `VARCHAR(200)` | `NOT NULL` | Cargo / Titular profesional ("Software Engineer | Mobile & Offline-First Systems (Flutter) & Scalable Backends (Node.js / Python)"). |
 | `summary` | `TEXT` | `NOT NULL` | Resumen ejecutivo y propuesta de valor profesional extraída del CV. |
 | `email` | `VARCHAR(255)` | `NOT NULL, UNIQUE` | Correo electrónico directo de contacto. |
 | `phone` | `VARCHAR(50)` | `NOT NULL` | Teléfono móvil de contacto ("+57 313 737 4108"). |
@@ -134,13 +134,13 @@ CREATE INDEX idx_skills_profile ON skills(profile_id, category);
 | `id` | `UUID` | `PRIMARY KEY, NOT NULL` | Identificador único de la experiencia laboral. |
 | `profile_id` | `UUID` | `NOT NULL, FK` | Llave foránea hacia `profiles(id)` con `ON DELETE CASCADE`. |
 | `company_name` | `VARCHAR(150)` | `NOT NULL` | Organización o empresa ("Wolf Enterprise", "Fundación FreeAgents"). |
-| `role_title` | `VARCHAR(150)` | `NOT NULL` | Rol desempeñado ("Fundador", "Desarrollador de Software"). |
+| `role_title` | `VARCHAR(150)` | `NOT NULL` | Rol desempeñado ("Fundador & Líder Técnico", "Desarrollador de Software Backend"). |
 | `location` | `VARCHAR(120)` | `NOT NULL` | Ciudad/país donde se desarrolló la actividad laboral. |
 | `start_date` | `DATE` | `NOT NULL` | Fecha de inicio de la relación contractual. |
 | `end_date` | `DATE` | `NULL` | Fecha de culminación. Nulo si el rol sigue activo. |
 | `is_current` | `BOOLEAN` | `NOT NULL, DEFAULT false` | Indica si actualmente labora en esta organización. |
 | `description` | `TEXT` | `NOT NULL` | Resumen de alto impacto sobre el alcance de la posición. |
-| `responsibilities` | `TEXT[]` | `NOT NULL, DEFAULT '{}'` | Lista exhaustiva de viñetas de tareas/logros del CV. |
+| `responsibilities` | `TEXT[]` | `NOT NULL, DEFAULT '{}'` | Lista de logros con métricas STAR cuantificables. |
 | `display_order` | `INTEGER` | `NOT NULL, DEFAULT 1` | Orden de visualización cronológico inverso. |
 | `created_at` | `TIMESTAMP WITH TIME ZONE` | `NOT NULL, DEFAULT CURRENT_TIMESTAMP` | Fecha de inserción. |
 
@@ -154,8 +154,12 @@ CREATE INDEX idx_skills_profile ON skills(profile_id, category);
 | `category` | `VARCHAR(50)` | `NOT NULL, CHECK` | Clasificación técnica: 'web', 'mobile', 'backend', 'ai', 'infrastructure'. |
 | `summary` | `TEXT` | `NOT NULL` | Descripción concisa del problema resuelto y valor aportado. |
 | `technologies` | `TEXT[]` | `NOT NULL` | Array de tecnologías aplicadas (e.g. Flutter, React, Node, etc.). |
+| `is_flagship` | `BOOLEAN` | `NOT NULL, DEFAULT false` | Bandera que indica si el proyecto es uno de los 3 Proyectos Insignia (Flagship Case Studies). |
+| `problem_statement` | `TEXT` | `NULL` | Planteamiento del problema técnico o de negocio resuelto. |
+| `technical_challenge` | `TEXT` | `NULL` | Reto técnico complejo superado durante la implementación. |
+| `impact_metrics` | `TEXT` | `NULL` | Métricas cuantitativas de impacto y rendimiento en producción. |
 | `github_url` | `VARCHAR(255)` | `NULL` | Repositorio público de código. |
-| `live_url` | `VARCHAR(255)` | `NULL` | Enlace a despliegue productivo. |
+| `live_url` | `VARCHAR(255)` | `NULL` | Enlace a despliegue productivo o caso de estudio. |
 | `apk_url` | `VARCHAR(255)` | `NULL` | Enlace de descarga de artefacto móvil compilado si aplica. |
 | `is_featured` | `BOOLEAN` | `NOT NULL, DEFAULT false` | Destacado principal en la vista de presentación. |
 | `display_order` | `INTEGER` | `NOT NULL, DEFAULT 1` | Prioridad de visualización en la grilla. |

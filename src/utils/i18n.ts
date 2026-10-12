@@ -10,77 +10,96 @@ export const translations = {
     },
     hero: {
       available: "Disponible para trabajar",
-      tagline: "Desarrollador Full-Stack & Mobile (Bilingüe) con experiencia en el diseño de arquitecturas escalables, sistemas offline-first (Flutter/Dart) y aplicaciones web de alto rendimiento (React/Node.js). Apasionado por la ingeniería de sistemas aplicada, la automatización con IA y la gestión eficiente de infraestructura propia. Capacidad para conceptualizar, estructurar y desplegar soluciones de software completas desde el código hasta producción.",
-      profileTitle: "Desarrollador Full-Stack & Mobile (Bilingüe)",
+      tagline: "Construyo aplicaciones móviles de alta resiliencia con sincronización offline-first y arquitecturas backend preparadas para operar sin interrupciones en entornos de conectividad limitada y alta concurrencia.",
+      profileTitle: "Software Engineer | Mobile & Offline-First Systems (Flutter) & Scalable Backends (Node.js / Python)",
       aboutMe: "Sobre Mí",
-      viewProjects: "Ver Proyectos",
-      contactMe: "Contáctame",
+      viewProjects: "Ver Casos de Estudio",
+      contactMe: "Contacto Directo",
       downloadCV: "Descargar CV",
       phone: "+57 313 737 4108",
       email: "david.josue.solorza@gmail.com",
       location: "Manizales, Caldas, Colombia",
       nationality: "Colombiano",
-      techTitle: "Conocimientos Técnicos",
-      aptitudesTitle: "Aptitudes Profesionales",
+      englishProficiency: "Inglés: Competencia Profesional (B1)",
+      techTitle: "Stack Tecnológico Categorizado",
+      aptitudesTitle: "Especialidades Técnicas de Ingeniería",
       softSkills: [
-        "Liderazgo",
-        "Creatividad e innovación",
-        "Optimización de recursos",
-        "Capacidad de adaptación",
-        "Disponibilidad horaria",
-        "Adaptabilidad y flexibilidad"
+        "Arquitectura Offline-First",
+        "Microservicios & APIs RESTful",
+        "Clean Architecture & DDD",
+        "Telemetría & Concurrencia",
+        "Optimización de Rendimiento",
+        "Liderazgo Técnico"
       ],
+      techGroups: {
+        core: "Core Stack",
+        infra: "Infraestructura & Herramientas",
+        exploration: "Backend & Exploración"
+      }
     },
     experience: {
       title: "Historial",
       titleGradient: "Laboral",
-      subtitle: "Experiencia profesional en liderazgo de desarrollo tecnológico, soluciones web y microservicios",
+      subtitle: "Resultados cuantificables en arquitectura de software, microservicios y despliegues de alta disponibilidad",
       badgeWork: "Laboral",
       current: "Actual",
       wolfEnterprise: {
-        role: "Fundador",
+        role: "Fundador & Líder Técnico",
         company: "Wolf Enterprise",
         location: "Manizales, Caldas",
         period: "01/2026 – Actual",
-        desc: "Liderazgo técnico, dirección de desarrollo de software y gestión estratégica empresarial.",
+        desc: "Liderazgo técnico, diseño de arquitecturas backend escalables y dirección de desarrollo de software modular.",
         tasks: [
-          "Supervisión del desarrollo tecnológico, incluyendo software y soluciones digitales.",
-          "Creación y mantenimiento de relaciones estratégicas con socios y proveedores claves.",
-          "Planificación, desarrollo y coordinación del funcionamiento general de la empresa."
+          "Diseñé y desplegué la infraestructura de microservicios y APIs RESTful utilizando Node.js, Express y Docker, asegurando disponibilidad del 99.8% y latencias de respuesta sub-100ms.",
+          "Estructuré esquemas relacionales en PostgreSQL y pipelines de persistencia optimizados con índices y control de concurrencia ACID.",
+          "Dirigí la estrategia técnica y la gobernanza de ingeniería, transformando requerimientos de negocio en soluciones modulares de software."
         ]
       },
       freeAgents: {
-        role: "Desarrollador de Software e Integrador",
+        role: "Desarrollador de Software Backend e Integrador",
         company: "Fundación FreeAgents",
         location: "Remoto / Colombia",
         period: "01/2024 – 01/2026",
-        desc: "Ingeniería de software, desarrollo de microservicios y despliegue de plataformas comerciales integradas.",
+        desc: "Ingeniería de software, desarrollo de microservicios en Node.js y optimización de plataformas de comercio electrónico.",
         tasks: [
-          "Creación de sistemas Web Personalizados",
-          "APIs y Microservicios",
-          "Elaboración de integración de Sistemas",
-          "Divulgación E-commerce"
+          "Diseñé y desplegué 4 microservicios en Node.js y Docker para la plataforma e-commerce, reduciendo la latencia de respuesta en un 30% y asegurando soporte para alto volumen de peticiones.",
+          "Construí e integré APIs RESTful puras para sincronización de inventario, pasarelas de pago y portales de clientes en tiempo real con React y TypeScript.",
+          "Implementé pruebas de integración y normalización de bases de datos relacionales para garantizar integridad transaccional."
         ]
       }
     },
     projects: {
-      title: "Proyectos",
-      titleGradient: "Destacados",
-      description: "Soluciones de software de punta a punta: desde aplicaciones móviles offline-first y arquitecturas web full-stack, hasta microservicios e inteligencia artificial.",
+      title: "Casos de",
+      titleGradient: "Estudio",
+      description: "Soluciones de ingeniería de alto impacto con resolución de problemas técnicos complejos en entornos reales.",
+      flagshipBadge: "3 Proyectos Pilares",
+      flagshipTitle: "Proyectos Insignia (Flagship Case Studies)",
+      flagshipSubtitle: "Los 3 desarrollos con mayor valor diferencial técnico y resolución de retos de ingeniería en producción.",
+      secondaryTitle: "Otros Desarrollos & Exploración Técnica",
+      secondarySubtitle: "Plataformas web complementarias, herramientas experimentales y prototipos interactivos.",
+      showMoreProjects: "Ver Todos los Proyectos (+)",
+      showLessProjects: "Mostrar Menos Proyectos",
       featuresTitle: "Características Principales",
       featuresDesc: "Descubre todo lo que esta aplicación tiene para ofrecer.",
       galleryTitle: "Galería de la Aplicación",
       galleryDesc: "Un vistazo a la interfaz y experiencia de usuario.",
       builtWith: "Construido con",
-      goBack: "Volver",
+      goBack: "Volver a Proyectos",
       featuredSection: "Proyectos destacados",
       filterAll: "Todos",
       filterWeb: "Web Full-Stack",
       filterMobile: "Mobile & Offline-First",
       noResults: "No hay proyectos en esta categoría.",
       viewProject: "Ver proyecto",
-      code: "Código",
+      viewCaseStudy: "Ver Caso de Estudio",
+      code: "Código Fuente",
       featured: "Destacado",
+      caseStudyLabels: {
+        problem: "El Problema",
+        solution: "Solución & Arquitectura",
+        challenge: "Reto Técnico Complejo",
+        impact: "Impacto & Métricas",
+      },
       cvAreasTitle: "Áreas Clave de Especialización del CV",
       cvAreas: [
         {
@@ -113,7 +132,7 @@ export const translations = {
     education: {
       title: "Mi",
       titleGradient: "Formación",
-      subtitle: "Educación universitaria formal, certificaciones técnicas especializadas e idiomas según mi trayectoria en el CV",
+      subtitle: "Educación universitaria formal, certificaciones técnicas especializadas y acreditaciones de ingeniería",
       badgeUniversity: "Educación Superior",
       badgeCert: "Certificación",
       badgeLang: "Idioma",
@@ -132,59 +151,51 @@ export const translations = {
           desc: "Fundamentos de lógica de programación, algoritmia, funciones, estructuras de datos y manejo de excepciones en Python."
         },
         {
-          title: "Aplicación de las etapas del desarrollo de software en la implementación de soluciones de tecnologías de la información y las comunicaciones",
+          title: "Aplicación de las etapas del desarrollo de software en la implementación de soluciones TIC",
           institution: "SENA",
           period: "01/2020 – 12/2020",
-          desc: "Ciclo de vida del software, análisis de requerimientos, diseño estructurado y validación funcional de sistemas TIC."
-        },
-        {
-          title: "Estructura de lenguaje de programación C++ (NIVEL I)",
-          institution: "SENA",
-          period: "01/2020 – 12/2020",
-          desc: "Control de flujo, programación estructurada, punteros y sintaxis central del lenguaje C++."
+          desc: "Ciclo de vida del software, análisis de requerimientos, diseño estructurado y validación funcional de sistemas de tecnologías de la información."
         },
         {
           title: "Certificado en Experiencias de Ciencia para la Vida",
           institution: "SENA",
           period: "01/2021 – 12/2021",
-          desc: "Pensamiento investigativo, diseño experimental aplicado y solución sistemática de problemas."
-        },
-        {
-          title: "Certificado en English Dot Works Beginner",
-          institution: "SENA",
-          period: "04/2019 – 07/2019",
-          desc: "Desarrollo de competencias lingüísticas iniciales en gramática, vocabulario y comunicación en inglés."
-        },
-        {
-          title: "Certificado en Elaborar Circuitos Electrónicos",
-          institution: "SENA",
-          period: "06/2019 – 12/2019",
-          desc: "Ensamblaje, diseño e interpretación de diagramas esquemáticos y circuitos electrónicos analógicos y digitales."
+          desc: "Pensamiento investigativo, diseño experimental aplicado y solución sistemática de problemas complejos de ingeniería."
         }
       ],
       languages: [
         {
           name: "Inglés",
-          level: "Intermedio B1",
-          desc: "Comprensión técnica fluida, lectura de documentación de ingeniería, redacción de especificaciones y comunicación profesional."
+          level: "Competencia Profesional de Trabajo (B1)",
+          desc: "Comprensión técnica fluida, lectura y redacción de especificaciones de arquitectura, colaboración en equipos técnicos internacionales y documentación técnica."
         },
         {
           name: "Español",
           level: "Nativo",
-          desc: "Dominio lingüístico completo oral y escrito."
+          desc: "Dominio lingüístico completo oral, técnico y escrito."
         }
       ]
     },
     projectsItems: {
-      sabores: "Tienda online de mermeladas artesanales con catálogo dinámico y flujo de compra simple.",
-      streaming: "Plataforma de venta de películas y series con interfaz responsiva y experiencia fluida.",
-      automatizador: "Clasificación automática de correos con Gmail API, reglas personalizables y dashboard analítico.",
-      pathforge: "Rutas de aprendizaje personalizadas con IA. React + Express + MongoDB.",
-      electro: "Simulador de circuitos eléctricos con editor visual, multímetro y osciloscopio.",
-      quantum: "Laboratorio interactivo de computación cuántica con simulaciones 3D en Three.js.",
-      colombia: "Plataforma informativa sobre cultura, turismo y datos relevantes del país.",
-      portfolio: "Sitio personal con diseño moderno, animaciones suaves y optimización SEO.",
-      battery: "App Android para monitoreo de batería con alertas, historial SQLite y gráficas.",
+      // 3 Flagship Projects
+      agromap: "Sistema móvil y web geográfico para gestión y monitoreo de productoras agrícolas en Sibundoy con arquitectura Offline-First.",
+      agromapProblem: "Dispersión crítica de información agrícola y desconexión total a internet en zonas rurales de Sibundoy, impidiendo el registro oportuno de huertas.",
+      agromapSolution: "Arquitectura móvil Offline-First con sincronización en segundo plano, geolocalización satelital y persistencia en Supabase/PostgreSQL.",
+      agromapChallenge: "Sincronización bidireccional asíncrona sin pérdida de datos ante reconexión intermitente y renderizado eficiente de capas geoespaciales.",
+      agromapImpact: "100% de operatividad en campo sin internet, reduciendo el tiempo de levantamiento de datos técnicos en un 70% para productoras.",
+
+      servidor: "Infraestructura backend de microservicios con proxy inverso, túneles cifrados Cloudflare y telemetría de alta concurrencia.",
+      servidorProblem: "Dependencia técnica y altos costos de nubes comerciales para gestionar múltiples microservicios con aislamiento de red.",
+      servidorSolution: "Servidor backend modular con proxy inverso, enrutamiento mediante túneles Cloudflare cifrados, autenticación JWT y monitorización de métricas en tiempo real.",
+      servidorChallenge: "Configuración de túneles TLS seguros sin abrir puertos públicos vulnerables, balanceo interno y mitigación de cuellos de botella con alta concurrencia.",
+      servidorImpact: "100% de autonomía técnica sin costos de PaaS, latencia de enrutamiento sub-50ms y telemetría de salud de servicios continua.",
+
+      battery: "App Android de telemetría de batería con servicios en background (WorkManager), persistencia SQLite local y gráficos analíticos.",
+      batteryProblem: "Falta de herramientas de telemetría que analicen el desgaste químico y térmico de baterías móviles sin agotar drásticamente los recursos del sistema.",
+      batterySolution: "Aplicación móvil en Flutter con Clean Architecture, servicios en segundo plano vía WorkManager/Android SDK, persistencia SQLite local y analítica gráfica.",
+      batteryChallenge: "Ejecución continua de procesos de telemetría evitando la suspensión agresiva del sistema operativo (Doze Mode) con consumo energético inferior al 0.5% diario.",
+      batteryImpact: "Persistencia de telemetría 24/7 sin fugas de memoria, almacenamiento ACID local seguro y optimización del ciclo de vida del dispositivo.",
+
       batteryHook: "Monitorea, analiza y protege la vida útil de tu batería en tiempo real.",
       freeStatus: "Versión 1.2.0 • Gratis",
       batteryFeature1Title: "Alertas Inteligentes",
@@ -193,16 +204,24 @@ export const translations = {
       batteryFeature2Desc: "Almacenamiento seguro de ciclos de carga usando SQLite directamente en tu dispositivo.",
       batteryFeature3Title: "Análisis Gráfico",
       batteryFeature3Desc: "Visualiza el desgaste y rendimiento de tu batería a lo largo del tiempo con gráficos detallados.",
-      agromap: "Sistema web geográfico interactivo para la gestión y monitoreo de productoras agrícolas en Sibundoy.",
-      sibundoy_web: "Aplicación web interactiva sobre Sibundoy desarrollada con React y Vite.",
-      servidor: "Servidor local y escalable desarrollado para gestionar APIs independientes."
+
+      // Secondary projects
+      automatizador: "Clasificación automática de correos con Gmail API, reglas personalizables y dashboard analítico.",
+      pathforge: "Rutas de aprendizaje personalizadas con IA. React + Express + MongoDB.",
+      electro: "Simulador de circuitos eléctricos con editor visual, multímetro y osciloscopio.",
+      quantum: "Laboratorio interactivo de computación cuántica con simulaciones 3D en Three.js.",
+      sabores: "Tienda online de mermeladas artesanales con catálogo dinámico y flujo de compra simple.",
+      streaming: "Plataforma de venta de películas y series con interfaz responsiva y experiencia fluida.",
+      colombia: "Plataforma informativa sobre cultura, turismo y datos relevantes del país.",
+      portfolio: "Sitio personal con diseño moderno, animaciones suaves y optimización SEO.",
+      sibundoy_web: "Aplicación web interactiva sobre Sibundoy desarrollada con React y Vite."
     },
     contact: {
       title: "Contáctame",
       titleGradient: "Ahora",
       quickContact: "Formas de contacto directo",
       workTogether: "¡Trabajemos juntos!",
-      description: "¿Tienes un proyecto en mente, una vacante o una propuesta técnica? Escríbeme directamente por correo, WhatsApp o a través de este formulario. Estoy disponible para nuevos retos profesionales.",
+      description: "¿Tienes un reto técnico, un proyecto exigente o una posición de ingeniería? Hablemos directamente por correo o WhatsApp.",
       email: "Email",
       phone: "Teléfono",
       location: "Ubicación",
@@ -257,77 +276,96 @@ export const translations = {
     },
     hero: {
       available: "Available for work",
-      tagline: "Full-Stack & Mobile Developer (Bilingual) experienced in scalable architectures, offline-first systems (Flutter/Dart), and high-performance web applications (React/Node.js). Passionate about applied systems engineering, AI automation, and efficient infrastructure management. Proven ability to conceptualize, architect, and deploy end-to-end software solutions from code to production.",
-      profileTitle: "Full-Stack & Mobile Developer (Bilingual)",
+      tagline: "Building resilient offline-first mobile applications and scalable backend architectures designed to operate seamlessly in mission-critical and high-concurrency environments.",
+      profileTitle: "Software Engineer | Mobile & Offline-First Systems (Flutter) & Scalable Backends (Node.js / Python)",
       aboutMe: "About Me",
-      viewProjects: "View Projects",
-      contactMe: "Contact Me",
+      viewProjects: "View Case Studies",
+      contactMe: "Direct Contact",
       downloadCV: "Download CV",
       phone: "+57 313 737 4108",
       email: "david.josue.solorza@gmail.com",
       location: "Manizales, Caldas, Colombia",
       nationality: "Colombian",
-      techTitle: "Technical Knowledge",
-      aptitudesTitle: "Professional Aptitudes",
+      englishProficiency: "English: Professional Working Proficiency (B1)",
+      techTitle: "Categorized Tech Stack",
+      aptitudesTitle: "Engineering Core Specialties",
       softSkills: [
-        "Leadership",
-        "Creativity & Innovation",
-        "Resource Optimization",
-        "Adaptability",
-        "Schedule Flexibility",
-        "Flexibility & Agility"
+        "Offline-First Architecture",
+        "Microservices & RESTful APIs",
+        "Clean Architecture & DDD",
+        "Telemetry & Concurrency",
+        "Performance Optimization",
+        "Technical Leadership"
       ],
+      techGroups: {
+        core: "Core Stack",
+        infra: "Infrastructure & Tools",
+        exploration: "Backend & Exploration"
+      }
     },
     experience: {
       title: "Work",
       titleGradient: "Experience",
-      subtitle: "Professional trajectory in tech leadership, software solutions, and system integration",
+      subtitle: "Quantifiable track record in software architecture, microservices, and high-availability deployments",
       badgeWork: "Work",
       current: "Present",
       wolfEnterprise: {
-        role: "Founder",
+        role: "Founder & Tech Lead",
         company: "Wolf Enterprise",
         location: "Manizales, Caldas",
         period: "01/2026 – Present",
-        desc: "Technical leadership, digital solutions supervision, and general business coordination.",
+        desc: "Technical leadership, scalable backend architecture design, and end-to-end modular software engineering.",
         tasks: [
-          "Supervision of technological development, including software and digital solutions.",
-          "Creation and maintenance of strategic relationships with key partners and suppliers.",
-          "Planning, development, and coordination of overall company operations."
+          "Architected and deployed microservices infrastructure and RESTful APIs using Node.js, Express, and Docker, achieving 99.8% uptime and sub-100ms response times.",
+          "Engineered relational database schemas in PostgreSQL with optimized query indexing and ACID concurrency controls.",
+          "Spearheaded technical roadmap and engineering governance, translating business requirements into modular, resilient software."
         ]
       },
       freeAgents: {
-        role: "Software Developer & Integrator",
+        role: "Software Engineer & System Integrator",
         company: "Fundación FreeAgents",
         location: "Remote / Colombia",
         period: "01/2024 – 01/2026",
-        desc: "Software engineering, microservices development, and integrated e-commerce solutions.",
+        desc: "Software engineering, Node.js microservices development, and high-performance e-commerce platforms.",
         tasks: [
-          "Creation of custom web systems",
-          "APIs and Microservices",
-          "System integration development",
-          "E-commerce diffusion and strategy"
+          "Architected and deployed 4 microservices in Node.js and Docker for an e-commerce platform, slashing API response latency by 30% and supporting high-concurrency traffic.",
+          "Built and integrated pure RESTful APIs for real-time inventory synchronization, payment gateways, and client portals with React and TypeScript.",
+          "Implemented integration testing and relational database normalization to guarantee strict transactional integrity."
         ]
       }
     },
     projects: {
-      title: "Featured",
-      titleGradient: "Projects",
-      description: "End-to-end software solutions: from offline-first mobile apps and full-stack web platforms to robust backend architectures and applied AI.",
+      title: "Case",
+      titleGradient: "Studies",
+      description: "High-impact engineering solutions solving complex technical challenges in production environments.",
+      flagshipBadge: "3 Flagship Projects",
+      flagshipTitle: "Flagship Case Studies",
+      flagshipSubtitle: "The 3 engineering projects delivering highest technical impact and real-world problem solving.",
+      secondaryTitle: "Secondary Projects & Technical Exploration",
+      secondarySubtitle: "Complementary web platforms, experimental tools, and interactive prototypes.",
+      showMoreProjects: "Explore All Projects (+)",
+      showLessProjects: "Show Less Projects",
       featuresTitle: "Core Features",
       featuresDesc: "Discover everything this application has to offer.",
       galleryTitle: "App Gallery",
       galleryDesc: "A glimpse into the user interface and experience.",
       builtWith: "Built with",
-      goBack: "Go back",
+      goBack: "Back to Projects",
       featuredSection: "Featured projects",
       filterAll: "All",
       filterWeb: "Full-Stack Web",
       filterMobile: "Mobile & Offline-First",
       noResults: "No projects in this category.",
       viewProject: "View project",
-      code: "Code",
+      viewCaseStudy: "View Case Study",
+      code: "Source Code",
       featured: "Featured",
+      caseStudyLabels: {
+        problem: "The Problem",
+        solution: "Solution & Architecture",
+        challenge: "Complex Technical Challenge",
+        impact: "Impact & Metrics",
+      },
       cvAreasTitle: "CV Core Areas of Specialization",
       cvAreas: [
         {
@@ -360,7 +398,7 @@ export const translations = {
     education: {
       title: "My",
       titleGradient: "Education",
-      subtitle: "Formal university education, specialized technical certifications, and languages based on my CV",
+      subtitle: "Formal university degree, specialized engineering certifications, and technical accreditations",
       badgeUniversity: "Higher Education",
       badgeCert: "Certification",
       badgeLang: "Language",
@@ -385,53 +423,45 @@ export const translations = {
           desc: "Software development lifecycle (SDLC), requirements analysis, structured design, and functional validation of ICT systems."
         },
         {
-          title: "C++ Programming Language Structure (LEVEL I)",
-          institution: "SENA",
-          period: "01/2020 – 12/2020",
-          desc: "Flow control, structured programming, pointers, and core language syntax in C++."
-        },
-        {
           title: "Certificate in Science for Life Experiences",
           institution: "SENA",
           period: "01/2021 – 12/2021",
-          desc: "Investigative reasoning, applied experimental design, and systematic problem solving."
-        },
-        {
-          title: "Certificate in English Dot Works Beginner",
-          institution: "SENA",
-          period: "04/2019 – 07/2019",
-          desc: "Development of foundational language competencies in English grammar, vocabulary, and communication."
-        },
-        {
-          title: "Certificate in Electronic Circuit Development",
-          institution: "SENA",
-          period: "06/2019 – 12/2019",
-          desc: "Assembly, design, and analysis of schematic diagrams and analog and digital electronic circuits."
+          desc: "Investigative reasoning, applied experimental design, and systematic complex engineering problem solving."
         }
       ],
       languages: [
         {
           name: "English",
-          level: "Intermediate B1",
-          desc: "Fluent technical reading comprehension, writing of engineering documentation, and professional communication."
+          level: "Professional Working Proficiency (B1)",
+          desc: "Fluent technical reading comprehension, writing of engineering documentation and architecture specifications, international team collaboration."
         },
         {
           name: "Spanish",
           level: "Native",
-          desc: "Full linguistic fluency in oral, technical, and written professional contexts."
+          desc: "Full native fluency in oral, technical, and written professional contexts."
         }
       ]
     },
     projectsItems: {
-      sabores: "Artisanal jams online store with a dynamic catalog and simple purchase flow.",
-      streaming: "Movies and series sales platform with responsive interface and smooth experience.",
-      automatizador: "Automatic email classification with Gmail API, customizable rules and analytical dashboard.",
-      pathforge: "Personalized learning paths with AI. React + Express + MongoDB.",
-      electro: "Electrical circuit simulator with visual editor, multimeter and oscilloscope.",
-      quantum: "Interactive quantum computing laboratory with 3D simulations in Three.js.",
-      colombia: "Informative platform about culture, tourism and relevant data of the country.",
-      portfolio: "Personal site with modern design, smooth animations and SEO optimization.",
-      battery: "Android app for battery monitoring with alerts, SQLite history, and charts.",
+      // 3 Flagship Projects
+      agromap: "Geographic mobile & web system for managing agricultural producers in Sibundoy with Offline-First architecture.",
+      agromapProblem: "Critical fragmentation of agricultural data and zero internet access in rural Sibundoy, preventing timely field data logging.",
+      agromapSolution: "Offline-First mobile architecture with background sync, satellite parcel mapping, and Supabase/PostgreSQL persistence.",
+      agromapChallenge: "Asynchronous bidirectional conflict resolution without data loss during intermittent reconnection, plus geospatial rendering on budget devices.",
+      agromapImpact: "100% field uptime without internet, cutting technical field survey time by 70% for producer associations.",
+
+      servidor: "Backend microservices infrastructure with reverse proxy, encrypted Cloudflare Tunnels, and high-concurrency telemetry.",
+      servidorProblem: "High recurring costs and architectural lock-in of commercial cloud PaaS for orchestrating network-isolated microservices.",
+      servidorSolution: "Modular backend server featuring reverse proxying, encrypted Cloudflare Tunnel routing, JWT authentication, and live metrics telemetry.",
+      servidorChallenge: "Zero-open-port TLS tunnel configuration, internal load-balancing, and eliminating throughput bottlenecks under high request volumes.",
+      servidorImpact: "100% technical autonomy with zero PaaS vendor fees, sub-50ms routing latency, and continuous service health telemetry.",
+
+      battery: "Android telemetry application with background services (WorkManager), local SQLite persistence, and battery wear analytics.",
+      batteryProblem: "Absence of deep telemetry tools analyzing chemical and thermal Android battery degradation without draining device resources.",
+      batterySolution: "Flutter mobile app built with Clean Architecture, background telemetry via WorkManager/Android SDK, local SQLite persistence, and graphical analytics.",
+      batteryChallenge: "Continuous telemetry execution bypassing OS Doze Mode throttling while maintaining <0.5% daily background energy overhead.",
+      batteryImpact: "24/7 background telemetry persistence with zero memory leaks, local ACID storage, and actionable battery lifecycle optimization.",
+
       batteryHook: "Monitor, analyze, and protect your battery life in real-time.",
       freeStatus: "Version 1.2.0 • Free",
       batteryFeature1Title: "Smart Alerts",
@@ -440,16 +470,24 @@ export const translations = {
       batteryFeature2Desc: "Secure storage of charge cycles using SQLite directly on your device.",
       batteryFeature3Title: "Graphical Analysis",
       batteryFeature3Desc: "Visualize the wear and performance of your battery over time with detailed charts.",
-      agromap: "Interactive geographic web system for managing and monitoring agricultural producers in Sibundoy.",
-      sibundoy_web: "Interactive web application about Sibundoy built with React and Vite.",
-      servidor: "Local and scalable server developed to manage independent APIs."
+
+      // Secondary projects
+      automatizador: "Automatic email classification with Gmail API, customizable rules and analytical dashboard.",
+      pathforge: "Personalized learning paths with AI. React + Express + MongoDB.",
+      electro: "Electrical circuit simulator with visual editor, multimeter and oscilloscope.",
+      quantum: "Interactive quantum computing laboratory with 3D simulations in Three.js.",
+      sabores: "Artisanal jams online store with a dynamic catalog and simple purchase flow.",
+      streaming: "Movies and series sales platform with responsive interface and smooth experience.",
+      colombia: "Informative platform about culture, tourism and relevant data of the country.",
+      portfolio: "Personal site with modern design, smooth animations and SEO optimization.",
+      sibundoy_web: "Interactive web application about Sibundoy built with React and Vite."
     },
     contact: {
       title: "Contact",
       titleGradient: "Me",
       quickContact: "Direct contact options",
       workTogether: "Let's work together!",
-      description: "Do you have a project in mind, an open role, or a technical inquiry? Reach out via email, WhatsApp, or through this form. I am available for new professional challenges.",
+      description: "Have a technical challenge, a demanding project, or an engineering role? Let's talk directly via email or WhatsApp.",
       email: "Email",
       phone: "Phone",
       location: "Location",

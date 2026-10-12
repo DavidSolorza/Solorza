@@ -33,9 +33,9 @@ export class StaticEducationRepository implements IEducationRepository {
       {
         id: "lang-en",
         name: lang === "en" ? "English" : "Inglés",
-        level: lang === "en" ? "Intermediate B1" : "Intermedio B1",
+        level: lang === "en" ? "Professional Working Proficiency (B1)" : "Competencia Profesional de Trabajo (B1)",
         desc: lang === "en"
-          ? "Fluent reading of engineering documentation, technical architectural writing, and team collaboration."
+          ? "Fluent reading of engineering documentation, technical architectural writing, and effective team collaboration."
           : "Lectura y redacción fluida de documentación técnica de ingeniería, especificaciones de arquitectura y comunicación colaborativa.",
         badge: "bg-blue-100 text-blue-800 dark:bg-blue-950/90 dark:text-blue-300 dark:border dark:border-blue-800/60",
       },

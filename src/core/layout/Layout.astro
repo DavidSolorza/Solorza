@@ -4,11 +4,11 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 
 const {
-  pageTitle = "David Solorza | Full-Stack & Mobile Developer (Bilingual)",
-  description = "Official portfolio of David Solorza — Full-Stack & Mobile Developer (Bilingual) and Systems Engineering student at Universidad de Caldas. Specialized in Flutter, React, Node.js, Python, scalable architectures, microservices, and applied AI.",
+  pageTitle = "David Solorza | Software Engineer • Mobile & Offline-First Systems",
+  description = "Official portfolio of David Solorza — Software Engineer specialized in Flutter, Offline-First Systems, Scalable Backends (Node.js/Python), Microservices, and Cloud Infrastructure.",
   ogimage = {
     url: "/images/imagedefault.webp",
-    alt: "Professional portfolio of David Solorza - Full-Stack & Mobile Developer (Bilingual) experienced in Flutter, React, Node.js, and Python.",
+    alt: "Professional portfolio of David Solorza - Software Engineer specialized in Flutter, Offline-First Systems, Node.js, and Python.",
   },
 } = Astro.props;
 
@@ -32,7 +32,7 @@ const structuredData = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       "url": siteUrl,
-      "name": "David Solorza | Full-Stack & Mobile Developer Portfolio",
+      "name": "David Solorza | Software Engineer Portfolio",
       "description": description,
       "inLanguage": ["en", "es"],
       "publisher": {
@@ -65,7 +65,7 @@ const structuredData = {
         "David Solorza Developer",
         "David Solorza Ingeniero"
       ],
-      "jobTitle": "Full-Stack & Mobile Developer (Bilingual)",
+      "jobTitle": "Software Engineer | Mobile & Offline-First Systems",
       "description": description,
       "url": siteUrl,
       "image": twitterimage,
@@ -240,9 +240,15 @@ const structuredData = {
 
     <link rel="icon" href="/images/terminal.png" />
 
-    <!-- Optimización Masiva de Palabras Clave y Posicionamiento SEO -->
-    <meta name="description" content={description} />
-    <meta name="keywords" content="David Solorza, David Josue Solorza Viera, Full-Stack Developer, Mobile Developer, Flutter Developer, React Developer, Node.js Developer, Python Developer, TypeScript Developer, Software Engineer, Ingeniero de Sistemas, Ingeniería de Sistemas y Computación, Universidad de Caldas, Programador Colombia, Desarrollador Colombia, Manizales Caldas, Desarrollador Bilingüe, Bilingual Software Engineer, Bilingual Developer, Remote Developer Latam, Offline-First Architecture, Microservicios, Microservices, RESTful API, Domain-Driven Design DDD, Clean Architecture, Vertical Slicing, Astro, PostgreSQL, Docker, Git, AI Integration, Inteligencia Artificial Aplicada, Portafolio Programador, Frontend Developer, Backend Developer" />
+    <!-- Google Fonts Preconnect & High-Performance Swap (Elimina render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
+
+    <!-- Preload del recurso LCP crítico (Avatar de portada) -->
+    <link rel="preload" as="image" href="/images/portada.jpeg" fetchpriority="high" />
+
+    <meta name="keywords" content="David Solorza, David Josue Solorza Viera, Software Engineer, Mobile Developer, Flutter Developer, Offline-First Architecture, React Developer, Node.js Developer, Python Developer, TypeScript Developer, Ingeniero de Sistemas, Ingeniería de Sistemas y Computación, Universidad de Caldas, Programador Colombia, Desarrollador Colombia, Manizales Caldas, Remote Developer Latam, Microservicios, Microservices, RESTful API, Domain-Driven Design DDD, Clean Architecture, Vertical Slicing, Astro, PostgreSQL, Docker, Git, Systems Engineering, Telemetry, Background Services" />
     <meta name="author" content={SEO.author} />
     <meta name="creator" content={SEO.author} />
     <meta name="publisher" content={SEO.author} />
@@ -299,28 +305,15 @@ const structuredData = {
     
     <!-- Rich Snippet JSON-LD Knowledge Graph -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    
-    <style>
-      /* Hide the google translate banner if possible to keep it clean */
-      .skiptranslate iframe { display: none !important; }
-      body { top: 0px !important; }
-    </style>
   </head>
   <body class="overflow-x-hidden antialiased relative">
-    <!-- Orbes de luz de fondo para resaltar el Glassmorphism -->
-    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-      <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent-500/20 dark:bg-accent-600/20 blur-[100px]"></div>
-      <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-green-500/10 dark:bg-green-600/10 blur-[100px]"></div>
-      <div class="absolute top-[40%] left-[60%] w-[30%] h-[30%] rounded-full bg-blue-500/10 dark:bg-blue-600/10 blur-[100px]"></div>
+    <!-- Orbes de luz de fondo para resaltar el Glassmorphism (Acelerados por hardware) -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden transform-gpu" aria-hidden="true">
+      <div class="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full bg-radial from-accent-500/15 dark:from-accent-500/20 to-transparent blur-2xl"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full bg-radial from-green-500/10 dark:from-green-600/15 to-transparent blur-2xl"></div>
+      <div class="absolute top-[40%] left-[60%] w-[35%] h-[35%] rounded-full bg-radial from-blue-500/10 dark:from-blue-600/15 to-transparent blur-2xl"></div>
     </div>
-    
-    <div id="google_translate_element" style="display:none;"></div>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'es', autoDisplay: true}, 'google_translate_element');
-      }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <div id="scroll-progress" aria-hidden="true"></div>
 
     <Header />
@@ -340,16 +333,6 @@ const structuredData = {
     <script>
       import "../../scripts/menu.js";
       import "../../scripts/i18n.js";
-      
-      // Basic Anti-scraping & Developer tools blocking
-      document.addEventListener('contextmenu', event => event.preventDefault());
-      document.onkeydown = function(e) {
-        if(e.keyCode == 123) { return false; } // F12
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
-      }
     </script>
   </body>
 </html>

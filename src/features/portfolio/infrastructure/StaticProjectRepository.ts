@@ -8,8 +8,18 @@ export class StaticProjectRepository implements IProjectRepository {
     return projects;
   }
 
+  public async getFlagshipProjects(): Promise<IProject[]> {
+    return (projects as IProject[])
+      .filter((p) => p.isFlagship)
+      .sort((a, b) => (a.flagshipOrder || 0) - (b.flagshipOrder || 0));
+  }
+
+  public async getSecondaryProjects(): Promise<IProject[]> {
+    return (projects as IProject[]).filter((p) => !p.isFlagship);
+  }
+
   public async getProjectsByCategory(category: ProjectCategory): Promise<IProject[]> {
-    return projects.filter((p) => p.category === category);
+    return (projects as IProject[]).filter((p) => p.category === category);
   }
 
   public async getSpecializations(lang: "es" | "en" = "en"): Promise<ICvSpecialization[]> {

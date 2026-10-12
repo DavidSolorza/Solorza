@@ -14,6 +14,14 @@ export class GetProjectsUseCase {
     return this.repository.getAllProjects();
   }
 
+  public async getFlagshipProjects(): Promise<IProject[]> {
+    return this.repository.getFlagshipProjects();
+  }
+
+  public async getSecondaryProjects(): Promise<IProject[]> {
+    return this.repository.getSecondaryProjects();
+  }
+
   public async getSpecializations(lang: "es" | "en" = "en"): Promise<ICvSpecialization[]> {
     return this.repository.getSpecializations(lang);
   }

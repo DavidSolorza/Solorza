@@ -3,9 +3,15 @@
  * Principio de Segregación de Interfaces (ISP): Interfaces específicas y desacopladas.
  */
 
+export interface ITechGroup {
+  groupName: string;
+  skills: string[];
+}
+
 export interface ITechnologySkill {
   name: string;
-  category: "Mobile" | "Web" | "Backend" | "Backend & IA" | "Frontend" | "Styles" | "Tools" | "Database" | "Infra" | "Languages";
+  category: "Core Stack" | "Infrastructure & Tools" | "Familiar & Exploration" | "Mobile" | "Web" | "Backend" | "Backend & IA" | "Frontend" | "Styles" | "Tools" | "Database" | "Infra" | "Languages";
+  level?: "core" | "infra" | "exploration";
 }
 
 export interface IProfessionalContact {
@@ -25,7 +31,9 @@ export interface IProfile {
   tagline: string;
   isAvailable: boolean;
   avatarUrl: string;
+  englishProficiency: string;
   contact: IProfessionalContact;
   techStack: ITechnologySkill[];
+  techGroups: ITechGroup[];
   aptitudes: string[];
 }

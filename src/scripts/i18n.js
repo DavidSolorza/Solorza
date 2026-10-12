@@ -26,10 +26,11 @@ function t(key, lang) {
 }
 
 function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("revealed");
+        obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
@@ -40,15 +41,29 @@ function initScrollReveal() {
 function initScrollProgress() {
   const bar = document.getElementById("scroll-progress");
   const backToTop = document.getElementById("back-to-top");
-  if (!bar) return;
+  if (!bar && !backToTop) return;
 
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    bar.style.width = `${progress}%`;
-    backToTop?.classList.toggle("visible", scrollTop > 400);
-  }, { passive: true });
+  let ticking = false;
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+        if (bar) {
+          bar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+        }
+        if (backToTop) {
+          backToTop.classList.toggle("visible", scrollTop > 400);
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   backToTop?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

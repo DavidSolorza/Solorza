@@ -5,6 +5,8 @@ import type { IProject, ICvSpecialization, ProjectCategory } from "./project.typ
  */
 export interface IProjectRepository {
   getAllProjects(): Promise<IProject[]>;
+  getFlagshipProjects(): Promise<IProject[]>;
+  getSecondaryProjects(): Promise<IProject[]>;
   getProjectsByCategory(category: ProjectCategory): Promise<IProject[]>;
   getSpecializations(lang: "es" | "en"): Promise<ICvSpecialization[]>;
 }

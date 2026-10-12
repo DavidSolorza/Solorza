@@ -24,6 +24,15 @@ export interface IMobileProjectDetails {
   tabletScreenshots?: string[];
 }
 
+export interface ICaseStudy {
+  problem: string;
+  architecture: string;
+  technicalChallenge: string;
+  impactMetric: string;
+  detailUrl: string;
+  badge: string;
+}
+
 export interface IProject {
   id?: string;
   title: string;
@@ -34,6 +43,9 @@ export interface IProject {
   githubUrl?: string;
   i18nKey: string;
   mobileDetails?: IMobileProjectDetails;
+  isFlagship?: boolean;
+  flagshipOrder?: number;
+  caseStudy?: ICaseStudy;
 }
 
 export interface ICvSpecialization {

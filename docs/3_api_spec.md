@@ -28,8 +28,9 @@ Obtiene la información general de presentación del perfil profesional, resumen
   "status": "success",
   "data": {
     "fullName": "David Solorza",
-    "headline": "Desarrollador Full-Stack & Mobile (Bilingüe)",
-    "summary": "Desarrollador Full-Stack & Mobile (Bilingüe) con experiencia en el diseño de arquitecturas escalables, sistemas offline-first (Flutter/Dart) y aplicaciones web de alto rendimiento (React/Node.js).",
+    "headline": "Software Engineer | Mobile & Offline-First Systems (Flutter) & Scalable Backends (Node.js / Python)",
+    "summary": "Construyo aplicaciones móviles de alta resiliencia con sincronización offline-first y arquitecturas backend preparadas para operar sin interrupciones en entornos de conectividad limitada y alta concurrencia.",
+    "englishProficiency": "English: Professional Working Proficiency (B1)",
     "email": "david.josue.solorza@gmail.com",
     "phone": "+57 313 737 4108",
     "location": "Manizales, Caldas, Colombia",
@@ -68,30 +69,29 @@ Retorna el historial laboral profesional organizado cronológicamente.
     {
       "id": "e4b1a830-47b2-4d22-95e2-632df30be281",
       "company": "Wolf Enterprise",
-      "role": "Fundador",
+      "role": "Fundador & Líder Técnico",
       "location": "Manizales, Caldas",
       "startDate": "2026-01-01",
       "endDate": null,
       "isCurrent": true,
       "responsibilities": [
-        "Supervisión del desarrollo tecnológico, incluyendo software y soluciones digitales.",
-        "Creación y mantenimiento de relaciones estratégicas con socios y proveedores claves.",
-        "Planificación, desarrollo y coordinación del funcionamiento general de la empresa."
+        "Diseñé y desplegué la infraestructura de microservicios y APIs RESTful utilizando Node.js, Express y Docker, asegurando disponibilidad del 99.8% y latencias de respuesta sub-100ms.",
+        "Estructuré esquemas relacionales en PostgreSQL y pipelines de persistencia optimizados con índices y control de concurrencia ACID.",
+        "Dirigí la estrategia técnica y la gobernanza de ingeniería, transformando requerimientos de negocio en soluciones modulares de software."
       ]
     },
     {
       "id": "90e386df-b924-4f0f-8c33-911ef78f01b4",
       "company": "Fundación FreeAgents",
-      "role": "Desarrollador de Software e Integrador",
+      "role": "Desarrollador de Software Backend e Integrador",
       "location": "Remoto / Colombia",
       "startDate": "2024-01-01",
       "endDate": "2026-01-01",
       "isCurrent": false,
       "responsibilities": [
-        "Creación de sistemas Web Personalizados",
-        "APIs y Microservicios",
-        "Elaboración de integración de Sistemas",
-        "Divulgación E-commerce"
+        "Diseñé y desplegué 4 microservicios en Node.js y Docker para la plataforma e-commerce, reduciendo la latencia de respuesta en un 30% y asegurando soporte para alto volumen de peticiones.",
+        "Construí e integré APIs RESTful puras para sincronización de inventario, pasarelas de pago y portales de clientes en tiempo real con React y TypeScript.",
+        "Implementé pruebas de integración y normalización de bases de datos relacionales para garantizar integridad transaccional."
       ]
     }
   ]

@@ -5,8 +5,8 @@
 
 export const siteConfig = {
   name: "David Solorza",
-  title: "David Solorza | Full-Stack & Mobile Developer (Bilingual)",
-  description: "Official portfolio of David Solorza — Full-Stack & Mobile Developer (Bilingual) and Systems Engineering student. Specialized in Flutter, React, backend architectures, microservices, and applied AI.",
+  title: "David Solorza | Software Engineer • Mobile & Offline-First Systems",
+  description: "Official portfolio of David Solorza — Software Engineer specialized in Flutter, Mobile & Offline-First Systems, Scalable Backends (Node.js/Python), and Distributed Microservices.",
   author: "David Solorza",
   url: "https://davidsolorza.dev",
   ogImage: "/images/imagedefault.webp",

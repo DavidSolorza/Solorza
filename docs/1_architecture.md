@@ -137,7 +137,17 @@ graph TD
 - **Decisión:** Toda llamada externa se centraliza en `src/core/http/httpClient.ts` utilizando la Fetch API nativa del estándar ECMAScript.
 - **Consecuencias:** Cero sobrecosto de bundle, máxima seguridad y control total sobre headers y códigos HTTP.
 
-### ADR 004: Modo Claro por Defecto y Bilingüismo (Inglés Primario)
+### ADR 004: Modo Claro por Defecto e Inicialización de Idioma
 - **Contexto:** El usuario solicitó explícitamente modo claro predeterminado y contenido en inglés por defecto para alineación internacional.
-- **Decisión:** Inyección de script síncrono inline bloqueante en `<head>` (`Layout.astro`) que inicializa el tema en `light` y el idioma en `en` ante la ausencia de preferencia previa del usuario.
+- **Decisión:** Inyección de script síncrono inline en `<head>` (`Layout.astro`) que inicializa el tema en `light` y el idioma en `en` ante la ausencia de preferencia previa del usuario.
 - **Consecuencias:** Cero parpadeo (FOIT/FOUC), óptima accesibilidad visual inmediata y alineación con estándares globales.
+
+### ADR 005: Eliminación de Ambivalencias de Idioma y Especialización de Titular de Ingeniería
+- **Contexto:** La frase «Bilingual (English B1)» representaba una contradicción para clientes y reclutadores internacionales (B1 es nivel de competencia profesional funcional, no bilingüe nativo/C2), mientras que titulares genéricos ("Full-stack, Mobile, DevOps, AI") diluían la especialización.
+- **Decisión:** Suprimir «Bilingual» de todos los titulares principales y SEO. Establecer el título de ingeniería enfocado: «Software Engineer | Mobile & Offline-First Systems (Flutter) & Scalable Backends (Node.js / Python)». Documentar el idioma con su denominación exacta: «English: Professional Working Proficiency (B1)».
+- **Consecuencias:** Confianza técnica inmediata ante evaluadores senior internacionales, cero ambigüedad en entrevistas y posicionamiento premium.
+
+### ADR 006: Jerarquización de Proyectos en 3 Flagship Case Studies y Shelf Secundario
+- **Contexto:** Mostrar más de 10 proyectos con el mismo peso visual generaba un efecto contraproducente de «tareas de universidad / tutoriales», restando relevancia a desarrollos complejos.
+- **Decisión:** Reestructurar la sección de proyectos destacando exclusivamente los 3 Proyectos Pilares (**AgroMap**, **Servidor API**, **Battery Guardian**) bajo la fórmula técnica de Caso de Estudio de 4 pilares: El Problema, Solución & Arquitectura, Reto Técnico Complejo e Impacto Cuantificable. Los proyectos complementarios se trasladan a una sección secundaria colapsable.
+- **Consecuencias:** Máximo impacto en los primeros 10 segundos de navegación por parte de CTOs y contratistas, demostrando valor de negocio y profundidad técnica real.

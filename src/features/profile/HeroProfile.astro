@@ -7,6 +7,8 @@ import { staticProfileRepository } from "./infrastructure/StaticProfileRepositor
 const lang = "en";
 const getProfileUseCase = new GetProfileUseCase(staticProfileRepository);
 const profile = await getProfileUseCase.execute(lang);
+
+const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.contact.email)}&su=${encodeURIComponent("Contacto Profesional / Oportunidad Laboral - David Solorza")}`;
 ---
 
 <section class="scroll-m-20 px-8 max-sm:px-4 py-16 max-md:py-12" id="home" aria-label="Professional Profile and Hero">
@@ -19,10 +21,20 @@ const profile = await getProfileUseCase.execute(lang);
             <div class="size-full rounded-full overflow-hidden bg-white dark:bg-gray-800 ring-4 ring-white dark:ring-gray-900 shadow-inner">
               <a
                 href="https://github.com/DavidSolorza"
-                class="block size-full rounded-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
-                style={`background-image: url(${profile.avatarUrl})`}
+                class="block size-full rounded-full overflow-hidden"
                 aria-label={t("hero.aboutMe", lang)}
-              />
+              >
+                <img
+                  src={profile.avatarUrl}
+                  alt={profile.name}
+                  width="340"
+                  height="340"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -36,14 +48,11 @@ const profile = await getProfileUseCase.execute(lang);
             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
               📍 {profile.contact.location}
             </span>
-            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300">
-              🌐 {lang === "en" ? "Bilingual (English B1)" : "Bilingüe (Inglés B1)"}
-            </span>
           </div>
 
           <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-2 max-md:text-3xl tracking-tight notranslate" translate="no">
             {profile.name}
-            <span class="sr-only"> - Full-Stack & Mobile Developer (Bilingual) | Software Engineer</span>
+            <span class="sr-only"> - Software Engineer | Mobile & Offline-First Systems & Scalable Backends</span>
           </h1>
 
           <p class="text-xl sm:text-2xl font-bold text-accent-600 dark:text-accent-400 mb-4" data-i18n="hero.profileTitle">
@@ -61,7 +70,13 @@ const profile = await getProfileUseCase.execute(lang);
               <span>{profile.contact.phone}</span>
             </a>
             <span>•</span>
-            <a href={`mailto:${profile.contact.email}`} class="flex items-center gap-1.5 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+            <a
+              href={gmailComposeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-1.5 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+              title="Redactar correo a David Solorza en Gmail"
+            >
               <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               <span>{profile.contact.email}</span>
             </a>
@@ -69,7 +84,15 @@ const profile = await getProfileUseCase.execute(lang);
 
           <div class="flex flex-wrap gap-3">
             <Button link="/#projects" text={t("hero.viewProjects", lang)} textI18n="hero.viewProjects" iconName="code" variant="dark" />
-            <Button link="/#contact" text={t("hero.contactMe", lang)} textI18n="hero.contactMe" iconName="envelope" variant="default" />
+            <Button
+              link={gmailComposeUrl}
+              text={t("hero.contactMe", lang)}
+              textI18n="hero.contactMe"
+              iconName="envelope"
+              variant="default"
+              isExternal={true}
+              ariaLabel="Redactar correo a David Solorza en Gmail"
+            />
             <Button
               link={profile.contact.resumeUrl}
               text={t("hero.downloadCV", lang)}
@@ -84,7 +107,7 @@ const profile = await getProfileUseCase.execute(lang);
 
       <!-- Fila de Conocimientos y Aptitudes del CV -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200/50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800">
-        <!-- 1. Conocimientos Técnicos -->
+        <!-- 1. Conocimientos Técnicos Categorizados -->
         <div class="bg-white/60 dark:bg-gray-900/50 p-8 max-md:p-6 reveal reveal-delay-2">
           <div class="flex items-center gap-2 mb-4">
             <span class="p-1.5 rounded-lg bg-accent-100 dark:bg-accent-950/80 text-accent-700 dark:text-accent-300">
@@ -94,32 +117,42 @@ const profile = await getProfileUseCase.execute(lang);
               {t("hero.techTitle", lang)}
             </h3>
           </div>
-          <div class="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto pr-1">
+          <div class="space-y-3.5">
             {
-              profile.techStack.map((tech) => (
-                <span class="px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-md border border-gray-200/70 dark:border-gray-700/60">
-                  {tech.name}
-                </span>
+              profile.techGroups.map((group) => (
+                <div>
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-accent-700 dark:text-accent-400 mb-1.5 flex items-center gap-1.5">
+                    <span class="size-1.5 rounded-full bg-accent-500"></span>
+                    <span>{group.groupName}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    {group.skills.map((skill) => (
+                      <span class="px-2 py-0.5 text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-100/90 dark:bg-gray-800/80 rounded-md border border-gray-200/70 dark:border-gray-700/60 shadow-2xs">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))
             }
           </div>
         </div>
 
-        <!-- 2. Aptitudes Profesionales del CV -->
+        <!-- 2. Especialidades Técnicas de Ingeniería -->
         <div class="bg-white/60 dark:bg-gray-900/50 p-8 max-md:p-6 reveal reveal-delay-3 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800">
           <div class="flex items-center gap-2 mb-4">
-            <span class="p-1.5 rounded-lg bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300">
+            <span class="p-1.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300">
               <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </span>
             <h3 class="text-sm font-bold uppercase tracking-wider text-gray-800 dark:text-gray-200" data-i18n="hero.aptitudesTitle">
               {t("hero.aptitudesTitle", lang)}
             </h3>
           </div>
-          <div class="flex flex-wrap gap-1.5">
+          <div class="flex flex-wrap gap-2">
             {
               profile.aptitudes.map((apt) => (
-                <span class="px-2.5 py-1 text-xs font-medium text-amber-900 dark:text-amber-200 bg-amber-50 dark:bg-amber-950/40 rounded-md border border-amber-200/60 dark:border-amber-800/40">
-                  ✦ {apt}
+                <span class="px-2.5 py-1 text-xs font-semibold text-emerald-900 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-950/40 rounded-lg border border-emerald-200/60 dark:border-emerald-800/40">
+                  ⚡ {apt}
                 </span>
               ))
             }
