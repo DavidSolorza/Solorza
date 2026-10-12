@@ -9,6 +9,8 @@ export class StaticExperienceRepository implements IExperienceRepository {
     return [
       {
         id: "wolf-enterprise",
+        key: "wolfEnterprise",
+        badgeKey: "experience.wolfEnterprise.badge",
         role: expData.wolfEnterprise.role,
         company: expData.wolfEnterprise.company,
         location: expData.wolfEnterprise.location,
@@ -20,6 +22,8 @@ export class StaticExperienceRepository implements IExperienceRepository {
       },
       {
         id: "free-agents",
+        key: "freeAgents",
+        badgeKey: "experience.freeAgents.badge",
         role: expData.freeAgents.role,
         company: expData.freeAgents.company,
         location: expData.freeAgents.location,

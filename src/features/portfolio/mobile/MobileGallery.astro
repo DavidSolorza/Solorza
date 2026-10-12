@@ -22,7 +22,7 @@ const tablets = mobileDetails?.tabletScreenshots || [];
     <!-- Tablets Section (Strict Grid) -->
     {tablets.length > 0 && (
       <div class="space-y-8">
-        <h3 class="text-xl font-medium text-gray-400 text-center tracking-widest uppercase text-sm">Versión Tablet</h3>
+        <h3 class="text-xl font-medium text-gray-400 text-center tracking-widest uppercase text-sm" data-i18n="mobileApp.tabletVersion">Versión Tablet</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 justify-items-center">
           {tablets.map((src: string, index: number) => (
             <div class="lightbox-trigger relative w-full max-w-[480px] bg-black rounded-[1.5rem] border-[12px] border-black overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.6)] group transition-transform duration-500 hover:-translate-y-2 cursor-pointer" data-src={src} data-type="tablet">
@@ -47,8 +47,8 @@ const tablets = mobileDetails?.tabletScreenshots || [];
       <div class={`absolute -top-32 -right-32 w-80 h-80 bg-gradient-to-br ${mobileDetails.themeColor} opacity-10 blur-[80px] rounded-full pointer-events-none`}></div>
       
       <div class="relative z-10 flex-1 space-y-4 text-center md:text-left">
-        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">¿Cómo funciona la aplicación?</h3>
-        <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight" data-i18n="mobileApp.howItWorksTitle">¿Cómo funciona la aplicación?</h3>
+        <p class="text-gray-400 leading-relaxed text-sm md:text-base" data-i18n="mobileApp.howItWorksText">
           La aplicación cuida tu batería de forma silenciosa y sin consumir energía extra. Mide constantemente factores clave como la temperatura y la salud de tu dispositivo, guardando toda esa información internamente. Esto asegura que tus datos sean 100% privados y que todo funcione a la perfección sin necesidad de usar internet.
         </p>
       </div>
@@ -56,11 +56,11 @@ const tablets = mobileDetails?.tabletScreenshots || [];
       <div class="relative z-10 flex gap-4 w-full md:w-auto justify-center">
         <div class="flex flex-col items-center justify-center bg-black border border-gray-800 rounded-2xl p-4 w-28 h-28 shadow-inner">
            <Icon name="lucide:cpu" class="w-8 h-8 text-gray-300 mb-2" />
-           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center">Bajo<br>Consumo</span>
+           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center" data-i18n-html="mobileApp.lowPower">Bajo<br>Consumo</span>
         </div>
         <div class="flex flex-col items-center justify-center bg-black border border-gray-800 rounded-2xl p-4 w-28 h-28 shadow-inner">
            <Icon name="lucide:shield-check" class="w-8 h-8 text-gray-300 mb-2" />
-           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center">Datos<br>Privados</span>
+           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center" data-i18n-html="mobileApp.privateData">Datos<br>Privados</span>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ const tablets = mobileDetails?.tabletScreenshots || [];
     <!-- Phones Section (Strict Grid) -->
     {phones.length > 0 && (
       <div class="space-y-8">
-        <h3 class="text-xl font-medium text-gray-400 text-center tracking-widest uppercase text-sm">Versión Móvil</h3>
+        <h3 class="text-xl font-medium text-gray-400 text-center tracking-widest uppercase text-sm" data-i18n="mobileApp.phoneVersion">Versión Móvil</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 justify-items-center">
           {phones.map((src: string, index: number) => (
             <div class="lightbox-trigger relative w-full max-w-[280px] bg-black rounded-[2rem] border-[8px] border-black overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.6)] group transition-transform duration-500 hover:-translate-y-2 cursor-pointer" data-src={src} data-type="phone">
@@ -93,8 +93,8 @@ const tablets = mobileDetails?.tabletScreenshots || [];
       <div class={`absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-tr ${mobileDetails.themeColor} opacity-10 blur-[80px] rounded-full pointer-events-none`}></div>
       
       <div class="relative z-10 flex-1 space-y-4 text-center md:text-right">
-        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">Dale años extra de vida a tu dispositivo</h3>
-        <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight" data-i18n="mobileApp.extraLifeTitle">Dale años extra de vida a tu dispositivo</h3>
+        <p class="text-gray-400 leading-relaxed text-sm md:text-base" data-i18n="mobileApp.extraLifeText">
           Olvídate del miedo a arruinar tu batería. La app te avisa en el segundo exacto en que debes conectar o desconectar tu cargador para frenar el desgaste para siempre. Todo envuelto en una interfaz espectacular que cuida tus ojos y exprime hasta la última gota de energía.
         </p>
       </div>
@@ -102,11 +102,11 @@ const tablets = mobileDetails?.tabletScreenshots || [];
       <div class="relative z-10 flex gap-4 w-full md:w-auto justify-center">
         <div class="flex flex-col items-center justify-center bg-black border border-gray-800 rounded-2xl p-4 w-28 h-28 shadow-inner">
            <Icon name="lucide:bell-ring" class="w-8 h-8 text-gray-300 mb-2" />
-           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center">Alertas<br>Activas</span>
+           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center" data-i18n-html="mobileApp.activeAlerts">Alertas<br>Activas</span>
         </div>
         <div class="flex flex-col items-center justify-center bg-black border border-gray-800 rounded-2xl p-4 w-28 h-28 shadow-inner">
            <Icon name="lucide:moon" class="w-8 h-8 text-gray-300 mb-2" />
-           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center">Modo<br>Oscuro</span>
+           <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider text-center" data-i18n-html="mobileApp.darkMode">Modo<br>Oscuro</span>
         </div>
       </div>
     </div>

@@ -52,14 +52,17 @@ export class StaticProfileRepository implements IProfileRepository {
       techStack: StaticProfileRepository.techStack,
       techGroups: [
         {
+          key: "core",
           groupName: langData.techGroups.core,
           skills: ["Flutter", "Dart", "TypeScript", "React", "Node.js", "PostgreSQL"],
         },
         {
+          key: "infra",
           groupName: langData.techGroups.infra,
           skills: ["Docker", "Linux / Ubuntu", "Supabase", "Git", "SQLite", "Tailwind CSS"],
         },
         {
+          key: "exploration",
           groupName: langData.techGroups.exploration,
           skills: ["Python", "Java", "C++", "Astro"],
         },

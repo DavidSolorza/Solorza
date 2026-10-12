@@ -4,6 +4,7 @@
  */
 
 export interface ITechGroup {
+  key?: string;
   groupName: string;
   skills: string[];
 }

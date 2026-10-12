@@ -29,7 +29,7 @@ const lang = "es"; // Default to es, client script will update
 
       <div class="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium">
         <Icon name="lucide:monitor-smartphone" class="w-5 h-5" />
-        <span>Optimizado para teléfonos y tablets Android</span>
+        <span data-i18n="mobileApp.optimizedAndroid">Optimizado para teléfonos y tablets Android</span>
       </div>
     </div>
 
@@ -39,8 +39,8 @@ const lang = "es"; // Default to es, client script will update
           <button id="open-download-modal" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl">
             <Icon name="lucide:smartphone" class="w-6 h-6 z-10" />
             <div class="flex flex-col items-start z-10">
-              <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Descargar APK</span>
-              <span class="text-base leading-none mt-1">Para Android</span>
+              <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none" data-i18n="mobileApp.downloadApk">Descargar APK</span>
+              <span class="text-base leading-none mt-1" data-i18n="mobileApp.forAndroid">Para Android</span>
             </div>
             <div class={`absolute inset-0 bg-gradient-to-r ${mobileDetails?.themeColor} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
           </button>
@@ -51,15 +51,15 @@ const lang = "es"; // Default to es, client script will update
                 <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-2">
                   <Icon name="lucide:download" class="w-8 h-8" />
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Confirmar Descarga</h3>
-                <p class="text-gray-500 dark:text-gray-400">Estás a punto de descargar el instalador APK para <strong>{title}</strong>. ¿Deseas continuar?</p>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white" data-i18n="mobileApp.confirmDownload">Confirmar Descarga</h3>
+                <p class="text-gray-500 dark:text-gray-400" data-i18n="mobileApp.modalConfirmDesc">Estás a punto de descargar el instalador APK. ¿Deseas continuar?</p>
               </div>
               
               <div class="flex flex-col gap-3">
-                <a href={mobileDetails.apkUrl} download id="confirm-download" class="w-full text-center py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors">
+                <a href={mobileDetails.apkUrl} download id="confirm-download" class="w-full text-center py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors" data-i18n="mobileApp.yesDownload">
                   Sí, Descargar APK
                 </a>
-                <button id="close-download-modal" class="w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium transition-colors">
+                <button id="close-download-modal" class="w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium transition-colors" data-i18n="mobileApp.cancel">
                   Cancelar
                 </button>
               </div>
@@ -87,7 +87,7 @@ const lang = "es"; // Default to es, client script will update
         <a href={mobileDetails.androidUrl} target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl">
           <Icon name="lucide:smartphone" class="w-6 h-6 z-10" />
           <div class="flex flex-col items-start z-10">
-            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Ver Proyecto</span>
+            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none" data-i18n="mobileApp.viewProject">Ver Proyecto</span>
             <span class="text-base leading-none mt-1">Android</span>
           </div>
           <div class={`absolute inset-0 bg-gradient-to-r ${mobileDetails?.themeColor} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
@@ -98,7 +98,7 @@ const lang = "es"; // Default to es, client script will update
         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-8 py-4 bg-gray-100 dark:bg-gray-900 text-blacktext dark:text-white rounded-2xl font-semibold transition-all hover:bg-gray-200 dark:hover:bg-gray-800 border border-transparent hover:border-gray-300 dark:hover:border-gray-700">
           <Icon name="lucide:github" class="w-6 h-6" />
           <div class="flex flex-col items-start">
-            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none">Ver código en</span>
+            <span class="text-[10px] uppercase tracking-wider opacity-80 leading-none" data-i18n="mobileApp.viewCode">Ver código en</span>
             <span class="text-base leading-none mt-1">GitHub</span>
           </div>
         </a>

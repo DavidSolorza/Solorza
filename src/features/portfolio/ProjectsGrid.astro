@@ -21,8 +21,8 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
   <div class="mx-auto max-w-7xl">
     <!-- Header de la Sección -->
     <div class="text-center mb-16">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3 font-mono">
-        {lang === "en" ? "Engineering Portfolio • High Impact" : "Portafolio de Ingeniería • Alto Impacto"}
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3 font-mono" data-i18n="projects.portfolioBadge">
+        {t("projects.portfolioBadge", lang)}
       </span>
       <div class="flex gap-3 items-center justify-center">
         <Icon class="text-3xl text-accent-600 dark:text-accent-400" name="code" />
@@ -45,8 +45,8 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
 
     <!-- 1. Especialidades Clave de Ingeniería (CV) -->
     <div class="mb-20">
-      <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 text-center font-mono">
-        {lang === "en" ? "CV Core Areas of Technical Specialization" : "Áreas Clave de Especialización Técnica (CV)"}
+      <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4 text-center font-mono" data-i18n="projects.cvAreasTitle">
+        {t("projects.cvAreasTitle", lang)}
       </h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
@@ -57,10 +57,10 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                   {spec.badge}
                 </span>
               </div>
-              <h4 class="text-base font-bold text-gray-900 dark:text-white mt-1">
+              <h4 class="text-base font-bold text-gray-900 dark:text-white mt-1" data-i18n={`projects.cvAreas.${i}.title`}>
                 {spec.title}
               </h4>
-              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed" data-i18n={`projects.cvAreas.${i}.desc`}>
                 {spec.desc}
               </p>
             </div>
@@ -76,18 +76,16 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
       <div class="flex items-center justify-between flex-wrap gap-4 mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 text-xs font-bold font-mono uppercase rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-              {lang === "en" ? "3 Flagship Case Studies" : "3 Proyectos Pilares Insignia"}
+            <span class="px-2.5 py-0.5 text-xs font-bold font-mono uppercase rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" data-i18n="projects.flagshipBadge">
+              {t("projects.flagshipBadge", lang)}
             </span>
           </div>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">
-            {lang === "en" ? "Mission-Critical Engineering Solutions" : "Soluciones de Ingeniería de Alto Impacto"}
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white" data-i18n="projects.flagshipTitle">
+            {t("projects.flagshipTitle", lang)}
           </h3>
         </div>
-        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-md">
-          {lang === "en" 
-            ? "Deep technical case studies answering: Problem, Architecture, Complex Challenge, and Quantified Production Impact." 
-            : "Casos de estudio técnicos estructurados: El Problema, Arquitectura, Reto Complejo e Impacto Cuantificable."}
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-md" data-i18n="projects.flagshipSubtitle">
+          {t("projects.flagshipSubtitle", lang)}
         </p>
       </div>
 
@@ -104,21 +102,32 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                       <span class="size-8 rounded-full bg-accent-600 text-white dark:bg-accent-500 font-mono font-bold text-sm flex items-center justify-center shadow-xs">
                         0{index + 1}
                       </span>
-                      <span class="px-3 py-1 rounded-full text-xs font-semibold font-mono bg-accent-50 text-accent-700 dark:bg-accent-950/50 dark:text-accent-300 border border-accent-200/60 dark:border-accent-800/50">
-                        {cs?.badge}
+                      <span
+                        class="px-3 py-1 rounded-full text-xs font-semibold font-mono bg-accent-50 text-accent-700 dark:bg-accent-950/50 dark:text-accent-300 border border-accent-200/60 dark:border-accent-800/50"
+                        data-i18n={`projectsItems.${project.i18nKey}Badge`}
+                      >
+                        {t(`projectsItems.${project.i18nKey}Badge`, lang)}
                       </span>
                     </div>
 
                     {cs && (
                       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/40 text-emerald-800 dark:text-emerald-300">
                         <span class="text-base font-extrabold font-mono">{cs.metricHighlight}</span>
-                        <span class="text-xs font-medium">{cs.metricLabel}</span>
+                        <span
+                          class="text-xs font-medium"
+                          data-i18n={`projectsItems.${project.i18nKey}MetricLabel`}
+                        >
+                          {t(`projectsItems.${project.i18nKey}MetricLabel`, lang)}
+                        </span>
                       </div>
                     )}
                   </div>
 
-                  <h4 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-3">
-                    {project.title}
+                  <h4
+                    class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-3"
+                    data-i18n={`projectsItems.${project.i18nKey}Title`}
+                  >
+                    {t(`projectsItems.${project.i18nKey}Title`, lang)}
                   </h4>
 
                   <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6 leading-relaxed font-normal">
@@ -143,7 +152,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                       <div class="space-y-1.5">
                         <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 font-mono">
                           <span class="size-2 rounded-full bg-rose-500"></span>
-                          <span>{t("projects.caseStudyLabels.problem", lang)}</span>
+                          <span data-i18n="projects.caseStudyLabels.problem">{t("projects.caseStudyLabels.problem", lang)}</span>
                         </div>
                         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                           <span data-i18n={cs.problemKey}>{t(cs.problemKey, lang)}</span>
@@ -154,7 +163,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                       <div class="space-y-1.5">
                         <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 font-mono">
                           <span class="size-2 rounded-full bg-blue-500"></span>
-                          <span>{t("projects.caseStudyLabels.solution", lang)}</span>
+                          <span data-i18n="projects.caseStudyLabels.solution">{t("projects.caseStudyLabels.solution", lang)}</span>
                         </div>
                         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                           <span data-i18n={cs.solutionKey}>{t(cs.solutionKey, lang)}</span>
@@ -165,7 +174,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                       <div class="space-y-1.5">
                         <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 font-mono">
                           <span class="size-2 rounded-full bg-amber-500"></span>
-                          <span>{t("projects.caseStudyLabels.challenge", lang)}</span>
+                          <span data-i18n="projects.caseStudyLabels.challenge">{t("projects.caseStudyLabels.challenge", lang)}</span>
                         </div>
                         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                           <span data-i18n={cs.challengeKey}>{t(cs.challengeKey, lang)}</span>
@@ -176,7 +185,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                       <div class="space-y-1.5">
                         <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-mono">
                           <span class="size-2 rounded-full bg-emerald-500"></span>
-                          <span>{t("projects.caseStudyLabels.impact", lang)}</span>
+                          <span data-i18n="projects.caseStudyLabels.impact">{t("projects.caseStudyLabels.impact", lang)}</span>
                         </div>
                         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                           <span data-i18n={cs.impactKey}>{t(cs.impactKey, lang)}</span>
@@ -191,7 +200,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                       href={cs?.detailUrl || project.liveUrl}
                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-accent-600 dark:hover:bg-accent-400 dark:hover:text-white transition-all shadow-sm hover:scale-[1.02]"
                     >
-                      <span>{t("projects.viewCaseStudy", lang)}</span>
+                      <span data-i18n="projects.viewCaseStudy">{t("projects.viewCaseStudy", lang)}</span>
                       <span>&rarr;</span>
                     </a>
 
@@ -203,7 +212,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
                         class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200/80 dark:border-gray-700/80"
                       >
                         <svg class="size-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                        <span>{t("projects.code", lang)}</span>
+                        <span data-i18n="projects.code">{t("projects.code", lang)}</span>
                         <span aria-hidden="true">&nearr;</span>
                       </a>
                     )}
@@ -240,19 +249,19 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
           aria-controls="secondary-projects-container"
         >
           <Icon name="lucide:layers" class="size-4 text-accent-600 dark:text-accent-400" />
-          <span id="toggle-secondary-text">{lang === "en" ? "Explore Secondary Projects & Experiments (+9)" : "Explorar Otros Proyectos & Experimentos (+9)"}</span>
+          <span id="toggle-secondary-text" data-i18n="projects.exploreSecondary">{t("projects.exploreSecondary", lang)}</span>
           <svg id="toggle-secondary-icon" class="size-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
-          {lang === "en" ? "Complementary tools, learning prototypes, and web applications" : "Herramientas complementarias, prototipos de aprendizaje y aplicaciones web"}
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" data-i18n="projects.secondarySubtitle">
+          {t("projects.secondarySubtitle", lang)}
         </p>
       </div>
 
       <div id="secondary-projects-container" class="hidden transition-all duration-500">
         <!-- Filtros para proyectos secundarios -->
         <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-          <h4 class="text-lg font-bold text-gray-900 dark:text-white">
-            {lang === "en" ? "Secondary Development Catalog" : "Catálogo de Desarrollos Secundarios"}
+          <h4 class="text-lg font-bold text-gray-900 dark:text-white" data-i18n="projects.secondaryCatalog">
+            {t("projects.secondaryCatalog", lang)}
           </h4>
 
           <div
@@ -267,7 +276,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
               role="tab"
               aria-selected="true"
             >
-              {t("projects.filterAll", lang)}
+              <span data-i18n="projects.filterAll">{t("projects.filterAll", lang)}</span>
             </button>
             <button
               type="button"
@@ -276,7 +285,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
               role="tab"
               aria-selected="false"
             >
-              {t("projects.filterWeb", lang)}
+              <span data-i18n="projects.filterWeb">{t("projects.filterWeb", lang)}</span>
             </button>
             <button
               type="button"
@@ -285,7 +294,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
               role="tab"
               aria-selected="false"
             >
-              {t("projects.filterMobile", lang)}
+              <span data-i18n="projects.filterMobile">{t("projects.filterMobile", lang)}</span>
             </button>
           </div>
         </div>
@@ -304,6 +313,7 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
         <p
           id="projects-empty"
           class="hidden text-center text-gray-500 dark:text-gray-400 py-12"
+          data-i18n="projects.noResults"
         >
           {t("projects.noResults", lang)}
         </p>
@@ -320,21 +330,28 @@ const cvSpecializations = await getProjectsUseCase.getSpecializations(lang);
     const toggleText = document.getElementById("toggle-secondary-text");
     const toggleIcon = document.getElementById("toggle-secondary-icon");
 
+    let isExpanded = false;
+
+    const updateToggleLabel = () => {
+      const currentLang = localStorage.getItem("language") || "en";
+      if (!toggleText) return;
+      if (isExpanded) {
+        toggleText.textContent = currentLang === "es" ? "Ocultar Proyectos Secundarios" : "Hide Secondary Projects";
+      } else {
+        toggleText.textContent = currentLang === "es" ? "Explorar Otros Proyectos & Experimentos (+9)" : "Explore Secondary Projects & Experiments (+9)";
+      }
+    };
+
     if (toggleBtn && container && toggleText && toggleIcon) {
-      let isExpanded = false;
       toggleBtn.addEventListener("click", () => {
         isExpanded = !isExpanded;
         container.classList.toggle("hidden", !isExpanded);
         toggleBtn.setAttribute("aria-expanded", String(isExpanded));
         toggleIcon.classList.toggle("rotate-180", isExpanded);
-
-        const currentLang = localStorage.getItem("language") || "en";
-        if (isExpanded) {
-          toggleText.textContent = currentLang === "es" ? "Ocultar Proyectos Secundarios" : "Hide Secondary Projects";
-        } else {
-          toggleText.textContent = currentLang === "es" ? "Explorar Otros Proyectos & Experimentos (+9)" : "Explore Secondary Projects & Experiments (+9)";
-        }
+        updateToggleLabel();
       });
+
+      window.addEventListener("languageChanged", updateToggleLabel);
     }
 
     // 2. Filtros de proyectos secundarios

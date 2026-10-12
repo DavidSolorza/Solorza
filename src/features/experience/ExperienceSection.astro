@@ -11,8 +11,8 @@ const workExperiences = await getExperiencesUseCase.execute(lang);
 <section class="scroll-m-20 py-20 px-8 max-md:py-14" id="experience" aria-label="Work Experience and Professional History">
   <div class="mx-auto max-w-4xl">
     <div class="text-center mb-14">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3">
-        {lang === "en" ? "Professional Journey" : "Trayectoria Profesional"}
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3" data-i18n="experience.journeyBadge">
+        {t("experience.journeyBadge", lang)}
       </span>
       <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
         <span data-i18n="experience.title">{t("experience.title", lang)}</span>{" "}
@@ -37,17 +37,17 @@ const workExperiences = await getExperiencesUseCase.execute(lang);
               <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
                 <div>
                   <div class="flex items-center gap-2 flex-wrap mb-1">
-                    <span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-accent-100 text-accent-800 dark:bg-accent-950/70 dark:text-accent-300">
+                    <span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-accent-100 text-accent-800 dark:bg-accent-950/70 dark:text-accent-300" data-i18n={exp.badgeKey}>
                       {exp.badge}
                     </span>
                     {exp.isCurrent && (
                       <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300">
                         <span class="size-1.5 rounded-full bg-green-500 animate-pulse" />
-                        {t("experience.current", lang)}
+                        <span data-i18n="experience.current">{t("experience.current", lang)}</span>
                       </span>
                     )}
                   </div>
-                  <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                  <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white" data-i18n={exp.key ? `experience.${exp.key}.role` : undefined}>
                     {exp.role}
                   </h3>
                   <p class="text-base font-semibold text-accent-700 dark:text-accent-400 mt-0.5">
@@ -65,20 +65,20 @@ const workExperiences = await getExperiencesUseCase.execute(lang);
                 </div>
               </div>
 
-              <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 leading-relaxed">
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 leading-relaxed" data-i18n={exp.key ? `experience.${exp.key}.desc` : undefined}>
                 {exp.desc}
               </p>
 
               <div class="mt-5 pt-5 border-t border-gray-100 dark:border-gray-800">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-accent-700 dark:text-accent-400 mb-3 font-mono flex items-center gap-1.5">
                   <span>⚡</span>
-                  <span>{lang === "en" ? "Technical Impact & Quantifiable Results:" : "Impacto Técnico y Resultados Cuantificables:"}</span>
+                  <span data-i18n="experience.impactHeading">{t("experience.impactHeading", lang)}</span>
                 </h4>
                 <ul class="space-y-2">
-                  {exp.tasks.map((task) => (
+                  {exp.tasks.map((task, tIdx) => (
                     <li class="flex items-start gap-2.5 text-sm text-gray-700 dark:text-gray-300">
                       <span class="size-1.5 rounded-full bg-accent-500 mt-2 shrink-0" />
-                      <span>{task}</span>
+                      <span data-i18n={exp.key ? `experience.${exp.key}.tasks.${tIdx}` : undefined}>{task}</span>
                     </li>
                   ))}
                 </ul>

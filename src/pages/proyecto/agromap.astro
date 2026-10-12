@@ -21,31 +21,31 @@ const title = "AgroMap - Sibundoy App";
         <div class="p-2 rounded-full bg-gray-200/60 group-hover:bg-gray-200 dark:bg-white/5 dark:group-hover:bg-white/10 transition-colors">
           <Icon name="lucide:arrow-left" class="w-5 h-5" />
         </div>
-        <span class="font-semibold tracking-wide">Volver a Proyectos</span>
+        <span class="font-semibold tracking-wide" data-i18n="agromapPage.back">Volver a Proyectos</span>
       </a>
 
       <!-- Hero Section -->
       <div class="flex flex-col items-center text-center space-y-8 mb-20 animate-fade-in-up">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 text-sm font-bold uppercase tracking-widest mb-4 border border-emerald-200 dark:border-emerald-500/20 shadow-xs dark:shadow-[0_0_15px_rgba(16,185,129,0.15)]">
           <Icon name="lucide:map" class="w-4 h-4" />
-          Sistema Geográfico v1.0.0
+          <span data-i18n="agromapPage.badge">Sistema Geográfico v1.0.0</span>
         </div>
         
         <h1 class="text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.1]">
-          Plataforma de Monitoreo
-          <span class="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 dark:from-emerald-400 dark:via-teal-300 dark:to-green-300 drop-shadow-sm dark:drop-shadow-lg">
+          <span data-i18n="agromapPage.title1">Plataforma de Monitoreo</span>
+          <span class="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 dark:from-emerald-400 dark:via-teal-300 dark:to-green-300 drop-shadow-sm dark:drop-shadow-lg" data-i18n="agromapPage.title2">
             AgroMap Sibundoy
           </span>
         </h1>
         
-        <p class="max-w-3xl text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light leading-relaxed mt-6">
+        <p class="max-w-3xl text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light leading-relaxed mt-6" data-i18n="agromapPage.heroDesc">
           Un sistema web avanzado diseñado para la gestión integral de productoras agrícolas. Resuelve la dispersión de datos centralizando fichas demográficas y mapeo de huertas.
         </p>
 
         <div class="flex flex-wrap justify-center gap-6 mt-12">
            <a href="https://github.com/DavidSolorza/siubundoyApp.git" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-gray-900 rounded-2xl font-bold transition-all hover:scale-105 shadow-md hover:shadow-xl dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-3 text-lg">
              <Icon name="lucide:github" class="w-6 h-6" />
-             Ver Repositorio
+             <span data-i18n="agromapPage.repoBtn">Ver Repositorio</span>
            </a>
         </div>
       </div>
@@ -59,31 +59,31 @@ const title = "AgroMap - Sibundoy App";
             <div>
               <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
                 <Icon name="lucide:target" class="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-                El Reto Principal
+                <span data-i18n="agromapPage.challengeTitle">El Reto Principal</span>
               </h2>
-              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light" data-i18n-html="agromapPage.challengeP1">
                 AgroMap fue concebido para solucionar el problema histórico de la <strong class="text-gray-900 dark:text-white">dispersión de datos</strong> en el municipio de Sibundoy. Antes, el estado de las huertas y las visitas técnicas se perdían o se manejaban de forma ineficiente.
               </p>
-              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-4">
+              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light mt-4" data-i18n="agromapPage.challengeP2">
                 El sistema centraliza toda esta información, ofreciendo geolocalización precisa de parcelas, calendarios dinámicos y paneles analíticos inteligentes.
               </p>
             </div>
             <div class="grid grid-cols-2 gap-4">
                <div class="bg-gray-100 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
                  <Icon name="lucide:map-pin" class="w-8 h-8 text-teal-600 dark:text-teal-400" />
-                 <span class="text-gray-900 dark:text-white font-bold">Mapas Interactivos</span>
+                 <span class="text-gray-900 dark:text-white font-bold" data-i18n="agromapPage.statMap">Mapas Interactivos</span>
                </div>
                <div class="bg-gray-100 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
                  <Icon name="lucide:calendar-clock" class="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-                 <span class="text-gray-900 dark:text-white font-bold">Visitas Técnicas</span>
+                 <span class="text-gray-900 dark:text-white font-bold" data-i18n="agromapPage.statVisits">Visitas Técnicas</span>
                </div>
                <div class="bg-gray-100 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
                  <Icon name="lucide:file-spreadsheet" class="w-8 h-8 text-green-600 dark:text-green-400" />
-                 <span class="text-gray-900 dark:text-white font-bold">Importación Masiva</span>
+                 <span class="text-gray-900 dark:text-white font-bold" data-i18n="agromapPage.statImport">Importación Masiva</span>
                </div>
                <div class="bg-gray-100 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 p-6 rounded-2xl flex flex-col gap-3">
                  <Icon name="lucide:bar-chart-3" class="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
-                 <span class="text-gray-900 dark:text-white font-bold">Alertas Inteligentes</span>
+                 <span class="text-gray-900 dark:text-white font-bold" data-i18n="agromapPage.statAlerts">Alertas Inteligentes</span>
                </div>
             </div>
           </div>
@@ -92,8 +92,8 @@ const title = "AgroMap - Sibundoy App";
 
       <!-- Architecture Section (Text-based cards) -->
       <div class="mb-32 relative z-0">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 text-center">Arquitectura del Sistema</h2>
-        <p class="text-center text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 text-center" data-i18n="agromapPage.archTitle">Arquitectura del Sistema</h2>
+        <p class="text-center text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-16" data-i18n="agromapPage.archDesc">
           Diseño modular estructurado en "Vertical Slicing" (por dominios). Cada característica encapsula sus propias vistas, contextos y lógica, promoviendo el desacoplamiento total.
         </p>
 
@@ -103,8 +103,8 @@ const title = "AgroMap - Sibundoy App";
             <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
               <Icon name="lucide:layout" class="w-7 h-7 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Frontend Moderno</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="agromapPage.cardFrontendTitle">Frontend Moderno</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed" data-i18n-html="agromapPage.cardFrontendDesc">
               Construido con <strong class="text-gray-900 dark:text-gray-200">React 19.2.6</strong> y <strong class="text-gray-900 dark:text-gray-200">Tailwind CSS 4.3.0</strong>. La interfaz es 100% responsiva para facilitar su uso por técnicos en campo desde cualquier dispositivo móvil.
             </p>
           </div>
@@ -114,8 +114,8 @@ const title = "AgroMap - Sibundoy App";
             <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
               <Icon name="lucide:database" class="w-7 h-7 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Backend BaaS</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="agromapPage.cardBackendTitle">Backend BaaS</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed" data-i18n-html="agromapPage.cardBackendDesc">
               Propulsado por <strong class="text-gray-900 dark:text-gray-200">Supabase (PostgreSQL 15)</strong>. Utiliza funciones PL/pgSQL, enums personalizados y triggers para mantener la coherencia y cálculo estadístico en tiempo real.
             </p>
           </div>
@@ -125,8 +125,8 @@ const title = "AgroMap - Sibundoy App";
             <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
               <Icon name="lucide:plug" class="w-7 h-7 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Conexión Directa</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="agromapPage.cardDirectTitle">Conexión Directa</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed" data-i18n-html="agromapPage.cardDirectDesc">
               Conexiones directas a la API REST y Realtime evitando SDKs pesados. Incluye exportación en PDF/Excel mediante <strong class="text-gray-900 dark:text-gray-200">jsPDF</strong> y <strong class="text-gray-900 dark:text-gray-200">SheetJS</strong>.
             </p>
           </div>
@@ -135,7 +135,7 @@ const title = "AgroMap - Sibundoy App";
 
       <!-- Development Workflow Timeline -->
       <div class="mb-20 max-w-4xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-12 text-center border-b border-gray-200 dark:border-gray-800 pb-6">
+        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-12 text-center border-b border-gray-200 dark:border-gray-800 pb-6" data-i18n="agromapPage.workflowTitle">
           Flujo de Trabajo (Etapas de Desarrollo)
         </h2>
         <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 dark:before:via-gray-800 before:to-transparent">
@@ -146,8 +146,8 @@ const title = "AgroMap - Sibundoy App";
               1
             </div>
             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 shadow-md dark:shadow-none hover:border-emerald-500/50 transition-colors">
-              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Análisis y Diseño</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">Definición de casos de uso principales, diseño del modelo Entidad-Relación y creación de prototipos de flujos interactivos para el mapa y las huertas.</p>
+              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2" data-i18n="agromapPage.step1Title">Análisis y Diseño</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="agromapPage.step1Desc">Definición de casos de uso principales, diseño del modelo Entidad-Relación y creación de prototipos de flujos interactivos para el mapa y las huertas.</p>
             </div>
           </div>
           
@@ -157,8 +157,8 @@ const title = "AgroMap - Sibundoy App";
               2
             </div>
             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 shadow-md dark:shadow-none hover:border-teal-500/50 transition-colors">
-              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Arquitectura Base</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">Configuración de variables de entorno, inicialización bajo estructura de features/ y setup de mocks para entornos locales sin credenciales.</p>
+              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2" data-i18n="agromapPage.step2Title">Arquitectura Base</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="agromapPage.step2Desc">Configuración de variables de entorno, inicialización bajo estructura de features/ y setup de mocks para entornos locales sin credenciales.</p>
             </div>
           </div>
 
@@ -168,8 +168,8 @@ const title = "AgroMap - Sibundoy App";
               3
             </div>
             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 shadow-md dark:shadow-none hover:border-cyan-500/50 transition-colors">
-              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Desarrollo Core</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">Implementación de UI base, integración de mapas con Leaflet, motor de importación masiva y contextos optimizados con suscripciones Realtime.</p>
+              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2" data-i18n="agromapPage.step3Title">Desarrollo Core</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="agromapPage.step3Desc">Implementación de UI base, integración de mapas con Leaflet, motor de importación masiva y contextos optimizados con suscripciones Realtime.</p>
             </div>
           </div>
 
@@ -179,8 +179,8 @@ const title = "AgroMap - Sibundoy App";
               4
             </div>
             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 shadow-md dark:shadow-none hover:border-green-500/50 transition-colors">
-              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">QA y Despliegue Final</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">Testing de flujos de importación, validación responsiva y despliegue del esquema de DB en Supabase junto a Vercel CI/CD.</p>
+              <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2" data-i18n="agromapPage.step4Title">QA y Despliegue Final</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="agromapPage.step4Desc">Testing de flujos de importación, validación responsiva y despliegue del esquema de DB en Supabase junto a Vercel CI/CD.</p>
             </div>
           </div>
 

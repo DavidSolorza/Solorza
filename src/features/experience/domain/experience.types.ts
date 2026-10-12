@@ -5,6 +5,8 @@
 
 export interface IWorkExperience {
   id: string;
+  key?: string;
+  badgeKey?: string;
   role: string;
   company: string;
   location: string;

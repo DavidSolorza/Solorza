@@ -11,8 +11,8 @@ const { university: universityItem, certifications: certificationItems, language
 <section class="scroll-m-20 py-20 px-8 max-md:py-14" id="education" aria-label="Formación académica y certificaciones">
   <div class="mx-auto max-w-5xl">
     <div class="text-center mb-14">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3">
-        {lang === "en" ? "Official CV" : "CV Oficial"}
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-100 text-accent-800 dark:bg-accent-950/50 dark:text-accent-300 mb-3" data-i18n="education.officialBadge">
+        {t("education.officialBadge", lang)}
       </span>
       <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
         <span data-i18n="education.title">{t("education.title", lang)}</span>{" "}
@@ -35,10 +35,10 @@ const { university: universityItem, certifications: certificationItems, language
               </svg>
             </span>
             <div>
-              <span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-accent-200/80 text-accent-900 dark:bg-accent-900/60 dark:text-accent-200">
-                {lang === "en" ? "Higher Education • In Progress" : "Educación Superior • En Curso"}
+              <span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-accent-200/80 text-accent-900 dark:bg-accent-900/60 dark:text-accent-200" data-i18n="education.higherEduStatus">
+                {t("education.higherEduStatus", lang)}
               </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mt-1">
+              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mt-1" data-i18n="education.university.title">
                 {universityItem.title}
               </h3>
             </div>
@@ -50,7 +50,7 @@ const { university: universityItem, certifications: certificationItems, language
         <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">
           {universityItem.institution}
         </p>
-        <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+        <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-4 leading-relaxed" data-i18n="education.university.desc">
           {universityItem.desc}
         </p>
       </div>
@@ -62,7 +62,7 @@ const { university: universityItem, certifications: certificationItems, language
         <svg class="size-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
         </svg>
-        {lang === "en" ? "Specialized Certifications & Courses" : "Certificaciones y Cursos Especializados"}
+        <span data-i18n="education.certificationsHeading">{t("education.certificationsHeading", lang)}</span>
       </h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -77,10 +77,10 @@ const { university: universityItem, certifications: certificationItems, language
                   {item.period}
                 </span>
               </div>
-              <h4 class="text-base font-bold text-gray-900 dark:text-white leading-snug">
+              <h4 class="text-base font-bold text-gray-900 dark:text-white leading-snug" data-i18n={`education.certifications.${idx}.title`}>
                 {item.title}
               </h4>
-              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed" data-i18n={`education.certifications.${idx}.desc`}>
                 {item.desc}
               </p>
             </div>
@@ -98,28 +98,28 @@ const { university: universityItem, certifications: certificationItems, language
           </svg>
         </span>
         <div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-            {lang === "en" ? "Languages" : "Idiomas"}
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white" data-i18n="education.languagesHeading">
+            {t("education.languagesHeading", lang)}
           </h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400">
-            {lang === "en" ? "Global communication profile based on CV" : "Perfil de comunicación global según CV"}
+          <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="education.languagesSubtitle">
+            {t("education.languagesSubtitle", lang)}
           </p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {
-          languages.map((langItem) => (
+          languages.map((langItem, lIdx) => (
             <div class="p-6 rounded-2xl bg-white/80 dark:bg-gray-950/70 border border-gray-200 dark:border-gray-800/90 shadow-xs hover:border-accent-400/40 dark:hover:border-accent-500/40 transition-all">
               <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="text-base font-bold text-gray-900 dark:text-white">
+                <span class="text-base font-bold text-gray-900 dark:text-white" data-i18n={`education.languages.${lIdx}.name`}>
                   {langItem.name}
                 </span>
-                <span class={`px-2.5 py-0.5 text-xs font-bold rounded-full ${langItem.badge}`}>
+                <span class={`px-2.5 py-0.5 text-xs font-bold rounded-full ${langItem.badge}`} data-i18n={`education.languages.${lIdx}.level`}>
                   {langItem.level}
                 </span>
               </div>
-              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n={`education.languages.${lIdx}.desc`}>
                 {langItem.desc}
               </p>
             </div>
